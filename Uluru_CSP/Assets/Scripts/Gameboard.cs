@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gameboard
+public class Gameboard : MonoBehaviour
 {
+    [SerializeField]
     private PositionCollection m_positions = new PositionCollection();
 
     public PositionCollection Positions
