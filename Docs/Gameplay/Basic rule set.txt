@@ -1,23 +1,102 @@
+Color:
+	enum (None = -1, White, Pink, Yellow, Orange, Red, Green, Blue, Black)
+Difficulty:
+	enum (very easy = 1, easy = 2, medium = 3, hard = 4, very hard = 5)
+	
+
+Game:
+	players			: List<Player>
+	gameplan		: Gameplan
+	hourglass		: Hourglass
+	current_round	: unsigned int
+	max_rounds		: unsigned int
+	deck			: List<Card>
+	game_pile		: List<Card>
+	discard_pile	: List<Card>
+	difficulty		: Difficulty
+
+Player:
+	name 			: string
+	drawback 		: int
+	board			: Gameboard
+	tokens			: List<Token>
+	
+Gameplan:
+	slots			: Map<Color, Card>
+				
+Gameboard:
+	positions		: List<Position>
+	
+Hourglass:
+	duration		: double
+	remaining_time	: double
+	active			: bool
+
+Position:
+	index 			: int (0 - 7)
+	?edge 			: enum (Short_1 = 0, Short_2 = 34, Long_2 = 12, Long_3 = 57)?
+	token			: Token
+	
+Token:
+	color			: Color
+	?position		: Positions?
+	
+Card:
+	difficulty		: Difficulty
+	rule			: Rule
+	
+Rule:
+	
+	
+	
+
 1er:
 	Egal
 	
 2er: 
 	Kurze Kanten
+		Xti	=	Short_1 || Short_2
 	Lange Kanten
+		Xti	=	Long_2 || Long_3
 	Große Doppelkante (Bumerang-Gruppe)
+		Xti =	Long_3 || Short_2
 	Kleine Doppelkante (einsamer Platz)
-
+		Xti =	Long_2 || Short_1
 3er:
-	Neben X
-	Gegenüber X
-	Ecke teilen mit X
-
+	Neben Xtj
+		Xti =	|Xtj - Xti| = 1 && Gleiche Kante
+	Gegenüber Xtj
+		Xti =	
+	Ecke teilen mit Xtj
+		Xti = 	|Xtj - Xti| = 1 && Nicht gleiche Kante
+	
 4er:
-	Zwei auseinander von X
+	Zwei auseinander von Xtj
+		Xti =	|Xtj - Xti| >= 2
 	Nicht neben, nicht gegenüber X
-	Das gleiche wie X
-
+		Xti =	|Xtj - Xti| >= 2 || ?
+	Das gleiche wie Xtj
+		Xti =	Cj
 5er:
-	Gegenteil von X
+	Gegenteil von Xtj
+		Xti	=	!Cj
 
-Weiß, Rosa, Gelb, Orange, Rot, Grün, Blau, Schwarz
+Variables:
+	Xp = { Short_1, Short_2, Long_3, Long_2 }
+	Xt = { White, Pink, Yellow, Orange, Red, Green, Blue, Black }
+	{}
+	
+Domains:
+	D = 
+
+Constraints:
+	C = {Xi = }
+	
+	white	= 	Short_1 || Short_2
+	pink 	= 	blue + 1 || blue - 1
+	yellow 	= 	
+	orange	= 	orange + 1 || orange - 1
+	red 	= 	Short_1 || Long_2
+	green 	=	
+	blue 	=	Long_3 || Short_2
+	black	=	
