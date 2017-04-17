@@ -4,25 +4,25 @@ using UnityEngine;
 //Simple Hourglass to stop time
 public class Hourglass : MonoBehaviour
 {
-    public double   duration        { get; set; }
-    public double   remainingTime   { get; protected set; }
+    public double   Duration        { get; set; }
+    public double   RemainingTime   { get; protected set; }
     //Indicates if the hourglass is "running", will be still active even if finished
-    public bool     active          { get; protected set; }
+    public bool     Active          { get; protected set; }
     //Indicates if the hourglass finished it's "measurement"
-    public bool     finished        { get; protected set; }
+    public bool     Finished        { get; protected set; }
 
     //Starts the hourglass, does not reset
     public void     Start ()
     {
-        active = true;
-        finished = false;
+        Active = true;
+        Finished = false;
         StartCoroutine(UpdateTime());
     }
 
     //Stops the hourglass, does not reset
     public void     Stop()
     {
-        active = false;
+        Active = false;
         StopCoroutine(UpdateTime());
     }
 
@@ -30,22 +30,22 @@ public class Hourglass : MonoBehaviour
     //If null is passed the current state will be remained
     public bool     Reset(bool? active = null)
     {
-        remainingTime = duration;
-        finished = false;
+        RemainingTime = Duration;
+        Finished = false;
 
-        this.active = active ?? this.active;
+        this.Active = active ?? this.Active;
 
-        return this.active;
+        return this.Active;
     }
 
     //Coroutine to handle time measure
     private IEnumerator UpdateTime()
     {
-        while(remainingTime > 0.0)
+        while(RemainingTime > 0.0)
         {
-            remainingTime -= Time.deltaTime;
+            RemainingTime -= Time.deltaTime;
             yield return null;
         }
-        finished = true;
+        Finished = true;
     }
 }
