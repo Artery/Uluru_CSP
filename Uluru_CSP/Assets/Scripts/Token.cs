@@ -4,10 +4,23 @@ using UnityEngine;
 
 //This class represents one Token, each Player will have 7
 //Each Token has to be placed on one unique Position
-public class Token
+public class Token : MonoBehaviour
 {
-    public Color Color { get; set; }
-    public Position Position { get; set; }
+    [SerializeField]
+    private Color m_color;
+    [SerializeField]
+    private Position m_position;
+
+    public Color Color
+    {
+        get { return m_color; }
+        set { m_color = value; }
+    }
+    public Position Position
+    {
+        get { return m_position; }
+        set { m_position = value; }
+    }
 
     public Token(Color color, Position position = null)
     {
