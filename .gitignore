@@ -28,34 +28,34 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-/Library/metadata/
-/Library/ShaderCache/
-/Temp/
-/Library/ScriptAssemblies/
-/Library/MonoManager.asset
-/Library/assetDatabase3
-/Library/InspectorExpandedItems.asset
-/Library/cache
-/Library/previews
-/Library/ScriptAssemblies
-/Library/assetDatabase3
-/Library/AssetImportState
-/Library/assetservercachev3
-/Library/AssetServerCacheV3
-/Library/AssetVersioning.db
-/Library/AudioManager.asset
-/Library/BuildPlayer.prefs
-/Library/BuildSettings.asset
-/Library/DynamicsManager.asset
-/Library/EditorSettings.asset
-/Library/EditorUserBuildSettings.asset
-/Library/expandedItems
-/Library/FailedAssetImports.txt
-/Library/guidmapper
-/Library/InspectorExpandedItems.asset
-/Library/MonoManager.asset
-/Library/NetworkManager.asset
-/Library/ScriptMapper
-/Library/unity default resources
-/Library/unity editor resources
-/Library/FacebookSDK/
+Uluru_CSP/Library/metadata/
+Uluru_CSP/Library/ShaderCache/
+Uluru_CSP/Temp/
+Uluru_CSP/Library/ScriptAssemblies/
+Uluru_CSP/Library/MonoManager.asset
+Uluru_CSP/Library/assetDatabase3
+Uluru_CSP/Library/InspectorExpandedItems.asset
+Uluru_CSP/Library/cache
+Uluru_CSP/Library/previews
+Uluru_CSP/Library/ScriptAssemblies
+Uluru_CSP/Library/assetDatabase3
+Uluru_CSP/Library/AssetImportState
+Uluru_CSP/Library/assetservercachev3
+Uluru_CSP/Library/AssetServerCacheV3
+Uluru_CSP/Library/AssetVersioning.db
+Uluru_CSP/Library/AudioManager.asset
+Uluru_CSP/Library/BuildPlayer.prefs
+Uluru_CSP/Library/BuildSettings.asset
+Uluru_CSP/Library/DynamicsManager.asset
+Uluru_CSP/Library/EditorSettings.asset
+Uluru_CSP/Library/EditorUserBuildSettings.asset
+Uluru_CSP/Library/expandedItems
+Uluru_CSP/Library/FailedAssetImports.txt
+Uluru_CSP/Library/guidmapper
+Uluru_CSP/Library/InspectorExpandedItems.asset
+Uluru_CSP/Library/MonoManager.asset
+Uluru_CSP/Library/NetworkManager.asset
+Uluru_CSP/Library/ScriptMapper
+Uluru_CSP/Library/unity default resources
+Uluru_CSP/Library/unity editor resources
+Uluru_CSP/Library/FacebookSDK/
