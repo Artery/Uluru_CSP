@@ -4,12 +4,36 @@ using UnityEngine;
 //Simple Hourglass to stop time
 public class Hourglass : MonoBehaviour
 {
-    public double   Duration        { get; set; }
-    public double   RemainingTime   { get; protected set; }
+    [SerializeField]
+    private double m_duration;
+    [SerializeField]
+    private double m_remainingTime;
+    [SerializeField]
+    private bool m_active;
+    private bool m_finished;
+
+    public double   Duration
+    {
+        get { return m_duration; }
+        set { m_duration = value; }
+    }
+    public double RemainingTime
+    {
+        get { return m_remainingTime; }
+        set { m_remainingTime = value; }
+    }
     //Indicates if the hourglass is "running", will be still active even if finished
-    public bool     Active          { get; protected set; }
+    public bool Active
+    {
+        get { return m_active; }
+        set { m_active = value; }
+    }
     //Indicates if the hourglass finished it's "measurement"
-    public bool     Finished        { get; protected set; }
+    public bool Finished
+    {
+        get { return m_finished; }
+        protected set { m_finished = value; }
+    }
 
     //Starts the hourglass, does not reset
     public void     Start ()
@@ -41,7 +65,7 @@ public class Hourglass : MonoBehaviour
     //Coroutine to handle time measure
     private IEnumerator UpdateTime()
     {
-        while(RemainingTime > 0.0)
+        while(RemainingTime > 0.0 && Active)
         {
             RemainingTime -= Time.deltaTime;
             yield return null;
