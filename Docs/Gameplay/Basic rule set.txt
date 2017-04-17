@@ -1,0 +1,23 @@
+1er:
+	Egal
+	
+2er: 
+	Kurze Kanten
+	Lange Kanten
+	Große Doppelkante (Bumerang-Gruppe)
+	Kleine Doppelkante (einsamer Platz)
+
+3er:
+	Neben X
+	Gegenüber X
+	Ecke teilen mit X
+
+4er:
+	Zwei auseinander von X
+	Nicht neben, nicht gegenüber X
+	Das gleiche wie X
+
+5er:
+	Gegenteil von X
+
+Weiß, Rosa, Gelb, Orange, Rot, Grün, Blau, Schwarz
