@@ -4,6 +4,7 @@ public class Position : MonoBehaviour
 {
     protected static int nextIndex = 0;
 
+    [SerializeField]
     private int m_index;
 
     public int Index
