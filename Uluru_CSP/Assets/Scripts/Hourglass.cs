@@ -26,7 +26,7 @@ public class Hourglass : MonoBehaviour
     public bool Active
     {
         get { return m_active; }
-        set { m_active = value; }
+        protected set { m_active = value; }
     }
     //Indicates if the hourglass finished it's "measurement"
     public bool Finished
