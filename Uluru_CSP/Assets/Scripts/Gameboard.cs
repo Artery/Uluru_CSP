@@ -35,6 +35,6 @@ public class Gameboard : MonoBehaviour
 
     public void Reset()
     {
-        throw new NotImplementedException();
+        m_positionsTokens.ForEach(tuple => tuple.Token = null);
     }
 }
