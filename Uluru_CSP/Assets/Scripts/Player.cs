@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,5 +32,15 @@ public class Player : MonoBehaviour
     public TokenCollection Tokens
     {
         get { return m_tokens; }
+    }
+
+    public void Unlock()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Lock()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,5 +14,10 @@ public class Gameboard : MonoBehaviour
         {
             return m_positions;
         }
+    }
+
+    public void Reset()
+    {
+        throw new NotImplementedException();
     }
 }
