@@ -59,6 +59,8 @@ public class Hourglass : MonoBehaviour
 
         this.Active = active ?? this.Active;
 
+        if(!Active) { Stop(); }
+
         return this.Active;
     }
 
