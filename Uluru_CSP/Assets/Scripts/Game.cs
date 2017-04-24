@@ -167,9 +167,20 @@ public class Game : MonoBehaviour
         Players.ForEach(player => player.Lock());
     }
 
-    protected void VerifyPlayerGameboards()
+    protected void EvaluatePlayersScore()
     {
+        var gameplanState = Gameplan.Slots;
+        foreach(var player in Players)
+        {
+            var gameboard = player.Gameboard;
+            var result = gameboard.VerifyBoardState(gameplanState);
 
+            player.Drawback -= result.Count;
+            //ToDo visualize Round result for each player
+            //Includes visualizing correct and wrong placed Tokens
+            //and showing applied drawbacks of and for all players
+            //e.g. gameboard.VisualizeRoundResult(result);
+        }
     }
     #endregion
 
