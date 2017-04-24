@@ -71,10 +71,10 @@ public class Game : MonoBehaviour
             InitializeRound();
             StartRound();
             yield return new WaitUntil(() => Hourglass.Finished);
-            EndRound();
+            FinishRound();
         }
 
-        EndGame();
+        FinishGame();
     }
 
     //Prepares a game for being started
@@ -101,7 +101,7 @@ public class Game : MonoBehaviour
         StartCoroutine(GameLoop());
     }
 
-    protected void EndGame()
+    protected void FinishGame()
     {
         ResetRoundState();
         DeclareWinner();
@@ -128,9 +128,12 @@ public class Game : MonoBehaviour
         Hourglass.Start();
     }
 
-    protected void EndRound()
+    protected void FinishRound()
     {
         LockPlayers();
+        EvaluatePlayersScore();
+        //ToDo Timer which waits here, 
+        //so the visual feedback has time to be applied
         ResetPlayerGameboards();
         CurrentRound++;
     }
