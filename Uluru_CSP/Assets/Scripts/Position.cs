@@ -7,6 +7,7 @@ public class Position : MonoBehaviour
 
     [SerializeField]
     private int m_index;
+    [SerializeField]
     private Edge m_edge;
 
     public int Index
