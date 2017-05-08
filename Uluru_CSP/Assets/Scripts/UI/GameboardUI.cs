@@ -12,6 +12,7 @@ public class GameboardUI : MonoBehaviour
     private EventSystem m_EventSystem;
     private GameObject m_LastSelectedGameObject = null;
     private enButtonType m_LastSelectedButtonType = enButtonType.NONE;
+    private Gameboard m_Gameboard;
 
     void Update()
     {
@@ -38,6 +39,8 @@ public class GameboardUI : MonoBehaviour
 
             m_LastSelectedGameObject = null;
             m_LastSelectedButtonType = enButtonType.NONE;
+
+            m_Gameboard.SetTokenOnPosition(tokenButton.Token, positionButton.Position);
         }
     }
 
@@ -61,6 +64,8 @@ public class GameboardUI : MonoBehaviour
 
             m_LastSelectedGameObject = null;
             m_LastSelectedButtonType = enButtonType.NONE;
+
+            m_Gameboard.SetTokenOnPosition(tokenButton.Token, positionButton.Position);
         }
     }
 

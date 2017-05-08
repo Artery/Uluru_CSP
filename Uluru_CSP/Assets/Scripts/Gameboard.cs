@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gameboard : MonoBehaviour
+public class Gameboard
 {
     [SerializeField]
     private PositionTokenTupleCollection m_positionsTokens = new PositionTokenTupleCollection();
@@ -61,4 +61,10 @@ public class Gameboard : MonoBehaviour
 
         return wrongTokens;
     }
+
+    public void SetTokenOnPosition(Token token, Position position)
+    {
+        
+    }
+
 }
