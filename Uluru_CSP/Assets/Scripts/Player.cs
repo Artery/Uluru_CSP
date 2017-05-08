@@ -36,11 +36,17 @@ public class Player : MonoBehaviour
 
     public void Unlock()
     {
-        throw new NotImplementedException();
+        ChangeUnlockTo(true);
     }
 
     public void Lock()
     {
-        throw new NotImplementedException();
+        ChangeUnlockTo(false);
+    }
+
+    private void ChangeUnlockTo(bool isUnlocked)
+    {
+        Gameboard.IsUnlocked = isUnlocked;
+        Tokens.ForEach(token => token.IsUnlocked = isUnlocked);
     }
 }
