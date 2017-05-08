@@ -3,13 +3,21 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gameboard : MonoBehaviour
 {
-    [SerializeField]
-    private PositionTokenTupleCollection m_positionsTokens = new PositionTokenTupleCollection();
+    private enum enButtonType { NONE = -1, POSITION, TOKEN };
 
-    public PositionTokenTupleCollection PositionsTokens
+    [SerializeField]
+    private List<PositionTokenTuple> m_positionsTokens;
+    [SerializeField]
+    private bool m_IsUnlocked = false;
+
+    private GameObject m_LastSelectedButton = null;
+    private enButtonType m_LastSelectedButtonType = enButtonType.NONE;
+
+    public List<PositionTokenTuple> PositionsTokens
     {
         get
         {
@@ -21,7 +29,7 @@ public class Gameboard : MonoBehaviour
     {
         get
         {
-            return new PositionCollection(m_positionsTokens.Select(tuple => tuple.Postion));
+            return new PositionCollection(m_positionsTokens.Select(tuple => tuple.Position));
         }
     }
 
@@ -33,7 +41,20 @@ public class Gameboard : MonoBehaviour
         }
     }
 
-    public bool IsUnlocked { get; set; }
+    public bool IsUnlocked
+    {
+        get { return m_IsUnlocked; }
+
+        set
+        {
+            if (m_IsUnlocked != value)
+            {
+                m_IsUnlocked = value;
+                Positions.ForEach(position => position.IsUnlocked = m_IsUnlocked);
+            }
+        }
+    }
+
 
     public void Reset()
     {
@@ -44,7 +65,7 @@ public class Gameboard : MonoBehaviour
     {
         var wrongTokens = new List<Color>();
 
-        foreach(var color_card in gameplanState)
+        foreach (var color_card in gameplanState)
         {
             PositionTokenTuple rulesetTuple = null;
             var slotTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(color_card.Key));
@@ -55,7 +76,7 @@ public class Gameboard : MonoBehaviour
                 rulesetTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
             }
 
-            if(!ruleset.VerfiyRuleset(slotTuple, rulesetTuple))
+            if (!ruleset.VerfiyRuleset(slotTuple, rulesetTuple))
             {
                 wrongTokens.Add(color_card.Key);
             }
@@ -63,4 +84,54 @@ public class Gameboard : MonoBehaviour
 
         return wrongTokens;
     }
+
+    public void PositionButtonClicked(GameObject clickedButton)
+    {
+        ButtonClicked(clickedButton, enButtonType.POSITION);
+    }
+
+    public void TokenButtonClicked(GameObject clickedButton)
+    {
+        ButtonClicked(clickedButton, enButtonType.TOKEN);
+    }
+
+    private void ButtonClicked(GameObject clickedButton, enButtonType clickedButtonType)
+    {
+        if (m_LastSelectedButton == null || m_LastSelectedButtonType == clickedButtonType)
+        {
+            m_LastSelectedButton = clickedButton;
+            m_LastSelectedButtonType = clickedButtonType;
+        }
+        else if (m_LastSelectedButton != null && clickedButton != null)
+        {
+            var token = m_LastSelectedButtonType == enButtonType.TOKEN ? m_LastSelectedButton.GetComponent<Token>() : clickedButton.GetComponent<Token>();
+            var position = m_LastSelectedButtonType == enButtonType.POSITION ? m_LastSelectedButton.GetComponent<Position>() : clickedButton.GetComponent<Position>();
+
+            SetTokenOnPosition(token, position);
+
+            m_LastSelectedButton = null;
+            m_LastSelectedButtonType = enButtonType.NONE;
+        }
+    }
+
+    public void SetTokenOnPosition(Token token, Position position)
+    {
+        var oldPosition = m_positionsTokens.Where(tuple => token.Equals(tuple.Token)).FirstOrDefault();
+
+        if (oldPosition != null)
+        {
+            oldPosition.Token = null;
+            oldPosition.Position.UpdateTokenImageColor(null);
+        }
+
+        var tokenPositionTuple = m_positionsTokens.Single(tuple => position.Equals(tuple.Position));
+
+        tokenPositionTuple.Token = token;
+
+        UnityEngine.Color? tokenColor = null;
+        if (token != null) { tokenColor = token.UIColor; }
+
+        tokenPositionTuple.Position.UpdateTokenImageColor(tokenColor);
+    }
+
 }
