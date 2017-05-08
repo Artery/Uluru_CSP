@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Gameboard m_gameboard = new Gameboard();
     [SerializeField]
-    private TokenCollection m_tokens = new TokenCollection();
+    private List<Token> m_tokens;
 
     public string Name
     {
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         get { return m_gameboard; }
         set { m_gameboard = value; }
     }
-    public TokenCollection Tokens
+    public List<Token> Tokens
     {
         get { return m_tokens; }
     }
