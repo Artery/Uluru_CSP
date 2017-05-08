@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Position : MonoBehaviour
+public class Position : UIButtonBase
 {
     protected static int nextIndex = 0;
 
@@ -9,22 +9,6 @@ public class Position : MonoBehaviour
     private int m_index;
     [SerializeField]
     private Edge m_edge;
-
-    [SerializeField]
-    private Button m_Button;
-
-    public Button Button
-    {
-        get
-        {
-            return m_Button;
-        }
-
-        protected set
-        {
-            m_Button = value;
-        }
-    }
 
     [SerializeField]
     private Image m_TokenImage;

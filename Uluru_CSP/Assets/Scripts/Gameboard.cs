@@ -29,7 +29,7 @@ public class Gameboard : MonoBehaviour
             {
                 m_IsUnlocked = value;
 
-                Positions.ForEach(position => position.Button.interactable = m_IsUnlocked);
+                Positions.ForEach(position => position.IsUnlocked = m_IsUnlocked);
             }
         }
     }
