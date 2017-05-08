@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int m_drawback;
     [SerializeField]
-    private Gameboard m_gameboard = new Gameboard();
+    private Gameboard m_gameboard;
     [SerializeField]
     private List<Token> m_tokens;
 
