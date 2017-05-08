@@ -33,6 +33,8 @@ public class Gameboard : MonoBehaviour
         }
     }
 
+    public bool IsUnlocked { get; set; }
+
     public void Reset()
     {
         m_positionsTokens.ForEach(tuple => tuple.Token = null);

@@ -10,9 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int m_drawback;
     [SerializeField]
-    private Gameboard m_gameboard = new Gameboard();
+    private Gameboard m_gameboard;
     [SerializeField]
-    private TokenCollection m_tokens = new TokenCollection();
+    private List<Token> m_tokens;
 
     public string Name
     {
@@ -29,18 +29,24 @@ public class Player : MonoBehaviour
         get { return m_gameboard; }
         set { m_gameboard = value; }
     }
-    public TokenCollection Tokens
+    public List<Token> Tokens
     {
         get { return m_tokens; }
     }
 
     public void Unlock()
     {
-        throw new NotImplementedException();
+        ChangeUnlockTo(true);
     }
 
     public void Lock()
     {
-        throw new NotImplementedException();
+        ChangeUnlockTo(false);
+    }
+
+    private void ChangeUnlockTo(bool isUnlocked)
+    {
+        Gameboard.IsUnlocked = isUnlocked;
+        Tokens.ForEach(token => token.IsUnlocked = isUnlocked);
     }
 }
