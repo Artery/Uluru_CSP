@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Edge
+public class Edge : MonoBehaviour
 {
     public enum enEdgeID { Short_1 = 0, Short_2 = 34, Long_2 = 12, Long_3 = 57 };
     public enum enSide { LONG, SHORT };
 
+    [SerializeField]
     private enSide m_side;
+    [SerializeField]
     private int m_PositionCount;
+    [SerializeField]
     private enEdgeID m_edgeID;
 
     public Edge(enEdgeID edgeID)
