@@ -1,30 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-//This class represents one Token, each Player will have 7
+//This class represents one Token, each Player will have 8
 //Each Token has to be placed on one unique Position
-public class Token : MonoBehaviour
+public class Token : UIButtonBase
 {
     [SerializeField]
     private Color m_color;
     [SerializeField]
-    private Position m_position;
+    private UnityEngine.Color m_UIColor;
+
+    public Token(Color color)
+    {
+        this.Color = color;
+    }
+
+    public UnityEngine.Color UIColor
+    {
+        get { return m_UIColor; }
+        set { m_UIColor = value; }
+    }
 
     public Color Color
     {
         get { return m_color; }
         set { m_color = value; }
-    }
-    public Position Position
-    {
-        get { return m_position; }
-        set { m_position = value; }
-    }
-
-    public Token(Color color, Position position = null)
-    {
-        this.Color = color;
-        this.Position = position;
     }
 }
