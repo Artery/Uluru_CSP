@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
-public class Position : MonoBehaviour
+public class Position
 {
-    
     protected static int nextIndex = 0;
 
     [SerializeField]
