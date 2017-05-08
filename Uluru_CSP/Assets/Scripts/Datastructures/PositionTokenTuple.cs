@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PositionTokenTuple
 { 
-    public Position Postion { get; set; }
+    public Position Position { get; set; }
     public Token Token { get; set; }
 
     public PositionTokenTuple(Position position, Token token)
     {
-        Postion = position;
+        Position = position;
         Token = token;
     }
 }
