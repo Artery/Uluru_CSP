@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Edge
+public class Edge : MonoBehaviour
 {
     public enum enEdgeID { Short_1 = 0, Short_2 = 34, Long_2 = 12, Long_3 = 57 };
     public enum enSide { LONG, SHORT };

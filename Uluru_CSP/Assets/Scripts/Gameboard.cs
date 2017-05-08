@@ -3,13 +3,79 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Gameboard
+public class Gameboard : MonoBehaviour
 {
-    [SerializeField]
-    private PositionTokenTupleCollection m_positionsTokens = new PositionTokenTupleCollection();
+    //GAMBEBOARD_UI//
+    private enum enButtonType { NONE = -1, POSITION, TOKEN };
 
-    public PositionTokenTupleCollection PositionsTokens
+    private GameObject m_LastSelectedButton = null;
+    private enButtonType m_LastSelectedButtonType = enButtonType.NONE;
+
+    [SerializeField]
+    private bool m_IsUnlocked = false;
+
+    public bool IsUnlocked
+    {
+        get
+        {
+            return m_IsUnlocked;
+        }
+
+        set
+        {
+            if(m_IsUnlocked != value)
+            {
+                m_IsUnlocked = value;
+
+                Positions.ForEach(position => position.Button.interactable = m_IsUnlocked);
+            }
+        }
+    }
+
+    public void PositionButtonClicked(GameObject clickedButton)
+    {
+        Debug.Log(clickedButton.name);        
+
+        ButtonClicked(clickedButton, enButtonType.POSITION);
+    }
+
+    public void TokenButtonClicked(GameObject clickedButton)
+    {
+        Debug.Log(clickedButton.name);
+
+        ButtonClicked(clickedButton, enButtonType.TOKEN);
+        
+    }
+
+    private void ButtonClicked(GameObject clickedButton, enButtonType clickedButtonType)
+    {
+        if (m_LastSelectedButton == null || m_LastSelectedButtonType == clickedButtonType)
+        {
+            m_LastSelectedButton = clickedButton;
+            m_LastSelectedButtonType = clickedButtonType;
+        }
+        else if(m_LastSelectedButton != null && clickedButton != null)
+        {
+            var token = m_LastSelectedButtonType == enButtonType.TOKEN ? m_LastSelectedButton.GetComponent<Token>() : clickedButton.GetComponent<Token>();
+            var position = m_LastSelectedButtonType == enButtonType.POSITION ? m_LastSelectedButton.GetComponent<Position>() : clickedButton.GetComponent<Position>();
+            
+            SetTokenOnPosition(token, position);
+
+            m_LastSelectedButton = null;
+            m_LastSelectedButtonType = enButtonType.NONE;
+        }
+    }
+
+    //GAMEBOARD//
+    //[SerializeField]
+    //private PositionTokenTupleCollection m_positionsTokens = new PositionTokenTupleCollection();
+    [SerializeField]
+    private List<PositionTokenTuple> m_positionsTokens;
+
+
+    public List<PositionTokenTuple> PositionsTokens
     {
         get
         {
@@ -21,7 +87,7 @@ public class Gameboard
     {
         get
         {
-            return new PositionCollection(m_positionsTokens.Select(tuple => tuple.Postion));
+            return new PositionCollection(m_positionsTokens.Select(tuple => tuple.Position));
         }
     }
 
@@ -64,7 +130,22 @@ public class Gameboard
 
     public void SetTokenOnPosition(Token token, Position position)
     {
-        
+        var oldPosition = m_positionsTokens.Where(tuple => token.Equals(tuple.Token)).FirstOrDefault();
+
+        if(oldPosition != null)
+        {
+            oldPosition.Token = null;
+            oldPosition.Position.UpdateTokenImageColor(null);
+        }
+
+        var tokenPositionTuple = m_positionsTokens.Single(tuple => position.Equals(tuple.Position));
+
+        tokenPositionTuple.Token = token;
+
+        UnityEngine.Color? tokenColor = null;
+        if(token != null) { tokenColor = token.UIColor; }
+
+        tokenPositionTuple.Position.UpdateTokenImageColor(tokenColor);
     }
 
 }

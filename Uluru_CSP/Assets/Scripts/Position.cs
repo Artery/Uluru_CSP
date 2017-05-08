@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class Position
+public class Position : MonoBehaviour
 {
     protected static int nextIndex = 0;
 
@@ -8,6 +9,52 @@ public class Position
     private int m_index;
     [SerializeField]
     private Edge m_edge;
+
+    [SerializeField]
+    private Button m_Button;
+
+    public Button Button
+    {
+        get
+        {
+            return m_Button;
+        }
+
+        protected set
+        {
+            m_Button = value;
+        }
+    }
+
+    [SerializeField]
+    private Image m_TokenImage;
+
+    public Image TokenImage
+    {
+        get
+        {
+            return m_TokenImage;
+        }
+
+        set
+        {
+            m_TokenImage = value;
+        }
+    }
+
+    public void UpdateTokenImageColor(UnityEngine.Color? tokenColor)
+    {
+        if(tokenColor != null && tokenColor.HasValue)
+        {
+            TokenImage.enabled = true;
+            TokenImage.color = tokenColor.Value;
+        }
+        else
+        {
+            TokenImage.enabled = false;
+        }
+
+    }
 
     public int Index
     {
@@ -20,6 +67,8 @@ public class Position
         get { return m_edge; }
         set { m_edge = value; }
     }
+
+    
 
     public Position()
     {
