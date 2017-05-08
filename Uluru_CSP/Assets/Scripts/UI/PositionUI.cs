@@ -20,7 +20,7 @@ public class PositionUI : MonoBehaviour
             return m_position;
         }
 
-        set
+        protected set
         {
             m_position = value;
         }

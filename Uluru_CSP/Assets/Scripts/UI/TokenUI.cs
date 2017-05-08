@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TokenUI : MonoBehaviour
 {
     private PositionUI m_UIPosition;
+    private Token m_Token;
 
     private UnityEngine.Color m_TokenColor;
 
@@ -32,6 +33,19 @@ public class TokenUI : MonoBehaviour
         set
         {
             m_UIPosition = value;
+        }
+    }
+
+    public Token Token
+    {
+        get
+        {
+            return m_Token;
+        }
+
+        protected set
+        {
+            m_Token = value;
         }
     }
 
