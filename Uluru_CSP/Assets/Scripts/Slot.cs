@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class Slot : MonoBehaviour
     private Color m_Color;
     [SerializeField]
     private RuleCard m_RuleCard;
+    [SerializeField]
+    private Image m_RuleCardImage;
 
     public Color Color
     {
