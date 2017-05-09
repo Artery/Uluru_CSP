@@ -24,4 +24,11 @@ public class Slot : MonoBehaviour
         get { return m_RuleCard; }
         set { m_RuleCard = value; }
     }
+
+    public void SetRuleCard(RuleCard ruleCard)
+    {
+        m_RuleCard = ruleCard;
+
+        m_RuleCardImage = m_RuleCard != null ? m_RuleCard.CardImage : null;
+    }
 }
