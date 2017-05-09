@@ -12,4 +12,10 @@ public class CardCollection : List<RuleCard>
     {
         AddRange(collection);
     }
+
+    public CardCollection(List<RuleCard> collection)
+        : base()
+    {
+        AddRange(collection);
+    }
 }
