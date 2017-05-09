@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Game : MonoBehaviour
 {
@@ -18,13 +19,13 @@ public class Game : MonoBehaviour
     private int m_currentRound;
 
     [SerializeField]
-    private PlayerCollection m_players = new PlayerCollection();
+    private List<Player> m_players = new List<Player>();
     [SerializeField]
     private Difficulty_CardCollectionMap m_deck = new Difficulty_CardCollectionMap();
     #endregion
 
     #region Getter/Setter/Properties
-    public PlayerCollection Players
+    public List<Player> Players
     {
         get { return m_players; }
     }
