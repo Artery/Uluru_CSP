@@ -61,15 +61,15 @@ public class Gameboard : MonoBehaviour
         m_positionsTokens.ForEach(tuple => tuple.Token = null);
     }
 
-    public List<Color> VerifyBoardState(Color_CardMap gameplanState)
+    public List<Color> VerifyBoardState(List<Slot> gameplanState)
     {
         var wrongTokens = new List<Color>();
 
-        foreach (var color_card in gameplanState)
+        foreach (var slot in gameplanState)
         {
             PositionTokenTuple rulesetTuple = null;
-            var slotTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(color_card.Key));
-            var ruleset = color_card.Value.Ruleset;
+            var slotTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(slot.Color));
+            var ruleset = slot.RuleCard.Ruleset;
 
             if (!ruleset.Color.Equals(Color.NONE))
             {
@@ -78,7 +78,7 @@ public class Gameboard : MonoBehaviour
 
             if (!ruleset.VerfiyRuleset(slotTuple, rulesetTuple))
             {
-                wrongTokens.Add(color_card.Key);
+                wrongTokens.Add(slot.Color);
             }
         }
 
