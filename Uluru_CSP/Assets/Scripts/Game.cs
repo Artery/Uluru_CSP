@@ -21,7 +21,7 @@ public class Game : MonoBehaviour
     [SerializeField]
     private List<Player> m_players = new List<Player>();
     [SerializeField]
-    private Difficulty_CardCollectionMap m_deck = new Difficulty_CardCollectionMap();
+    private List<DifficultyRuleCardCollection> m_Deck = new List<DifficultyRuleCardCollection>();
     #endregion
 
     #region Getter/Setter/Properties
@@ -30,9 +30,9 @@ public class Game : MonoBehaviour
         get { return m_players; }
     }
 
-    public Difficulty_CardCollectionMap Deck
+    public List<DifficultyRuleCardCollection> Deck
     {
-        get { return m_deck; }
+        get { return m_Deck; }
     }
 
     public Gameplan Gameplan
@@ -188,7 +188,7 @@ public class Game : MonoBehaviour
     #region DeckMethods
     protected CardCollection SelectGameDeck()
     {
-        return new CardCollection(Deck.Where(pair => pair.Key <= Difficulty).SelectMany(pair => pair.Value));
+        return new CardCollection(Deck.Where(cardset => cardset.Difficulty <= Difficulty).SelectMany(collection => collection.RuleCards));
     }
     #endregion
 }
