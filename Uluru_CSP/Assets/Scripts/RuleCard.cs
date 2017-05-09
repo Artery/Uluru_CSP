@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class RuleCard : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class RuleCard : MonoBehaviour
     private Difficulty m_difficulty;
     [SerializeField]
     private Ruleset m_ruleset;
+    [SerializeField]
+    private Image m_CardImage;
 
     public Difficulty Difficulty
     {
@@ -16,5 +19,11 @@ public class RuleCard : MonoBehaviour
     {
         get { return m_ruleset; }
         set { m_ruleset = value; }
+    }
+
+    public Image CardImage
+    {
+        get { return m_CardImage; }
+        set { m_CardImage = value; }
     }
 }
