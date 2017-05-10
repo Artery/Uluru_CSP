@@ -19,7 +19,7 @@ public class Game : MonoBehaviour
     private int m_currentRound;
 
     [SerializeField]
-    private List<Player> m_players = new List<Player>();
+    private List<Player> m_players;
     [SerializeField]
     private List<DifficultyRuleCardCollection> m_Deck;
     #endregion
