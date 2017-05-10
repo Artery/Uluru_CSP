@@ -12,7 +12,13 @@ public class Gameplan : MonoBehaviour
     [SerializeField]
     private CardCollection m_discardpile;
 
-    public List<Slot> Slots { get; set; }
+    public List<Slot> Slots
+    {
+        get
+        {
+            return m_slots;
+        }
+    }
 
     public CardCollection GamePile
     {
