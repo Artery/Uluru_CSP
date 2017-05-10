@@ -8,9 +8,9 @@ public class Gameplan : MonoBehaviour
     [SerializeField]
     private List<Slot> m_slots;
     [SerializeField]
-    private CardCollection m_gamepile;
+    private CardCollection m_gamepile = new CardCollection();
     [SerializeField]
-    private CardCollection m_discardpile;
+    private CardCollection m_discardpile = new CardCollection();
 
     public List<Slot> Slots
     {
@@ -65,7 +65,7 @@ public class Gameplan : MonoBehaviour
     //Makes the current "intern" Slots visible to the players
     public void DealOutNextSequence()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     //Resets the Gameplan by removing the RuleCards from the Slots
