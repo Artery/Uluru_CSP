@@ -65,6 +65,16 @@ public class Game : MonoBehaviour
     }
     #endregion
 
+    #region MonoMethods
+    void Start()
+    {
+    }
+
+    void Update()
+    {
+    }
+    #endregion
+
     #region GameMethods
 
     //Loop for an active Game
