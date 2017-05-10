@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,4 +47,12 @@ public class Scoreboard : MonoBehaviour
     {
 		
 	}
+
+    public void UpdateRemainingTime(double remainingTime)
+    {
+        var time = remainingTime.ToString();
+        time = time.Substring(0, 6);
+
+        RemainingTimeField.text = time + "s";//Math.Round(remainingTime, 3) + "s";
+    }
 }
