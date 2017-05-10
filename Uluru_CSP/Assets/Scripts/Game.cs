@@ -7,9 +7,9 @@ public class Game : MonoBehaviour
 {
     #region Attributes
     [SerializeField]
-    private Gameplan m_gameplan = new Gameplan();
+    private Gameplan m_gameplan;
     [SerializeField]
-    private Hourglass m_hourglass = new Hourglass();
+    private Hourglass m_hourglass;
 
     [SerializeField]
     private Difficulty m_difficulty;
@@ -21,7 +21,7 @@ public class Game : MonoBehaviour
     [SerializeField]
     private List<Player> m_players = new List<Player>();
     [SerializeField]
-    private List<DifficultyRuleCardCollection> m_Deck = new List<DifficultyRuleCardCollection>();
+    private List<DifficultyRuleCardCollection> m_Deck;
     #endregion
 
     #region Getter/Setter/Properties
