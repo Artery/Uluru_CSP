@@ -6,11 +6,11 @@ using UnityEngine;
 public class Gameplan : MonoBehaviour
 {
     [SerializeField]
-    private List<Slot> m_slots = new List<Slot>();
+    private List<Slot> m_slots;
     [SerializeField]
-    private CardCollection m_gamepile = new CardCollection();
+    private CardCollection m_gamepile;
     [SerializeField]
-    private CardCollection m_discardpile = new CardCollection();
+    private CardCollection m_discardpile;
 
     public List<Slot> Slots { get; set; }
 
