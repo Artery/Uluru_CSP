@@ -22,6 +22,9 @@ public class Game : MonoBehaviour
     private List<Player> m_players;
     [SerializeField]
     private List<DifficultyRuleCardCollection> m_Deck;
+
+    [SerializeField]
+    private Scoreboard m_Scoreboard;
     #endregion
 
     #region Getter/Setter/Properties
