@@ -68,10 +68,13 @@ public class Game : MonoBehaviour
     #region MonoMethods
     void Start()
     {
+        InitializeGame();
+        StartGame();
     }
 
     void Update()
     {
+        m_Scoreboard.UpdateRemainingTime(Hourglass.RemainingTime);
     }
     #endregion
 
@@ -95,6 +98,8 @@ public class Game : MonoBehaviour
     protected void InitializeGame()
     {
         ClearGameState();
+
+        InitializePlayersScoreboard();
 
         CurrentRound = 1;
         Gameplan.Intialize(SelectGameDeck());
@@ -150,6 +155,7 @@ public class Game : MonoBehaviour
         //so the visual feedback has time to be applied
         ResetPlayerGameboards();
         CurrentRound++;
+        UpdatePlayersScoreboard();
     }
 
     protected void ResetRoundState()
@@ -161,6 +167,22 @@ public class Game : MonoBehaviour
     #endregion
 
     #region PlayerMethods
+    protected void InitializePlayersScoreboard()
+    {
+        //ToDo
+        //Temp hack
+        m_Scoreboard.NameField.text = "Artery";
+        m_Scoreboard.RoundField.text = CurrentRound+1 + "/" + MaxRounds;
+    }
+
+    protected void UpdatePlayersScoreboard()
+    {
+        //ToDo
+        //Temp hack
+        m_Scoreboard.DrawbackField.text = Players.First().Drawback.ToString();
+        m_Scoreboard.RoundField.text = CurrentRound + "/" + MaxRounds;
+    }
+
     protected void ResetPlayerGameboards()
     {
         Players.ForEach(player => player.Gameboard.Reset());
