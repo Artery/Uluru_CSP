@@ -51,7 +51,7 @@ public class Scoreboard : MonoBehaviour
     public void UpdateRemainingTime(double remainingTime)
     {
         var time = remainingTime.ToString();
-        time = time.Substring(0, 6);
+        time = time.Substring(0, Math.Min(time.Length, 6));
 
         RemainingTimeField.text = time + "s";//Math.Round(remainingTime, 3) + "s";
     }
