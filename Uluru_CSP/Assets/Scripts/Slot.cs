@@ -29,6 +29,14 @@ public class Slot : MonoBehaviour
     {
         m_RuleCard = ruleCard;
 
-        m_RuleCardImage = m_RuleCard != null ? m_RuleCard.CardImage : null;
+        //m_RuleCardImage = m_RuleCard != null ? m_RuleCard.CardImage : null;
+        if(m_RuleCard != null && m_RuleCard.CardImage != null)
+        {
+            var cardImage = m_RuleCard.CardImage;
+
+            m_RuleCardImage.sprite = cardImage.sprite;
+            m_RuleCardImage.color = cardImage.color;
+            m_RuleCardImage.material = cardImage.material;
+        }
     }
 }
