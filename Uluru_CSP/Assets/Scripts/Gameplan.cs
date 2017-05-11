@@ -57,8 +57,10 @@ public class Gameplan : MonoBehaviour
     {
         foreach(var slot in Slots)
         {
-            slot.SetRuleCard(GamePile.FirstOrDefault());
-            GamePile.RemoveAt(0);
+            var nextCard = GamePile.FirstOrDefault();
+            slot.SetRuleCard(nextCard);
+
+            if (nextCard != null) { GamePile.RemoveAt(0); }
         }
     }
 
