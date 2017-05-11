@@ -83,7 +83,7 @@ public class Game : MonoBehaviour
     //Loop for an active Game
     public IEnumerator GameLoop()
     {
-        while(CurrentRound <= MaxRounds)
+        while(CurrentRound < MaxRounds)
         {
             InitializeRound();
             StartRound();
@@ -98,11 +98,11 @@ public class Game : MonoBehaviour
     protected void InitializeGame()
     {
         ClearGameState();
+        CurrentRound = 0;
 
         InitializePlayersScoreboard();
-
-        CurrentRound = 1;
         Gameplan.Intialize(SelectGameDeck());
+        LockPlayers();
     }
 
     protected void ClearGameState()
@@ -136,8 +136,11 @@ public class Game : MonoBehaviour
     //Prepares a round for being started
     protected void InitializeRound()
     {
+        CurrentRound++;
+        Hourglass.Reset();
         Gameplan.GenerateSequence();
         ResetPlayerGameboards();
+        UpdatePlayersScoreboard();
     }
     
     protected void StartRound()
@@ -154,7 +157,6 @@ public class Game : MonoBehaviour
         //ToDo Timer which waits here, 
         //so the visual feedback has time to be applied
         ResetPlayerGameboards();
-        CurrentRound++;
         UpdatePlayersScoreboard();
     }
 
@@ -172,7 +174,7 @@ public class Game : MonoBehaviour
         //ToDo
         //Temp hack
         m_Scoreboard.NameField.text = "Artery";
-        m_Scoreboard.RoundField.text = CurrentRound+1 + "/" + MaxRounds;
+        m_Scoreboard.RoundField.text = CurrentRound + "/" + MaxRounds;
     }
 
     protected void UpdatePlayersScoreboard()
