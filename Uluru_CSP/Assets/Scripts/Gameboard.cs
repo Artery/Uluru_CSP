@@ -58,7 +58,8 @@ public class Gameboard : MonoBehaviour
 
     public void Reset()
     {
-        m_positionsTokens.ForEach(tuple => tuple.Token = null);
+        //m_positionsTokens.ForEach(tuple => tuple.Token = null);
+        Positions.ForEach(position => SetTokenOnPosition(null, position));
     }
 
     public List<Color> VerifyBoardState(List<Slot> gameplanState)
@@ -116,14 +117,17 @@ public class Gameboard : MonoBehaviour
 
     public void SetTokenOnPosition(Token token, Position position)
     {
-        var oldPosition = m_positionsTokens.Where(tuple => token.Equals(tuple.Token)).FirstOrDefault();
-
-        if (oldPosition != null)
+        if(token != null)
         {
-            oldPosition.Token = null;
-            oldPosition.Position.UpdateTokenImageColor(null);
-        }
+            var oldPosition = m_positionsTokens.Where(tuple => token.Equals(tuple.Token)).FirstOrDefault();
 
+            if (oldPosition != null)
+            {
+                oldPosition.Token = null;
+                oldPosition.Position.UpdateTokenImageColor(null);
+            }
+        }
+        
         var tokenPositionTuple = m_positionsTokens.Single(tuple => position.Equals(tuple.Position));
 
         tokenPositionTuple.Token = token;
