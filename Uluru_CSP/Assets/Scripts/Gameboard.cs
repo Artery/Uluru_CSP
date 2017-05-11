@@ -58,7 +58,8 @@ public class Gameboard : MonoBehaviour
 
     public void Reset()
     {
-        m_positionsTokens.ForEach(tuple => tuple.Token = null);
+        //m_positionsTokens.ForEach(tuple => tuple.Token = null);
+        Positions.ForEach(position => SetTokenOnPosition(null, position));
     }
 
     public List<Color> VerifyBoardState(Color_CardMap gameplanState)
