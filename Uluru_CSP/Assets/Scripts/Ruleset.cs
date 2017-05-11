@@ -7,6 +7,7 @@ public class Ruleset
 
     public bool VerfiyRuleset(PositionTokenTuple slotTuple, PositionTokenTuple rulesetTuple)
     {
-        throw new NotImplementedException();
+        //temp hack for testing
+        return false;
     }
 }

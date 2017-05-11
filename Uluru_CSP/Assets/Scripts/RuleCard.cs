@@ -6,7 +6,7 @@ public class RuleCard : MonoBehaviour
     [SerializeField]
     private Difficulty m_difficulty;
     [SerializeField]
-    private Ruleset m_ruleset;
+    private Ruleset m_ruleset = new Ruleset();
     [SerializeField]
     private Image m_CardImage;
 
