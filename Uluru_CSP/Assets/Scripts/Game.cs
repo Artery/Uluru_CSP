@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Game : MonoBehaviour
 {
     #region Attributes
     [SerializeField]
-    private Gameplan m_gameplan = new Gameplan();
+    private Gameplan m_gameplan;
     [SerializeField]
-    private Hourglass m_hourglass = new Hourglass();
+    private Hourglass m_hourglass;
 
     [SerializeField]
     private Difficulty m_difficulty;
@@ -18,20 +19,23 @@ public class Game : MonoBehaviour
     private int m_currentRound;
 
     [SerializeField]
-    private PlayerCollection m_players = new PlayerCollection();
+    private List<Player> m_players;
     [SerializeField]
-    private Difficulty_CardCollectionMap m_deck = new Difficulty_CardCollectionMap();
+    private List<DifficultyRuleCardCollection> m_Deck;
+
+    [SerializeField]
+    private Scoreboard m_Scoreboard;
     #endregion
 
     #region Getter/Setter/Properties
-    public PlayerCollection Players
+    public List<Player> Players
     {
         get { return m_players; }
     }
 
-    public Difficulty_CardCollectionMap Deck
+    public List<DifficultyRuleCardCollection> Deck
     {
-        get { return m_deck; }
+        get { return m_Deck; }
     }
 
     public Gameplan Gameplan
@@ -61,12 +65,25 @@ public class Game : MonoBehaviour
     }
     #endregion
 
+    #region MonoMethods
+    void Start()
+    {
+        InitializeGame();
+        StartGame();
+    }
+
+    void Update()
+    {
+        m_Scoreboard.UpdateRemainingTime(Hourglass.RemainingTime);
+    }
+    #endregion
+
     #region GameMethods
 
     //Loop for an active Game
     public IEnumerator GameLoop()
     {
-        while(CurrentRound <= MaxRounds)
+        while(CurrentRound < MaxRounds)
         {
             InitializeRound();
             StartRound();
@@ -81,9 +98,11 @@ public class Game : MonoBehaviour
     protected void InitializeGame()
     {
         ClearGameState();
+        CurrentRound = 0;
 
-        CurrentRound = 1;
+        InitializePlayersScoreboard();
         Gameplan.Intialize(SelectGameDeck());
+        LockPlayers();
     }
 
     protected void ClearGameState()
@@ -117,8 +136,11 @@ public class Game : MonoBehaviour
     //Prepares a round for being started
     protected void InitializeRound()
     {
+        CurrentRound++;
+        Hourglass.Reset();
         Gameplan.GenerateSequence();
         ResetPlayerGameboards();
+        UpdatePlayersScoreboard();
     }
     
     protected void StartRound()
@@ -135,7 +157,7 @@ public class Game : MonoBehaviour
         //ToDo Timer which waits here, 
         //so the visual feedback has time to be applied
         ResetPlayerGameboards();
-        CurrentRound++;
+        UpdatePlayersScoreboard();
     }
 
     protected void ResetRoundState()
@@ -147,6 +169,22 @@ public class Game : MonoBehaviour
     #endregion
 
     #region PlayerMethods
+    protected void InitializePlayersScoreboard()
+    {
+        //ToDo
+        //Temp hack
+        m_Scoreboard.NameField.text = "Artery";
+        m_Scoreboard.RoundField.text = CurrentRound + "/" + MaxRounds;
+    }
+
+    protected void UpdatePlayersScoreboard()
+    {
+        //ToDo
+        //Temp hack
+        m_Scoreboard.DrawbackField.text = Players.First().Drawback.ToString();
+        m_Scoreboard.RoundField.text = CurrentRound + "/" + MaxRounds;
+    }
+
     protected void ResetPlayerGameboards()
     {
         Players.ForEach(player => player.Gameboard.Reset());
@@ -187,7 +225,7 @@ public class Game : MonoBehaviour
     #region DeckMethods
     protected CardCollection SelectGameDeck()
     {
-        return new CardCollection(Deck.Where(pair => pair.Key <= Difficulty).SelectMany(pair => pair.Value));
+        return new CardCollection(Deck.Where(cardset => cardset.Difficulty <= Difficulty).SelectMany(collection => collection.RuleCards));
     }
     #endregion
 }

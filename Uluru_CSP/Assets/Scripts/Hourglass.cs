@@ -72,6 +72,8 @@ public class Hourglass : MonoBehaviour
             RemainingTime -= Time.deltaTime;
             yield return null;
         }
+
+        RemainingTime = 0.0;
         Finished = true;
     }
 }
