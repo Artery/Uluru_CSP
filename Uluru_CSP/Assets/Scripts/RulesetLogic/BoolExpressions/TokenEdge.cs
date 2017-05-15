@@ -7,10 +7,10 @@ public class TokenEdge : IBasicLogic
     public enum enComparer { EQUALS, UNEQUALS }
 
     public enComparer Comparer { get; set; }
-    public Edge.enEdgeID? OriginEdge { get; set; }
-    public Edge.enEdgeID? DependencyEdge { get; set; }
+    public Edge.enEdgeID OriginEdge { get; set; }
+    public Edge.enEdgeID DependencyEdge { get; set; }
 
-    public TokenEdge(enComparer comparer, Edge.enEdgeID? dependencyEdge, Edge.enEdgeID? originEdge)
+    public TokenEdge(enComparer comparer, Edge.enEdgeID dependencyEdge, Edge.enEdgeID originEdge)
     {
         Comparer = comparer;
         OriginEdge = originEdge;
@@ -19,19 +19,15 @@ public class TokenEdge : IBasicLogic
 
     public bool Evaluate()
     {
-        if (OriginEdge.HasValue && DependencyEdge.HasValue)
+        if (Comparer == enComparer.EQUALS)
         {
-            if (Comparer == enComparer.EQUALS)
-            {
-                Debug.Log(OriginEdge.Value);
-                Debug.Log(DependencyEdge.Value);
-                return OriginEdge.Value == DependencyEdge.Value;
-            }
-            else if (Comparer == enComparer.UNEQUALS)
-            {
-                return OriginEdge.Value != DependencyEdge.Value;
-            }
+            return OriginEdge == DependencyEdge;
         }
+        else if (Comparer == enComparer.UNEQUALS)
+        {
+            return OriginEdge != DependencyEdge;
+        }
+
         return false;
     }
 }

@@ -7,10 +7,10 @@ public class TokenSide : IBasicLogic
     public enum enComparer { EQUALS, UNEQUALS }
 
     public enComparer Comparer { get; set; }
-    public Edge.enSide? OriginSide { get; set; }
-    public Edge.enSide? DependencySide { get; set; }
+    public Edge.enSide OriginSide { get; set; }
+    public Edge.enSide DependencySide { get; set; }
 
-    public TokenSide(enComparer comparer, Edge.enSide? dependencySide, Edge.enSide? originSide)
+    public TokenSide(enComparer comparer, Edge.enSide dependencySide, Edge.enSide originSide)
     {
         Comparer = comparer;
         OriginSide = originSide;
@@ -19,16 +19,13 @@ public class TokenSide : IBasicLogic
 
     public bool Evaluate()
     {
-        if(OriginSide.HasValue && DependencySide.HasValue)
+        if (Comparer == enComparer.EQUALS)
         {
-            if (Comparer == enComparer.EQUALS)
-            {
-                return OriginSide.Value == DependencySide.Value;
-            }
-            else if (Comparer == enComparer.UNEQUALS)
-            {
-                return OriginSide.Value != DependencySide.Value;
-            }
+            return OriginSide == DependencySide;
+        }
+        else if (Comparer == enComparer.UNEQUALS)
+        {
+            return OriginSide != DependencySide;
         }
         return false;
     }

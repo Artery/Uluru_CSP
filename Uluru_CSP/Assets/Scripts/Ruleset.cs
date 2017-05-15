@@ -16,17 +16,13 @@ public class Ruleset
     {
         bool result = false;
 
-        //Debug.Log(slotTuple.Token);
-
         if(slotTuple != null)
         {
             RulesetLogic.Initialize(slotTuple, rulesetTuple);
             result = RulesetLogic.Evaluate();
         }
-        else
-        {
-            //Debug.Log(slotTuple);
-        }
+
+        Debug.Log(result);
 
         return result;
         //throw new NotImplementedException();

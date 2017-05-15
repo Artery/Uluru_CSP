@@ -8,10 +8,10 @@ public class TokenABS : IBasicLogic
 
     public int ABSValue { get; set; }
     public enComparer Comparer { get; set; }
-    public int? OriginIndex { get; set; }
-    public int? DependencyIndex { get; set; }
+    public int OriginIndex { get; set; }
+    public int DependencyIndex { get; set; }
 
-    public TokenABS(enComparer comparer, int absValue, int? dependencyIndex, int? originIndex)
+    public TokenABS(enComparer comparer, int absValue, int dependencyIndex, int originIndex)
     {
         Comparer = comparer;
         ABSValue = absValue;
@@ -21,31 +21,18 @@ public class TokenABS : IBasicLogic
 
     public bool Evaluate()
     {
-        Debug.Log("YO");
-        if (OriginIndex.HasValue && DependencyIndex.HasValue)
+        if(Comparer == enComparer.EQUALS)
         {
-            if (Comparer == enComparer.EQUALS)
-            {
-                Debug.Log(Mathf.Abs(OriginIndex.Value - DependencyIndex.Value));
-                return Mathf.Abs(OriginIndex.Value - DependencyIndex.Value) == ABSValue;
-            }
-            else if (Comparer == enComparer.GREATER_EQUALS)
-            {
-                Debug.Log("GreaterEquals");
-                return Mathf.Abs(OriginIndex.Value - DependencyIndex.Value) >= ABSValue;
-            }
-            else
-            {
-                Debug.Log("inner ELSE");
-                
-            }
+            return Mathf.Abs(OriginIndex - DependencyIndex) == ABSValue;
         }
-        else
+        else if (Comparer == enComparer.GREATER_EQUALS)
         {
-            Debug.Log("outer ELSE");
-
+            return Mathf.Abs(OriginIndex - DependencyIndex) >= ABSValue;
         }
-        Debug.Log("false");    
+        else if (Comparer == enComparer.GREATER)
+        {
+            return Mathf.Abs(OriginIndex - DependencyIndex) > ABSValue;
+        }
 
         return false;
     }

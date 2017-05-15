@@ -29,11 +29,11 @@ public class Corner : IRulesetLogic
 
     public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
     {
-        int? dIndex = DependencyPosition != null ? (int?)dependecy.Position.Index : null;
-        int? oIndex = OriginPosition != null ? (int?)origin.Position.Index : null;
+        int dIndex = dependecy.Position.Index;
+        int oIndex = origin.Position.Index;
 
-        Edge.enEdgeID? dEdgeID = DependencyPosition != null ? (Edge.enEdgeID?)dependecy.Position.Edge.EdgeID : null;
-        Edge.enEdgeID? oEdgeID = OriginPosition != null ? (Edge.enEdgeID?)origin.Position.Edge.EdgeID : null;
+        Edge.enEdgeID dEdgeID = dependecy.Position.Edge.EdgeID;
+        Edge.enEdgeID oEdgeID = origin.Position.Edge.EdgeID;
 
         m_Abs = new TokenABS(TokenABS.enComparer.EQUALS, 1, dIndex, oIndex);
         m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);
