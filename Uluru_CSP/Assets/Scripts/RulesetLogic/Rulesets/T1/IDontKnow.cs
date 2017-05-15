@@ -8,6 +8,10 @@ public class IDontKnow : IRulesetLogic
     {
     }
 
+    public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
+    {
+    }
+
     public bool Evaluate()
     {
         return true;

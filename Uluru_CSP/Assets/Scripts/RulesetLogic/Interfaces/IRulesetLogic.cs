@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IRulesetLogic
+public interface IRulesetLogic : IBasicLogic
 {
-    bool Evaluate();
+    void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy);
+
+    //bool Evaluate();
 }

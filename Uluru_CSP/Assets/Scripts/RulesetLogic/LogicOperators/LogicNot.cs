@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicNot : IRulesetLogic
+public class LogicNot : IBasicLogic
 {
-    public IRulesetLogic Object { get; set; }
+    public IBasicLogic Object { get; set; }
 
-    public LogicNot(IRulesetLogic obj = null)
+    public LogicNot(IBasicLogic obj)
     {
         Object = obj;
     }

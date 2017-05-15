@@ -9,12 +9,20 @@ public class ShortSide : IRulesetLogic
     private TokenEdge m_Short1Edge;
     private LogicOr m_Or;
 
-    public ShortSide(PositionTokenTuple origin = null)
+    /*public ShortSide(PositionTokenTuple origin = null)
     {
         Origin = origin;
         m_Short2Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Short_2, null);
         m_Short1Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Short_1, null);
         m_Or = new LogicOr(m_Short2Edge, m_Short1Edge);
+    }*/
+
+    public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
+    {
+        m_Short1Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Short_1, origin.Position.Edge.EdgeID);
+        m_Short2Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Short_2, origin.Position.Edge.EdgeID);
+        
+        m_Or = new LogicOr(m_Short1Edge, m_Short2Edge);
     }
 
     public bool Evaluate()

@@ -10,13 +10,27 @@ public class NotAdjacentNotOpposite : IRulesetLogic
     private LogicNot m_rhsNot;
     private LogicAnd m_And;
 
-    public NotAdjacentNotOpposite(Adjacent adjacent = null, Opposite opposite = null)
+    /*public NotAdjacentNotOpposite(Adjacent adjacent = null, Opposite opposite = null)
     {
         Adjacent = adjacent;
         Opposite = opposite;
 
         m_lhsNot = new LogicNot(Adjacent);
         m_rhsNot = new LogicNot(Opposite);
+
+        m_And = new LogicAnd(m_lhsNot, m_rhsNot);
+    }*/
+
+    public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
+    {
+        var adjacent = new Adjacent();
+        adjacent.Initialize(origin, dependecy);
+
+        var opposite = new Opposite();
+        opposite.Initialize(origin, dependecy);
+
+        m_lhsNot = new LogicNot(adjacent);
+        m_rhsNot = new LogicNot(opposite);
 
         m_And = new LogicAnd(m_lhsNot, m_rhsNot);
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TokenEdge : IRulesetLogic
+public class TokenEdge : IBasicLogic
 {
     public enum enComparer { EQUALS, UNEQUALS }
 
@@ -10,7 +10,7 @@ public class TokenEdge : IRulesetLogic
     public Edge.enEdgeID? OriginEdge { get; set; }
     public Edge.enEdgeID? DependencyEdge { get; set; }
 
-    public TokenEdge(enComparer comparer, Edge.enEdgeID? dependencyEdge = null, Edge.enEdgeID? originEdge = null)
+    public TokenEdge(enComparer comparer, Edge.enEdgeID? dependencyEdge, Edge.enEdgeID? originEdge)
     {
         Comparer = comparer;
         OriginEdge = originEdge;

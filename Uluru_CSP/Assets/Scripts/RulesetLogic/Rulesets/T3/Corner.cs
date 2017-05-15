@@ -10,7 +10,7 @@ public class Corner : IRulesetLogic
     private TokenEdge m_Edge;
     private LogicAnd m_And;
 
-    public Corner(Position dependencyPosition = null, Position originPosition = null)
+    /*public Corner(Position dependencyPosition = null, Position originPosition = null)
     {
         OriginPosition = originPosition;
         DependencyPosition = dependencyPosition;
@@ -20,6 +20,20 @@ public class Corner : IRulesetLogic
 
         Edge.enEdgeID? dEdgeID = DependencyPosition != null ? (Edge.enEdgeID?)DependencyPosition.Edge.EdgeID : null;
         Edge.enEdgeID? oEdgeID = OriginPosition != null ? (Edge.enEdgeID?)OriginPosition.Edge.EdgeID : null;
+
+        m_Abs = new TokenABS(TokenABS.enComparer.EQUALS, 1, dIndex, oIndex);
+        m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);
+
+        m_And = new LogicAnd(m_Abs, m_Edge);
+    }*/
+
+    public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
+    {
+        int? dIndex = DependencyPosition != null ? (int?)dependecy.Position.Index : null;
+        int? oIndex = OriginPosition != null ? (int?)origin.Position.Index : null;
+
+        Edge.enEdgeID? dEdgeID = DependencyPosition != null ? (Edge.enEdgeID?)dependecy.Position.Edge.EdgeID : null;
+        Edge.enEdgeID? oEdgeID = OriginPosition != null ? (Edge.enEdgeID?)origin.Position.Edge.EdgeID : null;
 
         m_Abs = new TokenABS(TokenABS.enComparer.EQUALS, 1, dIndex, oIndex);
         m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);

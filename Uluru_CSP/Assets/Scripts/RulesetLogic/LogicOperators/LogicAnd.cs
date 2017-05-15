@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicAnd : IRulesetLogic
+public class LogicAnd : IBasicLogic
 {
-    public IRulesetLogic Lhs { get; set; }
-    public IRulesetLogic Rhs { get; set; }
+    public IBasicLogic Lhs { get; set; }
+    public IBasicLogic Rhs { get; set; }
 
-    public LogicAnd(IRulesetLogic lhs = null, IRulesetLogic rhs = null)
+    public LogicAnd(IBasicLogic lhs, IBasicLogic rhs)
     {
         Lhs = lhs;
         Rhs = rhs;

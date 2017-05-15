@@ -10,7 +10,7 @@ public class Opposite : IRulesetLogic
     private TokenSide m_Side;
     private LogicAnd m_And;
 
-    public Opposite(Position dependencyPosition = null, Position originPosition = null)
+    /*public Opposite(Position dependencyPosition = null, Position originPosition = null)
     {
         OriginPosition = originPosition;
         DependencyPosition = dependencyPosition;
@@ -23,6 +23,20 @@ public class Opposite : IRulesetLogic
 
         m_Side = new TokenSide(TokenSide.enComparer.UNEQUALS, dSide, oSide);
         m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);
+        m_And = new LogicAnd(m_Side, m_Edge);
+    }*/
+
+    public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
+    {
+        Edge.enSide? dSide = DependencyPosition != null ? (Edge.enSide?)dependecy.Position.Edge.Side : null;
+        Edge.enSide? oSide = OriginPosition != null ? (Edge.enSide?)origin.Position.Edge.Side : null;
+
+        Edge.enEdgeID? dEdgeID = DependencyPosition != null ? (Edge.enEdgeID?)dependecy.Position.Edge.EdgeID : null;
+        Edge.enEdgeID? oEdgeID = OriginPosition != null ? (Edge.enEdgeID?)origin.Position.Edge.EdgeID : null;
+
+        m_Side = new TokenSide(TokenSide.enComparer.UNEQUALS, dSide, oSide);
+        m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);
+
         m_And = new LogicAnd(m_Side, m_Edge);
     }
 
