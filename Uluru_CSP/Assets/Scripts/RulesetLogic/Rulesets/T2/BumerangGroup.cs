@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class BumerangGroup : IRulesetLogic
 {
-    public PositionTokenTuple Origin { get; set; }
     private TokenEdge m_Short2Edge;
     private TokenEdge m_Long3Edge;
     private LogicOr m_Or;
 
-    /*public BumerangGroup(PositionTokenTuple origin = null)
-    {
-        Origin = origin;
-        m_Short2Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Short_2, null);
-        m_Long3Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Long_3, null);
-        m_Or = new LogicOr(m_Short2Edge, m_Long3Edge);
-    }*/
-
     public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
     {
-        m_Short2Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Short_2, origin.Position.Edge.EdgeID);
-        m_Long3Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Long_3, origin.Position.Edge.EdgeID);
-        m_Or = new LogicOr(m_Short2Edge, m_Long3Edge);
+        if(origin != null)
+        {
+            m_Short2Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Short_2, origin.Position.Edge.EdgeID);
+            m_Long3Edge = new TokenEdge(TokenEdge.enComparer.EQUALS, Edge.enEdgeID.Long_3, origin.Position.Edge.EdgeID);
+            m_Or = new LogicOr(m_Short2Edge, m_Long3Edge);
+        }
+        else
+        {
+            m_Or = null;
+        }
     }
 
     public bool Evaluate()

@@ -4,27 +4,21 @@ using UnityEngine;
 
 public class Min2Away : IRulesetLogic
 {
-    public Position OriginPosition { get; set; }
-    public Position DependencyPosition { get; set; }
     private TokenABS m_Abs;
-
-    /*public Min2Away(Position dependencyPosition = null, Position originPosition = null)
-    {
-        OriginPosition = originPosition;
-        DependencyPosition = dependencyPosition;
-
-        int? dIndex = DependencyPosition != null ? (int?)DependencyPosition.Index : null;
-        int? oIndex = OriginPosition != null ? (int?)OriginPosition.Index : null;
-
-        m_Abs = new TokenABS(TokenABS.enComparer.GREATER, 1, dIndex, oIndex);
-    }*/
 
     public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
     {
-        int dIndex = dependecy.Position.Index;
-        int oIndex = origin.Position.Index;
+        if (origin != null && dependecy != null)
+        {
+            int dIndex = dependecy.Position.Index;
+            int oIndex = origin.Position.Index;
 
-        m_Abs = new TokenABS(TokenABS.enComparer.GREATER, 1, dIndex, oIndex);
+            m_Abs = new TokenABS(TokenABS.enComparer.GREATER, 1, dIndex, oIndex);
+        }
+        else
+        {
+            m_Abs = null;
+        }
     }
 
     public bool Evaluate()

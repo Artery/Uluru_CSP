@@ -4,40 +4,29 @@ using UnityEngine;
 
 public class Opposite : IRulesetLogic
 {
-    public Position OriginPosition { get; set; }
-    public Position DependencyPosition { get; set; }
     private TokenEdge m_Edge;
     private TokenSide m_Side;
     private LogicAnd m_And;
 
-    /*public Opposite(Position dependencyPosition = null, Position originPosition = null)
-    {
-        OriginPosition = originPosition;
-        DependencyPosition = dependencyPosition;
-
-        Edge.enEdgeID? dEdgeID = DependencyPosition != null ? (Edge.enEdgeID?) DependencyPosition.Edge.EdgeID : null;
-        Edge.enEdgeID? oEdgeID = OriginPosition != null ? (Edge.enEdgeID?)OriginPosition.Edge.EdgeID : null;
-
-        Edge.enSide? dSide = DependencyPosition != null ? (Edge.enSide?)DependencyPosition.Edge.Side : null;
-        Edge.enSide? oSide = OriginPosition != null ? (Edge.enSide?)OriginPosition.Edge.Side : null;
-
-        m_Side = new TokenSide(TokenSide.enComparer.UNEQUALS, dSide, oSide);
-        m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);
-        m_And = new LogicAnd(m_Side, m_Edge);
-    }*/
-
     public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
     {
-        Edge.enSide dSide = dependecy.Position.Edge.Side;
-        Edge.enSide oSide = origin.Position.Edge.Side;
+        if (origin != null && dependecy != null)
+        {
+            Edge.enSide dSide = dependecy.Position.Edge.Side;
+            Edge.enSide oSide = origin.Position.Edge.Side;
 
-        Edge.enEdgeID dEdgeID = dependecy.Position.Edge.EdgeID;
-        Edge.enEdgeID oEdgeID = origin.Position.Edge.EdgeID;
+            Edge.enEdgeID dEdgeID = dependecy.Position.Edge.EdgeID;
+            Edge.enEdgeID oEdgeID = origin.Position.Edge.EdgeID;
 
-        m_Side = new TokenSide(TokenSide.enComparer.EQUALS, dSide, oSide);
-        m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);
+            m_Side = new TokenSide(TokenSide.enComparer.EQUALS, dSide, oSide);
+            m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);
 
-        m_And = new LogicAnd(m_Side, m_Edge);
+            m_And = new LogicAnd(m_Side, m_Edge);
+        }
+        else
+        {
+            m_And = null;
+        }
     }
 
     public bool Evaluate()
