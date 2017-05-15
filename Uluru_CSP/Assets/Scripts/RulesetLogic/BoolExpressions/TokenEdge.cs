@@ -23,6 +23,8 @@ public class TokenEdge : IBasicLogic
         {
             if (Comparer == enComparer.EQUALS)
             {
+                Debug.Log(OriginEdge.Value);
+                Debug.Log(DependencyEdge.Value);
                 return OriginEdge.Value == DependencyEdge.Value;
             }
             else if (Comparer == enComparer.UNEQUALS)

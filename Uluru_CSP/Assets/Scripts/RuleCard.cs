@@ -6,7 +6,9 @@ public class RuleCard : MonoBehaviour
     [SerializeField]
     private Difficulty m_difficulty;
     [SerializeField]
-    private Ruleset m_ruleset = new Ruleset();
+    private Color m_Color;
+    [SerializeField]
+    private Ruleset m_ruleset;// = new Ruleset();
     [SerializeField]
     private Image m_CardImage;
     [SerializeField]
@@ -15,12 +17,19 @@ public class RuleCard : MonoBehaviour
     void Start()
     {
         m_ruleset = new Ruleset(RulesetAdapter.GetRulesetLogic(RulesetType));
+        m_ruleset.Color = Color;
     }
 
     public Difficulty Difficulty
     {
         get { return m_difficulty; }
         set { m_difficulty = value; }
+    }
+
+    public Color Color
+    {
+        get { return m_Color; }
+        set { m_Color = value; }
     }
     public Ruleset Ruleset
     {

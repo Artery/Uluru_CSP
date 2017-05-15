@@ -21,19 +21,31 @@ public class TokenABS : IBasicLogic
 
     public bool Evaluate()
     {
-
+        Debug.Log("YO");
         if (OriginIndex.HasValue && DependencyIndex.HasValue)
         {
             if (Comparer == enComparer.EQUALS)
             {
+                Debug.Log(Mathf.Abs(OriginIndex.Value - DependencyIndex.Value));
                 return Mathf.Abs(OriginIndex.Value - DependencyIndex.Value) == ABSValue;
             }
             else if (Comparer == enComparer.GREATER_EQUALS)
             {
+                Debug.Log("GreaterEquals");
                 return Mathf.Abs(OriginIndex.Value - DependencyIndex.Value) >= ABSValue;
             }
+            else
+            {
+                Debug.Log("inner ELSE");
+                
+            }
         }
-            
+        else
+        {
+            Debug.Log("outer ELSE");
+
+        }
+        Debug.Log("false");    
 
         return false;
     }

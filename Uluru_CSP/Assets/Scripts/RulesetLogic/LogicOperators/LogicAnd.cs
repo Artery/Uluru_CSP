@@ -15,6 +15,9 @@ public class LogicAnd : IBasicLogic
 
     public bool Evaluate()
     {
+        Debug.Log("LogicAnd");
+        Debug.Log(Lhs.GetType());
+        Debug.Log(Rhs);
         return Lhs != null && Rhs != null ? Lhs.Evaluate() && Rhs.Evaluate() : false;
     }
 }

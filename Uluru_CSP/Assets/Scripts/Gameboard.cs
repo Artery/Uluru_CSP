@@ -68,14 +68,20 @@ public class Gameboard : MonoBehaviour
 
         foreach (var slot in gameplanState)
         {
+            ////Debug.Log("||||||||||||||||||||||||||||||||||||||||||||");
+            Debug.Log(slot.Color);
             PositionTokenTuple rulesetTuple = null;
             var slotTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(slot.Color));
+            //Debug.Log(slotTuple);
             var ruleset = slot.RuleCard.Ruleset;
 
             if (!ruleset.Color.Equals(Color.NONE))
             {
                 rulesetTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
             }
+
+            //Debug.Log(ruleset);
+            //Debug.Log(rulesetTuple);
 
             if (!ruleset.VerfiyRuleset(slotTuple, rulesetTuple))
             {

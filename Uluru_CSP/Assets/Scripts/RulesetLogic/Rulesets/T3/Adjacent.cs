@@ -29,8 +29,13 @@ public class Adjacent : IRulesetLogic
 
     public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
     {
+        Debug.Log(origin);
+        Debug.Log(dependecy);
         int? dIndex = DependencyPosition != null ? (int?)dependecy.Position.Index : null;
         int? oIndex = OriginPosition != null ? (int?)origin.Position.Index : null;
+
+        Debug.Log(dIndex);
+        Debug.Log(oIndex);
 
         Edge.enEdgeID? dEdgeID = DependencyPosition != null ? (Edge.enEdgeID?)dependecy.Position.Edge.EdgeID : null;
         Edge.enEdgeID? oEdgeID = OriginPosition != null ? (Edge.enEdgeID?)origin.Position.Edge.EdgeID : null;
@@ -43,6 +48,7 @@ public class Adjacent : IRulesetLogic
 
     public bool Evaluate()
     {
+        Debug.Log("Adjacent");
         return m_And != null ? m_And.Evaluate() : false;
     }
 }

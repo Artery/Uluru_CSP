@@ -14,8 +14,21 @@ public class Ruleset
 
     public bool VerfiyRuleset(PositionTokenTuple slotTuple, PositionTokenTuple rulesetTuple)
     {
-        RulesetLogic.Initialize(slotTuple, rulesetTuple);
-        return RulesetLogic.Evaluate();
+        bool result = false;
+
+        //Debug.Log(slotTuple.Token);
+
+        if(slotTuple != null)
+        {
+            RulesetLogic.Initialize(slotTuple, rulesetTuple);
+            result = RulesetLogic.Evaluate();
+        }
+        else
+        {
+            //Debug.Log(slotTuple);
+        }
+
+        return result;
         //throw new NotImplementedException();
     }
 }
