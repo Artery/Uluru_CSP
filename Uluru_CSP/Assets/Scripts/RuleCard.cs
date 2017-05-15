@@ -9,6 +9,13 @@ public class RuleCard : MonoBehaviour
     private Ruleset m_ruleset;
     [SerializeField]
     private Image m_CardImage;
+    [SerializeField]
+    private enRulesetType m_RulesetType;
+
+    void Start()
+    {
+        m_ruleset = new Ruleset(RulesetAdapter.GetRulesetLogic(RulesetType));
+    }
 
     public Difficulty Difficulty
     {
@@ -25,5 +32,11 @@ public class RuleCard : MonoBehaviour
     {
         get { return m_CardImage; }
         set { m_CardImage = value; }
+    }
+
+    public enRulesetType RulesetType
+    {
+        get { return m_RulesetType; }
+        set { m_RulesetType = value; }
     }
 }
