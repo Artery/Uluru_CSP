@@ -28,13 +28,13 @@ public class Opposite : IRulesetLogic
 
     public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
     {
-        Edge.enSide? dSide = DependencyPosition != null ? (Edge.enSide?)dependecy.Position.Edge.Side : null;
-        Edge.enSide? oSide = OriginPosition != null ? (Edge.enSide?)origin.Position.Edge.Side : null;
+        Edge.enSide dSide = dependecy.Position.Edge.Side;
+        Edge.enSide oSide = origin.Position.Edge.Side;
 
-        Edge.enEdgeID? dEdgeID = DependencyPosition != null ? (Edge.enEdgeID?)dependecy.Position.Edge.EdgeID : null;
-        Edge.enEdgeID? oEdgeID = OriginPosition != null ? (Edge.enEdgeID?)origin.Position.Edge.EdgeID : null;
+        Edge.enEdgeID dEdgeID = dependecy.Position.Edge.EdgeID;
+        Edge.enEdgeID oEdgeID = origin.Position.Edge.EdgeID;
 
-        m_Side = new TokenSide(TokenSide.enComparer.UNEQUALS, dSide, oSide);
+        m_Side = new TokenSide(TokenSide.enComparer.EQUALS, dSide, oSide);
         m_Edge = new TokenEdge(TokenEdge.enComparer.UNEQUALS, dEdgeID, oEdgeID);
 
         m_And = new LogicAnd(m_Side, m_Edge);
