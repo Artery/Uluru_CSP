@@ -75,6 +75,15 @@ public class Gameboard : MonoBehaviour
             //Debug.Log(slotTuple);
             var ruleset = slot.RuleCard.Ruleset;
 
+            var yo = slot.RuleCard.RulesetType;
+
+            while (yo == enRulesetType.SAMEAS)
+            {
+                var __slot = gameplanState.FirstOrDefault(_slot => _slot.Color == slot.RuleCard.Color);
+                ruleset = __slot.RuleCard.Ruleset;
+                yo = __slot.RuleCard.RulesetType;
+            }
+
             if (!ruleset.Color.Equals(Color.NONE))
             {
                 rulesetTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
