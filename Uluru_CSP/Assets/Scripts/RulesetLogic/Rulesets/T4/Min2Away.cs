@@ -21,10 +21,10 @@ public class Min2Away : IRulesetLogic
 
     public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
     {
-        int? dIndex = DependencyPosition != null ? (int?)dependecy.Position.Index : null;
-        int? oIndex = OriginPosition != null ? (int?)origin.Position.Index : null;
+        int dIndex = dependecy.Position.Index;
+        int oIndex = origin.Position.Index;
 
-        m_Abs = new TokenABS(TokenABS.enComparer.EQUALS, 1, dIndex, oIndex);
+        m_Abs = new TokenABS(TokenABS.enComparer.GREATER, 1, dIndex, oIndex);
     }
 
     public bool Evaluate()
