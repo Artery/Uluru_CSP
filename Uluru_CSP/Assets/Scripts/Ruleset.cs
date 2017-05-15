@@ -7,6 +7,11 @@ public class Ruleset
 
     public IRulesetLogic RulesetLogic { get; set; }
 
+    public Ruleset(IRulesetLogic rulesetLogic)
+    {
+        RulesetLogic = rulesetLogic;
+    }
+
     public bool VerfiyRuleset(PositionTokenTuple slotTuple, PositionTokenTuple rulesetTuple)
     {
         RulesetLogic.Initialize(slotTuple, rulesetTuple);
