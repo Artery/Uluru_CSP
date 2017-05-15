@@ -18,8 +18,15 @@ public class Ruleset
 
         if(slotTuple != null)
         {
-            RulesetLogic.Initialize(slotTuple, rulesetTuple);
-            result = RulesetLogic.Evaluate();
+            if(Color == slotTuple.Token.Color)
+            {
+                result = true;
+            }
+            else
+            {
+                RulesetLogic.Initialize(slotTuple, rulesetTuple);
+                result = RulesetLogic.Evaluate();
+            }
         }
 
         Debug.Log(result);
