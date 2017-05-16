@@ -68,29 +68,38 @@ public class Gameboard : MonoBehaviour
 
         foreach (var slot in gameplanState)
         {
-            ////Debug.Log("||||||||||||||||||||||||||||||||||||||||||||");
             Debug.Log(slot.Color);
             PositionTokenTuple rulesetTuple = null;
             var slotTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(slot.Color));
-            //Debug.Log(slotTuple);
             var ruleset = slot.RuleCard.Ruleset;
 
             var yo = slot.RuleCard.RulesetType;
+            var negate = yo == enRulesetType.OPPOSITEOF;
 
-            while (yo == enRulesetType.SAMEAS)
+            while (yo == enRulesetType.SAMEAS || yo == enRulesetType.OPPOSITEOF)
             {
                 var __slot = gameplanState.FirstOrDefault(_slot => _slot.Color == slot.RuleCard.Color);
                 ruleset = __slot.RuleCard.Ruleset;
                 yo = __slot.RuleCard.RulesetType;
+
+                negate = negate != (yo == enRulesetType.OPPOSITEOF);
+
+                if (__slot.Color == ruleset.Color)
+                {
+                    break;
+                }
             }
+
+            if(negate)
+            {
+                ruleset.RulesetLogic = new Inverse(ruleset.RulesetLogic);
+            }
+
 
             if (!ruleset.Color.Equals(Color.NONE))
             {
                 rulesetTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
             }
-
-            //Debug.Log(ruleset);
-            //Debug.Log(rulesetTuple);
 
             if (!ruleset.VerfiyRuleset(slotTuple, rulesetTuple))
             {
