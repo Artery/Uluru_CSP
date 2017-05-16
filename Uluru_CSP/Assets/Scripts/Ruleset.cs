@@ -4,6 +4,7 @@ using UnityEngine;
 public class Ruleset
 {
     public Color Color { get; set; }
+    public enRulesetType RulesetType { get; set; }
 
     public IRuleset RulesetLogic { get; set; }
 
