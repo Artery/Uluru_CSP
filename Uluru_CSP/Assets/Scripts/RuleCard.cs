@@ -18,6 +18,7 @@ public class RuleCard : MonoBehaviour
     {
         m_ruleset = new Ruleset(RulesetAdapter.GetRulesetLogic(RulesetType));
         m_ruleset.Color = Color;
+        m_ruleset.RulesetType = RulesetType;
     }
 
     public Difficulty Difficulty
