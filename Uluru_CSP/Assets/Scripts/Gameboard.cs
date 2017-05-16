@@ -72,6 +72,8 @@ public class Gameboard : MonoBehaviour
             var slotTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(slot.Color));
             var ruleset = slot.RuleCard.Ruleset;
 
+            HandleChainedRulesets(gameplanState, ref ruleset);
+
             if (!ruleset.Color.Equals(Color.NONE))
             {
                 rulesetTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
@@ -86,6 +88,31 @@ public class Gameboard : MonoBehaviour
         Debug.Log(wrongTokens.Count);
 
         return wrongTokens;
+    }
+
+    private static void HandleChainedRulesets(List<Slot> gameplanState, ref Ruleset ruleset)
+    {
+        var inverseRuleset = ruleset.RulesetType == enRulesetType.CONTRARY_OF;
+
+        while (ruleset.RulesetType == enRulesetType.SAME_AS || ruleset.RulesetType == enRulesetType.CONTRARY_OF)
+        {
+            var rulesetColor = ruleset.Color;
+            var linkedSlot = gameplanState.FirstOrDefault(_slot => _slot.Color == rulesetColor);
+
+            ruleset = linkedSlot.RuleCard.Ruleset;
+
+            inverseRuleset = inverseRuleset != (ruleset.RulesetType == enRulesetType.CONTRARY_OF);
+
+            if (linkedSlot.Color == ruleset.Color || ruleset.RulesetType == enRulesetType.NO_PREFERENCE)
+            {
+                break;
+            }
+        }
+
+        if (inverseRuleset)
+        {
+            ruleset.RulesetLogic = new InverseRuleset(ruleset.RulesetLogic);
+        }
     }
 
     public void PositionButtonClicked(GameObject clickedButton)
@@ -119,7 +146,7 @@ public class Gameboard : MonoBehaviour
 
     public void SetTokenOnPosition(Token token, Position position)
     {
-        if(token != null)
+        if (token != null)
         {
             var oldPosition = m_positionsTokens.Where(tuple => token.Equals(tuple.Token)).FirstOrDefault();
 
@@ -129,7 +156,7 @@ public class Gameboard : MonoBehaviour
                 oldPosition.Position.UpdateTokenImageColor(null);
             }
         }
-        
+
         var tokenPositionTuple = m_positionsTokens.Single(tuple => position.Equals(tuple.Position));
 
         tokenPositionTuple.Token = token;
