@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/Gameboard_test_scene1.unity
-  isLoaded: 1
-  isActive: 1
