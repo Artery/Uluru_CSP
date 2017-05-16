@@ -78,19 +78,19 @@ public class Gameboard : MonoBehaviour
 
             while (yo == enRulesetType.SAMEAS || yo == enRulesetType.OPPOSITEOF)
             {
-                var __slot = gameplanState.FirstOrDefault(_slot => _slot.Color == slot.RuleCard.Color);
+                var __slot = gameplanState.FirstOrDefault(_slot => _slot.Color == ruleset.Color);
                 ruleset = __slot.RuleCard.Ruleset;
                 yo = __slot.RuleCard.RulesetType;
 
                 negate = negate != (yo == enRulesetType.OPPOSITEOF);
 
-                if (__slot.Color == ruleset.Color)
+                if (__slot.Color == ruleset.Color || __slot.RuleCard.RulesetType == enRulesetType.IDONTKNOW)
                 {
                     break;
                 }
             }
 
-            if(negate)
+            if (negate)
             {
                 ruleset.RulesetLogic = new Inverse(ruleset.RulesetLogic);
             }
