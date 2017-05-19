@@ -24,6 +24,6 @@ public class LonleyGroup : IRuleset
 
     public bool Evaluate()
     {
-        return m_Or != null ? m_Or.Evaluate() : false;
+        return m_Or != null && m_Or.Evaluate();
     }
 }

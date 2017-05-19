@@ -23,6 +23,6 @@ public class MinimumDistance2 : IRuleset
 
     public bool Evaluate()
     {
-        return m_DistanceCondition != null ? m_DistanceCondition.Evaluate() : false;
+        return m_DistanceCondition != null && m_DistanceCondition.Evaluate();
     }
 }
