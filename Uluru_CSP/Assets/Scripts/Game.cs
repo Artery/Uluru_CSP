@@ -20,8 +20,6 @@ public class Game : MonoBehaviour
 
     [SerializeField]
     private List<Player> m_players;
-    [SerializeField]
-    private List<DifficultyRuleCardCollection> m_Deck;
 
     [SerializeField]
     private Scoreboard m_Scoreboard;
@@ -31,11 +29,6 @@ public class Game : MonoBehaviour
     public List<Player> Players
     {
         get { return m_players; }
-    }
-
-    public List<DifficultyRuleCardCollection> Deck
-    {
-        get { return m_Deck; }
     }
 
     public Gameplan Gameplan
@@ -101,7 +94,7 @@ public class Game : MonoBehaviour
         CurrentRound = 0;
 
         InitializePlayersScoreboard();
-        Gameplan.Intialize(SelectGameDeck());
+        InitializeGameplan();
         LockPlayers();
     }
 
@@ -222,10 +215,10 @@ public class Game : MonoBehaviour
     }
     #endregion
 
-    #region DeckMethods
-    protected CardCollection SelectGameDeck()
+    #region GamePlanMethods
+    protected void InitializeGameplan()
     {
-        return new CardCollection(Deck.Where(cardset => cardset.Difficulty <= Difficulty).SelectMany(collection => collection.RuleCards));
+        Gameplan.Intialize(DeckGenerator.GenerateDeck(Difficulty));
     }
     #endregion
 }
