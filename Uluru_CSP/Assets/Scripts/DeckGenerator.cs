@@ -34,13 +34,26 @@ public class DeckGenerator : MonoBehaviour
         
         foreach (var prefab in selectedRuleCardPrefabs)
         {
-            foreach (var color in m_Colors)
+            if (prefab.Color == Color.NONE)
             {
-                var index = m_RandomNumberGenerator.Next(0, cardCounter++);
-                var ruleCard = Instantiate(prefab);
-                ruleCard.Color = color;
+                for (int i = 0; i < 2; i++)
+                {
+                    var index = m_RandomNumberGenerator.Next(0, cardCounter++);
+                    var ruleCard = Instantiate(prefab);
 
-                deck.Insert(index, ruleCard);
+                    deck.Insert(index, ruleCard);
+                }
+            }
+            else
+            {
+                foreach (var color in m_Colors)
+                {
+                    var index = m_RandomNumberGenerator.Next(0, cardCounter++);
+                    var ruleCard = Instantiate(prefab);
+                    ruleCard.Color = color;
+
+                    deck.Insert(index, ruleCard);
+                }
             }
         }
 
