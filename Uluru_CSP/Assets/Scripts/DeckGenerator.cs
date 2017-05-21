@@ -20,7 +20,7 @@ public class DeckGenerator : MonoBehaviour
         get { return m_RuleCardPrefabs; }
     }
 
-    void Start ()
+    void Awake ()
     {
         Instance = this;
     }
