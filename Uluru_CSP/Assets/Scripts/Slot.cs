@@ -28,15 +28,32 @@ public class Slot : MonoBehaviour
     public void SetRuleCard(RuleCard ruleCard)
     {
         m_RuleCard = ruleCard;
+        GetComponentInChildren<Text>().text = "";
 
         //m_RuleCardImage = m_RuleCard != null ? m_RuleCard.CardImage : null;
-        if(m_RuleCard != null && m_RuleCard.CardImage != null)
+        if (m_RuleCard != null && m_RuleCard.CardImage != null)
         {
             var cardImage = m_RuleCard.CardImage;
 
             m_RuleCardImage.sprite = cardImage.sprite;
             m_RuleCardImage.color = cardImage.color;
             m_RuleCardImage.material = cardImage.material;
+
+            //Temp hack for UI
+            GetComponentInChildren<Text>().text = m_RuleCard.RulesetType.ToString();
+            if (RuleCard.Color == Color.NONE)
+            {
+                GetComponentInChildren<Text>().color = UnityEngine.Color.cyan;
+            }
+            else
+            {
+                
+                GetComponentInChildren<Text>().color = colors[(int)m_RuleCard.Color];
+            }
         }
     }
+
+    private UnityEngine.Color[] colors = new UnityEngine.Color[]{
+        UnityEngine.Color.white, UnityEngine.Color.magenta, UnityEngine.Color.yellow, new UnityEngine.Color(180, 100, 10), 
+        UnityEngine.Color.red, UnityEngine.Color.green, UnityEngine.Color.blue, UnityEngine.Color.black };
 }
