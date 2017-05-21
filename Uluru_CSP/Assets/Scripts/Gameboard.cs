@@ -74,12 +74,12 @@ public class Gameboard : MonoBehaviour
 
             HandleChainedRulesets(gameplanState, ref ruleset);
 
-            if (!ruleset.Color.Equals(Color.NONE))
-            {
+            if (ruleset != null && !ruleset.Color.Equals(Color.NONE))
+            {  
                 rulesetTuple = m_positionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
             }
 
-            if (!ruleset.VerfiyRuleset(slotTuple, rulesetTuple))
+            if (ruleset == null || !ruleset.VerfiyRuleset(slotTuple, rulesetTuple))
             {
                 wrongTokens.Add(slot.Color);
             }
@@ -97,14 +97,23 @@ public class Gameboard : MonoBehaviour
         while (ruleset.RulesetType == enRulesetType.SAME_AS || ruleset.RulesetType == enRulesetType.CONTRARY_OF)
         {
             var rulesetColor = ruleset.Color;
-            var linkedSlot = gameplanState.FirstOrDefault(_slot => _slot.Color == rulesetColor);
+            var linkedSlot = gameplanState.FirstOrDefault(slot => slot.Color == rulesetColor);
 
-            ruleset = linkedSlot.RuleCard.Ruleset;
-
-            inverseRuleset = inverseRuleset != (ruleset.RulesetType == enRulesetType.CONTRARY_OF);
-
-            if (linkedSlot.Color == ruleset.Color || ruleset.RulesetType == enRulesetType.NO_PREFERENCE)
+            if (linkedSlot != null)
             {
+                ruleset = linkedSlot.RuleCard.Ruleset;
+
+                inverseRuleset = inverseRuleset != (ruleset.RulesetType == enRulesetType.CONTRARY_OF);
+
+                if (linkedSlot.Color == ruleset.Color || ruleset.RulesetType == enRulesetType.NO_PREFERENCE)
+                {
+                    break;
+                }
+            }
+            else
+            {
+                inverseRuleset = false;
+                ruleset = null;
                 break;
             }
         }

@@ -31,6 +31,6 @@ public class Adjacent: IRuleset
 
     public bool Evaluate()
     {
-        return m_And != null ? m_And.Evaluate() : false;
+        return m_And != null && m_And.Evaluate();
     }
 }

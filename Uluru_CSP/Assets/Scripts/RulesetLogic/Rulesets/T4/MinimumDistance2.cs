@@ -13,7 +13,7 @@ public class MinimumDistance2 : IRuleset
             int slotTokenPositionIndex = slotTuple.Position.Index;
             int rulesetTokenPositionIndex = rulesetTuple.Position.Index;
 
-            m_DistanceCondition = new DistanceCondition(enLogicComparator.GREATER_EQUALS, 2, slotTokenPositionIndex, rulesetTokenPositionIndex);
+            m_DistanceCondition = new DistanceCondition(enLogicComparator.GREATER, 2, slotTokenPositionIndex, rulesetTokenPositionIndex);
         }
         else
         {
@@ -23,6 +23,6 @@ public class MinimumDistance2 : IRuleset
 
     public bool Evaluate()
     {
-        return m_DistanceCondition != null ? m_DistanceCondition.Evaluate() : false;
+        return m_DistanceCondition != null && m_DistanceCondition.Evaluate();
     }
 }
