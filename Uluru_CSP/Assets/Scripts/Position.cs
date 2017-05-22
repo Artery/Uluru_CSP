@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+//This class represents one Position on e.g. the Gameboard
 public class Position : UIButtonBase
 {
     protected static int nextIndex = 0;
 
     [SerializeField]
-    private int m_index;
+    private int m_Index;
     [SerializeField]
-    private Edge m_edge;
+    private Edge m_Edge;
     [SerializeField]
     private Image m_TokenImage;
 
@@ -26,14 +27,14 @@ public class Position : UIButtonBase
 
     public int Index
     {
-        get { return m_index; }
-        protected set { m_index = value; }
+        get { return m_Index; }
+        protected set { m_Index = value; }
     }
 
     public Edge Edge
     {
-        get { return m_edge; }
-        set { m_edge = value; }
+        get { return m_Edge; }
+        set { m_Edge = value; }
     }
 
     public Image TokenImage
