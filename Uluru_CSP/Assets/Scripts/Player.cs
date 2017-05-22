@@ -3,35 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This class represents one player 
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private string m_name;
+    private string m_PlayerName;
     [SerializeField]
-    private int m_drawback;
+    private int m_Drawback;
     [SerializeField]
-    private Gameboard m_gameboard;
+    private Gameboard m_Gameboard;
     [SerializeField]
-    private List<Token> m_tokens;
+    private List<Token> m_Tokens;
 
     public string Name
     {
-        get { return m_name; }
-        set { m_name = value; }
+        get { return m_PlayerName; }
+        set { m_PlayerName = value; }
     }
     public int Drawback
     {
-        get { return m_drawback; }
-        set { m_drawback = value; }
+        get { return m_Drawback; }
+        set { m_Drawback = value; }
     }
     public Gameboard Gameboard
     {
-        get { return m_gameboard; }
-        set { m_gameboard = value; }
+        get { return m_Gameboard; }
+        set { m_Gameboard = value; }
     }
     public List<Token> Tokens
     {
-        get { return m_tokens; }
+        get { return m_Tokens; }
     }
 
     public void Unlock()
