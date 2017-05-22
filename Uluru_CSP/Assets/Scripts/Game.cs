@@ -7,19 +7,19 @@ public class Game : MonoBehaviour
 {
     #region Attributes
     [SerializeField]
-    private Gameplan m_gameplan;
+    private Gameplan m_Gameplan;
     [SerializeField]
-    private Hourglass m_hourglass;
+    private Hourglass m_Hourglass;
 
     [SerializeField]
-    private Difficulty m_difficulty;
+    private Difficulty m_Difficulty;
     [SerializeField]
-    private int m_maxRounds;
+    private int m_MaxRounds;
     [SerializeField]
-    private int m_currentRound;
+    private int m_CurrentRound;
 
     [SerializeField]
-    private List<Player> m_players;
+    private List<Player> m_Players;
 
     [SerializeField]
     private Scoreboard m_Scoreboard;
@@ -28,33 +28,33 @@ public class Game : MonoBehaviour
     #region Getter/Setter/Properties
     public List<Player> Players
     {
-        get { return m_players; }
+        get { return m_Players; }
     }
 
     public Gameplan Gameplan
     {
-        get { return m_gameplan; }
+        get { return m_Gameplan; }
     }
 
     public Hourglass Hourglass
     {
-        get { return m_hourglass; }
+        get { return m_Hourglass; }
     }
 
     public Difficulty Difficulty
     {
-        get { return m_difficulty; }
-        set { m_difficulty = value; }
+        get { return m_Difficulty; }
+        set { m_Difficulty = value; }
     }
     public int MaxRounds
     {
-        get { return m_maxRounds; }
-        set { m_maxRounds = value; }
+        get { return m_MaxRounds; }
+        set { m_MaxRounds = value; }
     }
     public int CurrentRound
     {
-        get { return m_currentRound; }
-        set { m_currentRound = value; }
+        get { return m_CurrentRound; }
+        set { m_CurrentRound = value; }
     }
     #endregion
 
