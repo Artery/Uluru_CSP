@@ -203,10 +203,7 @@ public class Game : MonoBehaviour
         var gameplanState = Gameplan.Slots;
         foreach(var player in Players)
         {
-            var gameboard = player.Gameboard;
-            var result = gameboard.VerifyBoardState(gameplanState);
-
-            player.Drawback -= result.Count;
+            player.Drawback -= player.Gameboard.VerifyBoardState(gameplanState).Count;
             //ToDo visualize Round result for each player
             //Includes visualizing correct and wrong placed Tokens
             //and showing applied drawbacks of and for all players
