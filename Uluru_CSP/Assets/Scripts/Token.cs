@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Token : UIButtonBase
 {
     [SerializeField]
-    private Color m_color;
+    private Color m_Color;
     [SerializeField]
     private UnityEngine.Color m_UIColor;
 
@@ -25,7 +25,7 @@ public class Token : UIButtonBase
 
     public Color Color
     {
-        get { return m_color; }
-        set { m_color = value; }
+        get { return m_Color; }
+        set { m_Color = value; }
     }
 }
