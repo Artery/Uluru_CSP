@@ -1,8 +1,6 @@
 ﻿public class LogicalAnd : LogicOperatorBase
 {
-    public LogicalAnd(IEvaluable lhs, IEvaluable rhs) : base(lhs, rhs)
-    {
-    }
+    public LogicalAnd(IEvaluable lhs, IEvaluable rhs) : base(lhs, rhs) { }
 
     public override bool Evaluate()
     {

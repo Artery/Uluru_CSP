@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class NoPreference : IRuleset
 {
-    public NoPreference()
-    {
-    }
+    public NoPreference() { }
 
-    public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy)
-    {
-    }
+    public void Initialize(PositionTokenTuple origin, PositionTokenTuple dependecy) { }
 
     public bool Evaluate()
     {
