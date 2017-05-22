@@ -5,34 +5,34 @@ using UnityEngine;
 public class Hourglass : MonoBehaviour
 {
     [SerializeField]
-    private double m_duration;
+    private double m_Duration;
     [SerializeField]
-    private double m_remainingTime;
+    private double m_RemainingTime;
     [SerializeField]
-    private bool m_active;
-    private bool m_finished;
+    private bool m_Active;
+    private bool m_Finished;
 
     public double   Duration
     {
-        get { return m_duration; }
-        set { m_duration = value; }
+        get { return m_Duration; }
+        set { m_Duration = value; }
     }
     public double RemainingTime
     {
-        get { return m_remainingTime; }
-        set { m_remainingTime = value; }
+        get { return m_RemainingTime; }
+        set { m_RemainingTime = value; }
     }
     //Indicates if the hourglass is "running", will be still active even if finished
     public bool Active
     {
-        get { return m_active; }
-        protected set { m_active = value; }
+        get { return m_Active; }
+        protected set { m_Active = value; }
     }
     //Indicates if the hourglass finished it's "measurement"
     public bool Finished
     {
-        get { return m_finished; }
-        protected set { m_finished = value; }
+        get { return m_Finished; }
+        protected set { m_Finished = value; }
     }
 
     //Starts the hourglass, does not reset
