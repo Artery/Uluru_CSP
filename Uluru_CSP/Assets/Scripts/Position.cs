@@ -51,7 +51,7 @@ public class Position : UIButtonBase
 
     public void UpdateTokenImageColor(UnityEngine.Color? tokenColor)
     {
-        if (tokenColor != null && tokenColor.HasValue)
+        if (tokenColor != null)
         {
             TokenImage.enabled = true;
             TokenImage.color = tokenColor.Value;
