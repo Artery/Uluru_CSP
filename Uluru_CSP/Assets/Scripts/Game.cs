@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
+//Main class handling the Game and the Game-Loop
 public class Game : MonoBehaviour
 {
     #region Attributes
@@ -67,13 +68,15 @@ public class Game : MonoBehaviour
 
     void Update()
     {
+        //ToDo
+        //Should be refactored, when Scoreboard is standalone feature
         m_Scoreboard.UpdateRemainingTime(Hourglass.RemainingTime);
     }
     #endregion
 
     #region GameMethods
 
-    //Loop for an active Game
+    //Game-Loop for an active Game
     public IEnumerator GameLoop()
     {
         while(CurrentRound < MaxRounds)
@@ -212,7 +215,7 @@ public class Game : MonoBehaviour
     }
     #endregion
 
-    #region GamePlanMethods
+    #region GameplanMethods
     protected void InitializeGameplan()
     {
         Gameplan.Intialize(DeckGenerator.GenerateDeck(Difficulty));
