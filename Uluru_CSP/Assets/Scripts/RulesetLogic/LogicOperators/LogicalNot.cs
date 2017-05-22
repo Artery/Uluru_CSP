@@ -9,6 +9,6 @@
 
     public bool Evaluate()
     {
-        return Object != null ? !Object.Evaluate() : false;
+        return Object != null && !Object.Evaluate();
     }
 }

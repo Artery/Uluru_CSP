@@ -6,6 +6,6 @@
 
     public override bool Evaluate()
     {
-        return Lhs != null && Rhs != null ? Lhs.Evaluate() || Rhs.Evaluate() : false;
+        return Lhs != null && Rhs != null && (Lhs.Evaluate() || Rhs.Evaluate());
     }
 }
