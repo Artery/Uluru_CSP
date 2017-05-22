@@ -4,11 +4,11 @@ using UnityEngine.UI;
 public class RuleCard : MonoBehaviour
 {
     [SerializeField]
-    private Difficulty m_difficulty;
+    private Difficulty m_Difficulty;
     [SerializeField]
     private Color m_Color;
     [SerializeField]
-    private Ruleset m_ruleset;
+    private Ruleset m_Ruleset;
     [SerializeField]
     private enRulesetType m_RulesetType;
     [SerializeField]
@@ -16,15 +16,15 @@ public class RuleCard : MonoBehaviour
 
     void Start()
     {
-        m_ruleset = new Ruleset(RulesetAdapter.GetRulesetLogic(RulesetType));
-        m_ruleset.Color = Color;
-        m_ruleset.RulesetType = RulesetType;
+        m_Ruleset = new Ruleset(RulesetAdapter.GetRulesetLogic(RulesetType));
+        m_Ruleset.Color = Color;
+        m_Ruleset.RulesetType = RulesetType;
     }
 
     public Difficulty Difficulty
     {
-        get { return m_difficulty; }
-        set { m_difficulty = value; }
+        get { return m_Difficulty; }
+        set { m_Difficulty = value; }
     }
 
     public Color Color
@@ -35,8 +35,8 @@ public class RuleCard : MonoBehaviour
 
     public Ruleset Ruleset
     {
-        get { return m_ruleset; }
-        set { m_ruleset = value; }
+        get { return m_Ruleset; }
+        set { m_Ruleset = value; }
     }
 
     public enRulesetType RulesetType
