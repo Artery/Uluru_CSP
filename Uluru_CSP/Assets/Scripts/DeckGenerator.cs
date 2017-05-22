@@ -9,6 +9,8 @@ public class DeckGenerator : MonoBehaviour
 {
     [SerializeField]
     private List<DifficultyRuleCardCollection> m_RuleCardPrefabs;
+    [SerializeField]
+    private Transform m_DeckParentTransform;
 
     private static readonly List<Color> m_Colors = Enum.GetValues(typeof(Color)).Cast<Color>().Where(color => color >= 0).ToList();
     private static readonly System.Random m_RandomNumberGenerator = new System.Random();
@@ -27,6 +29,8 @@ public class DeckGenerator : MonoBehaviour
 
     public static CardCollection GenerateDeck(Difficulty difficulty)
     {
+        //ToDo
+        //Needs refactoring
         var selectedRuleCardPrefabs = new CardCollection(Instance.RuleCardPrefabs.Where(cardset => cardset.Difficulty <= difficulty).SelectMany(collection => collection.RuleCards));
 
         var deck = new CardCollection();
@@ -40,6 +44,8 @@ public class DeckGenerator : MonoBehaviour
                 {
                     var index = m_RandomNumberGenerator.Next(0, cardCounter++);
                     var ruleCard = Instantiate(prefab);
+
+                    ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
 
                     deck.Insert(index, ruleCard);
                 }
