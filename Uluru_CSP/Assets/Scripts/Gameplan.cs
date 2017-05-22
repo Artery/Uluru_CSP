@@ -6,7 +6,7 @@ using UnityEngine;
 public class Gameplan : MonoBehaviour
 {
     [SerializeField]
-    private List<Slot> m_slots;
+    private List<Slot> m_Slots;
     [SerializeField]
     private CardCollection m_Deck = new CardCollection();
 
@@ -14,7 +14,7 @@ public class Gameplan : MonoBehaviour
     {
         get
         {
-            return m_slots;
+            return m_Slots;
         }
     }
 
@@ -39,7 +39,7 @@ public class Gameplan : MonoBehaviour
     //Resets the slots, by removing the RuleCards from each color
     public void ResetSlots()
     {
-        m_slots.ForEach(slot => slot.SetRuleCard(null));
+        m_Slots.ForEach(slot => slot.SetRuleCard(null));
     }
 
     //Fills the slots with RuleCards from the GamePile
