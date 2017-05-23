@@ -206,6 +206,15 @@ public class Game : MonoBehaviour
         var gameplanState = Gameplan.Slots;
         foreach(var player in Players)
         {
+            //ToDo
+            //temp hack
+            var result = Backtracking.BacktrackingSearch(player.Gameboard.PositionsTokens, gameplanState, player.Tokens);
+            var asdf = "";
+            result.ForEach(
+                tuple => asdf += "Index: " + tuple.Position.Index + "::Token: " + tuple.Token.Color + "\n");
+            Debug.Log(asdf);
+            Debug.Log("LoopCounter: " + Backtracking.loopCounter);
+            player.Gameboard.PositionsTokens = result;
             player.Drawback -= player.Gameboard.VerifyBoardState(gameplanState).Count;
             //ToDo visualize Round result for each player
             //Includes visualizing correct and wrong placed Tokens
