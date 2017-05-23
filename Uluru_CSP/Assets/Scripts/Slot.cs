@@ -54,6 +54,6 @@ public class Slot : MonoBehaviour
     }
 
     private UnityEngine.Color[] colors = new UnityEngine.Color[]{
-        UnityEngine.Color.white, UnityEngine.Color.magenta, UnityEngine.Color.yellow, new UnityEngine.Color(180, 100, 10), 
+        UnityEngine.Color.white, UnityEngine.Color.magenta, UnityEngine.Color.yellow, new UnityEngine.Color(0.9f, 0.6f, 0.05f), 
         UnityEngine.Color.red, UnityEngine.Color.green, UnityEngine.Color.blue, UnityEngine.Color.black };
 }

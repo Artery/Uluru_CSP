@@ -134,13 +134,17 @@ public class Gameboard : MonoBehaviour
         HandleChainedRulesets(csp, ref ruleset);
 
         Debug.Log(ruleset.RulesetType);
-
+        var color = false;
         if (ruleset != null && !ruleset.Color.Equals(Color.NONE))
         {
+            color = true;
             Debug.Log("COLOR");
             rulesetTuple = assignment.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
         }
 
-        return ruleset != null && ruleset.VerfiyRuleset(slotTuple, rulesetTuple);
+        Debug.Log(color && rulesetTuple == null);
+        //Debug.Log(rulesetTuple.Token.Color);
+        
+        return ruleset != null && (ruleset.VerfiyRuleset(slotTuple, rulesetTuple) || color && rulesetTuple == null );
     }
 }

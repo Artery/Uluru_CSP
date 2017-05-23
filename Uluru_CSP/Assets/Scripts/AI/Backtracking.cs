@@ -59,8 +59,12 @@ public class Backtracking
 
                 if (result != null)
                 {
-                    Debug.Log("result != null");
-                    return result;
+                    if(IsValueConsistentWithAssignmentGivenContraints(value, assignment, csp,
+                        csp.FirstOrDefault(slot => slot.Color.Equals(var.Color))))
+                    {
+                        Debug.Log("result != null");
+                        return result;
+                    }
                 }
 
                 Debug.Log("result == null, removing value");

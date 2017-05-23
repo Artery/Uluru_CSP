@@ -14,7 +14,7 @@ public class RuleCard : MonoBehaviour
     [SerializeField]
     private Image m_CardImage;
 
-    void Start()
+    void Awake()
     {
         m_Ruleset = new Ruleset(RulesetAdapter.GetRulesetLogic(RulesetType));
         m_Ruleset.Color = Color;
