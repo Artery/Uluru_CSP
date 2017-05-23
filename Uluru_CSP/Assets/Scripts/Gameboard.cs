@@ -18,6 +18,12 @@ public class Gameboard : MonoBehaviour
         {
             return m_PositionsTokens;
         }
+        //ToDo
+        //temp hack
+        set
+        {
+            m_PositionsTokens = value;
+        }
     }
 
     public PositionCollection Positions
@@ -114,5 +120,27 @@ public class Gameboard : MonoBehaviour
         {
             ruleset.RulesetLogic = new InverseRuleset(ruleset.RulesetLogic);
         }
+    }
+
+    //ToDo
+    //Temp hack
+    public static bool VerifySingleSlot(Slot slot, PositionTokenTuple slotTuple, List<PositionTokenTuple> assignment, List<Slot> csp)
+    {
+        PositionTokenTuple rulesetTuple = null;
+        var ruleset = slot.RuleCard.Ruleset;
+
+        Debug.Log(ruleset.RulesetType);
+
+        HandleChainedRulesets(csp, ref ruleset);
+
+        Debug.Log(ruleset.RulesetType);
+
+        if (ruleset != null && !ruleset.Color.Equals(Color.NONE))
+        {
+            Debug.Log("COLOR");
+            rulesetTuple = assignment.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
+        }
+
+        return ruleset != null && ruleset.VerfiyRuleset(slotTuple, rulesetTuple);
     }
 }
