@@ -40,14 +40,102 @@ public class DeckGenerator : MonoBehaviour
         {
             if (prefab.Color == Color.NONE)
             {
-                for (int i = 0; i < 2; i++)
+                int bound = prefab.RulesetType == enRulesetType.NO_PREFERENCE ? 8 : 2;
+                for (int i = 0; i < bound; i++)
                 {
                     var index = m_RandomNumberGenerator.Next(0, cardCounter++);
-                    var ruleCard = Instantiate(prefab);
+                    RuleCard ruleCard = null;
+                    if(i == 7)
+                    {
+                        Debug.Log("BLACK");
+                        ruleCard = Instantiate(Instance.m_RuleCardPrefabs.Where(diff => diff.Difficulty == Difficulty.EASY).SelectMany(asdf => asdf.RuleCards).
+                            First(yo => yo.RulesetType == enRulesetType.LONLEY_GROUP));
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
 
-                    ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
+                        //deck.Insert(0, ruleCard);
+                        deck.Add(ruleCard);
+                    }
+                    else if (i == 6)
+                    {
+                        Debug.Log("BLUE");
+                        ruleCard = Instantiate(Instance.m_RuleCardPrefabs.Where(diff => diff.Difficulty == Difficulty.EASY).SelectMany(asdf => asdf.RuleCards).
+                            First(yo => yo.RulesetType == enRulesetType.LONG_SIDE));
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
 
-                    deck.Insert(index, ruleCard);
+                        //deck.Insert(0, ruleCard);
+                        deck.Add(ruleCard);
+                    }
+                    else if (i == 5)
+                    {
+                        Debug.Log("GREEN");
+                        ruleCard = Instantiate(Instance.m_RuleCardPrefabs.Where(diff => diff.Difficulty == Difficulty.EASY).SelectMany(asdf => asdf.RuleCards).
+                            First(yo => yo.RulesetType == enRulesetType.BUMERANG_GROUP));
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
+
+                        //deck.Insert(0, ruleCard);
+                        deck.Add(ruleCard);
+                    }
+                    else if (i == 4)
+                    {
+                        Debug.Log("RED");
+                        ruleCard = Instantiate(Instance.m_RuleCardPrefabs.Where(diff => diff.Difficulty == Difficulty.EASY).SelectMany(asdf => asdf.RuleCards).
+                            First(yo => yo.RulesetType == enRulesetType.LONG_SIDE));
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
+
+                        //deck.Insert(0, ruleCard);
+                        deck.Add(ruleCard);
+                    }
+                    else if (i == 3)
+                    {
+                        Debug.Log("ORANGE");
+                        ruleCard = Instantiate(Instance.m_RuleCardPrefabs.Where(diff => diff.Difficulty == Difficulty.EASY).SelectMany(asdf => asdf.RuleCards).
+                            First(yo => yo.RulesetType == enRulesetType.SHORT_SIDE));
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
+
+                        //deck.Insert(0, ruleCard);
+                        deck.Add(ruleCard);
+                    }
+                    else if (i == 2)
+                    {
+                        Debug.Log("YELLOW");
+                        ruleCard = Instantiate(Instance.m_RuleCardPrefabs.Where(diff => diff.Difficulty == Difficulty.EASY).SelectMany(asdf => asdf.RuleCards).
+                            First(yo => yo.RulesetType == enRulesetType.LONLEY_GROUP));
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
+
+                        //deck.Insert(0, ruleCard);
+                        deck.Add(ruleCard);
+                    }
+                    else if (i == 1)
+                    {
+                        Debug.Log("PINK");
+                        ruleCard = Instantiate(Instance.m_RuleCardPrefabs.Where(diff => diff.Difficulty == Difficulty.EASY).SelectMany(asdf => asdf.RuleCards).
+                            First(yo => yo.RulesetType == enRulesetType.SHORT_SIDE));
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
+
+                        //deck.Insert(0, ruleCard);
+                        deck.Add(ruleCard);
+                    }
+                    else if (i == 0)
+                    {
+                        Debug.Log("WHITE");
+                        ruleCard = Instantiate(Instance.m_RuleCardPrefabs.Where(diff => diff.Difficulty == Difficulty.EASY).SelectMany(asdf => asdf.RuleCards).
+                            First(yo => yo.RulesetType == enRulesetType.LONG_SIDE));
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
+
+                        //deck.Insert(0, ruleCard);
+                        deck.Add(ruleCard);
+                    }
+                    else
+                    {
+                        Debug.Log("As");
+                        ruleCard = Instantiate(prefab);
+                        ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
+
+                        deck.Insert(index, ruleCard);
+                    }
+                    //var ruleCard = Instantiate(prefab);
+
+                    
                 }
             }
             else
