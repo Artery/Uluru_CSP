@@ -19,6 +19,14 @@ public class DistanceCondition : IEvaluable
     public bool Evaluate()
     {
         var absDistance = Mathf.Abs(FromIndex - ToIndex);
+
+        //ToDo
+        //temp hack
+        if (absDistance >= 5)
+        {
+            absDistance = 8 - absDistance;
+        }
+
         var result = false;
 
         switch (Comparator)
