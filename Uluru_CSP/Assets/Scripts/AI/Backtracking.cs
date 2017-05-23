@@ -39,7 +39,7 @@ public class Backtracking
         var acc = "";
         orderDomainValues.ForEach(tuple => acc += tuple.Position.Index + ", ");
 
-        Debug.Log("orderDomainValues: " + acc);
+        Debug.Log(var.Color + " - orderDomainValues: " + acc);
 
         foreach (var value in orderDomainValues)
         {
@@ -51,35 +51,38 @@ public class Backtracking
             if (IsValueConsistentWithAssignmentGivenContraints(value, assignment, csp, 
                 csp.FirstOrDefault(slot => slot.Color.Equals(var.Color))))
             {
-                Debug.Log("Consistent == true");
+                Debug.Log(var.Color + " - Consistent == true");
                 //add {var = value} to assignment
                 assignment = AddValueToAssignment(assignment, value);
                 tokens.RemoveAt(0);
+                Debug.Log(tokens.Count);
                 List<PositionTokenTuple> result = RecursiveBacktracking(assignment, csp, tokens);
-
+                
                 if (result != null)
                 {
-                    if(IsValueConsistentWithAssignmentGivenContraints(value, assignment, csp,
+                    if (IsValueConsistentWithAssignmentGivenContraints(value, assignment, csp,
                         csp.FirstOrDefault(slot => slot.Color.Equals(var.Color))))
                     {
-                        Debug.Log("result != null");
+                        Debug.Log(var.Color + " - result != null");
                         return result;
                     }
+                    Debug.Log(tokens.Count);
+                    Debug.Log(var.Color + " - Rule violation in children");
                 }
 
-                Debug.Log("result == null, removing value");
+                Debug.Log(var.Color + " - result == null, removing value");
                 //remove {var = value} from assignment
                 assignment = RemoveValueFromAssignment(assignment, value);
                 value.Token = null;
             }
             else
             {
-                Debug.Log("Consistent == false");
+                Debug.Log(var.Color + " - Consistent == false");
                 value.Token = null;
             }
         }
 
-        Debug.Log("FAILURE");
+        Debug.Log(var.Color + " - FAILURE");
         tokens.Add(var);
         //failure
         return null;

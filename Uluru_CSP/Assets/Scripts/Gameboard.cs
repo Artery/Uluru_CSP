@@ -144,7 +144,11 @@ public class Gameboard : MonoBehaviour
 
         Debug.Log(color && rulesetTuple == null);
         //Debug.Log(rulesetTuple.Token.Color);
-        
-        return ruleset != null && (ruleset.VerfiyRuleset(slotTuple, rulesetTuple) || color && rulesetTuple == null );
+        var result = ruleset != null &&
+                     (ruleset.VerfiyRuleset(slotTuple, rulesetTuple) || color && rulesetTuple == null);
+
+        Debug.Log(result);
+
+        return result;
     }
 }
