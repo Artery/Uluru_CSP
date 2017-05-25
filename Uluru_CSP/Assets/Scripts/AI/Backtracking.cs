@@ -15,7 +15,7 @@ public class Backtracking
 
     private static List<PositionTokenTuple> RecursiveBacktracking(List<PositionTokenTuple> assignment, List<Slot> csp, List<Token> tokens)
     {
-        if (counter >= 1000)
+        if (counter >= 10000)
         {
             Debug.Log("INFINITE LOOP");
             //solution
@@ -48,8 +48,7 @@ public class Backtracking
             value.Token = var;
 
             //if value is consistent with assignment given Constraints[csp]
-            if (IsValueConsistentWithAssignmentGivenContraints(value, assignment, csp, 
-                csp.FirstOrDefault(slot => slot.Color.Equals(var.Color))))
+            if (IsValueConsistentWithAssignmentGivenContraints(assignment, csp))
             {
                 Debug.Log(var.Color + " - Consistent == true");
                 //add {var = value} to assignment
@@ -60,14 +59,16 @@ public class Backtracking
                 
                 if (result != null)
                 {
-                    if (IsValueConsistentWithAssignmentGivenContraints(value, assignment, csp,
-                        csp.FirstOrDefault(slot => slot.Color.Equals(var.Color))))
-                    {
-                        Debug.Log(var.Color + " - result != null");
-                        return result;
-                    }
-                    Debug.Log(tokens.Count);
-                    Debug.Log(var.Color + " - Rule violation in children");
+                    Debug.Log(var.Color + " - result != null");
+                    return result;
+
+                    //if (IsValueConsistentWithAssignmentGivenContraints(value, assignment, csp,
+                    //    csp.FirstOrDefault(slot => slot.Color.Equals(var.Color))))
+                    //{
+
+                    //}
+                    //Debug.Log(tokens.Count);
+                    //Debug.Log(var.Color + " - Rule violation in children");
                 }
 
                 Debug.Log(var.Color + " - result == null, removing value");
@@ -102,11 +103,18 @@ public class Backtracking
         return assignment.Where(tuple => tuple.Token == null).ToList();
     }
 
-    private static bool IsValueConsistentWithAssignmentGivenContraints(PositionTokenTuple tuple, List<PositionTokenTuple> assignment, List<Slot> csp, Slot slot)
+    private static bool IsValueConsistentWithAssignmentGivenContraint(PositionTokenTuple tuple, List<PositionTokenTuple> assignment, List<Slot> csp, Slot slot)
     {
         //ToDo
         //Temp hack
         return Gameboard.VerifySingleSlot(slot, tuple, assignment, csp);
+    }
+
+    private static bool IsValueConsistentWithAssignmentGivenContraints(List<PositionTokenTuple> assignment, List<Slot> csp)
+    {
+        //ToDo
+        //Temp hack
+        return Gameboard.VerifyTempBoardState(assignment, csp);
     }
 
     private static List<PositionTokenTuple> AddValueToAssignment(List<PositionTokenTuple> assignment, PositionTokenTuple value)
