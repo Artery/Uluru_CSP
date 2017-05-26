@@ -45,14 +45,14 @@ public class DeckGenerator : MonoBehaviour
                 {
                     var index = m_RandomNumberGenerator.Next(0, cardCounter++);
                     RuleCard ruleCard = null;
-                    if(i == 7)
+                    if (i == 7)
                     {
                         Debug.Log("BLACK");
                         ruleCard = Instantiate(Instance.m_RuleCardPrefabs.SelectMany(asdf => asdf.RuleCards).
-                            First(yo => yo.RulesetType == enRulesetType.SHORT_SIDE));
+                            First(yo => yo.RulesetType == enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE));
                         ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
-                        //ruleCard.Color = Color.WHITE;
-                        //ruleCard.Ruleset.Color = Color.WHITE;
+                        ruleCard.Color = Color.YELLOW;
+                        ruleCard.Ruleset.Color = Color.YELLOW;
                         //deck.Insert(0, ruleCard);
                         deck.Add(ruleCard);
                     }
@@ -60,10 +60,10 @@ public class DeckGenerator : MonoBehaviour
                     {
                         Debug.Log("BLUE");
                         ruleCard = Instantiate(Instance.m_RuleCardPrefabs.SelectMany(asdf => asdf.RuleCards).
-                            First(yo => yo.RulesetType == enRulesetType.BUMERANG_GROUP));
+                            First(yo => yo.RulesetType == enRulesetType.AROUND_THE_CORNER));
                         ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
-                        //ruleCard.Color = Color.BLACK;
-                        //ruleCard.Ruleset.Color = Color.BLACK;
+                        ruleCard.Color = Color.BLACK;
+                        ruleCard.Ruleset.Color = Color.BLACK;
                         //deck.Insert(0, ruleCard);
                         deck.Add(ruleCard);
                     }
@@ -71,10 +71,10 @@ public class DeckGenerator : MonoBehaviour
                     {
                         Debug.Log("GREEN");
                         ruleCard = Instantiate(Instance.m_RuleCardPrefabs.SelectMany(asdf => asdf.RuleCards).
-                            First(yo => yo.RulesetType == enRulesetType.BUMERANG_GROUP));
+                            First(yo => yo.RulesetType == enRulesetType.AROUND_THE_CORNER));
                         ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
-                        //ruleCard.Color = Color.BLUE;
-                        //ruleCard.Ruleset.Color = Color.BLUE;
+                        ruleCard.Color = Color.WHITE;
+                        ruleCard.Ruleset.Color = Color.WHITE;
                         //deck.Insert(0, ruleCard);
                         deck.Add(ruleCard);
                     }
@@ -82,10 +82,10 @@ public class DeckGenerator : MonoBehaviour
                     {
                         Debug.Log("RED");
                         ruleCard = Instantiate(Instance.m_RuleCardPrefabs.SelectMany(asdf => asdf.RuleCards).
-                            First(yo => yo.RulesetType == enRulesetType.MINIMUM_DISTANCE_2));
+                            First(yo => yo.RulesetType == enRulesetType.OPPOSITE_SIDE));
                         ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
-                        ruleCard.Color = Color.BLACK;
-                        ruleCard.Ruleset.Color = Color.BLACK;
+                        ruleCard.Color = Color.BLUE;
+                        ruleCard.Ruleset.Color = Color.BLUE;
                         //deck.Insert(0, ruleCard);
                         deck.Add(ruleCard);
                     }
@@ -93,7 +93,7 @@ public class DeckGenerator : MonoBehaviour
                     {
                         Debug.Log("ORANGE");
                         ruleCard = Instantiate(Instance.m_RuleCardPrefabs.SelectMany(asdf => asdf.RuleCards).
-                            First(yo => yo.RulesetType == enRulesetType.MINIMUM_DISTANCE_2));
+                            First(yo => yo.RulesetType == enRulesetType.OPPOSITE_SIDE));
                         ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
                         ruleCard.Color = Color.BLUE;
                         ruleCard.Ruleset.Color = Color.BLUE;
@@ -104,10 +104,10 @@ public class DeckGenerator : MonoBehaviour
                     {
                         Debug.Log("YELLOW");
                         ruleCard = Instantiate(Instance.m_RuleCardPrefabs.SelectMany(asdf => asdf.RuleCards).
-                            First(yo => yo.RulesetType == enRulesetType.MINIMUM_DISTANCE_2));
+                            First(yo => yo.RulesetType == enRulesetType.ADJACENT));
                         ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
-                        ruleCard.Color = Color.GREEN;
-                        ruleCard.Ruleset.Color = Color.GREEN;
+                        ruleCard.Color = Color.WHITE;
+                        ruleCard.Ruleset.Color = Color.WHITE;
                         //deck.Insert(0, ruleCard);
                         deck.Add(ruleCard);
                     }
@@ -117,8 +117,8 @@ public class DeckGenerator : MonoBehaviour
                         ruleCard = Instantiate(Instance.m_RuleCardPrefabs.SelectMany(asdf => asdf.RuleCards).
                             First(yo => yo.RulesetType == enRulesetType.MINIMUM_DISTANCE_2));
                         ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
-                        ruleCard.Color = Color.RED;
-                        ruleCard.Ruleset.Color = Color.RED;
+                        ruleCard.Color = Color.YELLOW;
+                        ruleCard.Ruleset.Color = Color.YELLOW;
 
                         //deck.Insert(0, ruleCard);
                         deck.Add(ruleCard);
@@ -127,9 +127,9 @@ public class DeckGenerator : MonoBehaviour
                     {
                         Debug.Log("WHITE");
                         ruleCard = Instantiate(Instance.m_RuleCardPrefabs.SelectMany(asdf => asdf.RuleCards).
-                            First(yo => yo.RulesetType == enRulesetType.MINIMUM_DISTANCE_2));
-                        ruleCard.Color = Color.ORANGE;
-                        ruleCard.Ruleset.Color = Color.ORANGE;
+                            First(yo => yo.RulesetType == enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE));
+                        ruleCard.Color = Color.PINK;
+                        ruleCard.Ruleset.Color = Color.PINK;
                         ruleCard.transform.SetParent(Instance.m_DeckParentTransform);
 
                         //deck.Insert(0, ruleCard);
@@ -145,7 +145,7 @@ public class DeckGenerator : MonoBehaviour
                     }
                     //var ruleCard = Instantiate(prefab);
 
-                    
+
                 }
             }
             else
