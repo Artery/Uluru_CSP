@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class DistanceCondition : IEvaluable
 {
-    public enLogicComparator Comparator { get; set; }
+    #region Fields
+    #endregion
 
+    #region Properties
+    public enLogicComparator Comparator { get; set; }
     public int DistanceValue { get; set; }
     public int FromIndex { get; set; }
     public int ToIndex { get; set; }
+    #endregion
 
+    #region Constructors
     public DistanceCondition(enLogicComparator comparator, int distanceValue, int fromIndex, int toIndex)
     {
         Comparator = comparator;
@@ -15,7 +23,10 @@ public class DistanceCondition : IEvaluable
         FromIndex = fromIndex;
         ToIndex = toIndex;
     }
+    #endregion
 
+    #region Methods
+    #region InterfaceMethods
     public bool Evaluate()
     {
         var absDistance = Mathf.Abs(FromIndex - ToIndex);
@@ -45,4 +56,8 @@ public class DistanceCondition : IEvaluable
 
         return result;
     }
+    #endregion
+    #region ClassMethods
+    #endregion
+    #endregion
 }

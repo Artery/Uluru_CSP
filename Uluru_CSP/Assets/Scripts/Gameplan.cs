@@ -3,14 +3,21 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
-//This class handles the Gameplan-board, which displays the RuleCards each round and handles the game-deck
+/// <summary>
+/// This class handles the Gameplan-board, which displays the RuleCards each round and handles the game-deck
+/// </summary>
 public class Gameplan : MonoBehaviour
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private List<Slot> m_Slots;
     [SerializeField]
     private CardCollection m_Deck = new CardCollection();
+    #endregion
+    #endregion
 
+    #region Properties
     public List<Slot> Slots
     {
         get
@@ -23,7 +30,28 @@ public class Gameplan : MonoBehaviour
     {
         get { return m_Deck; }
     }
+    #endregion
 
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    void Start() { }
+
+    void Update() { }
+
+    //Resets the Gameplan by removing the RuleCards from the Slots
+    //and adding them to the DiscardPile
+    public void Reset()
+    {
+        ResetSlots();
+    }
+    #endregion
+
+    #region ClassMethods
     public void Intialize(CardCollection gameDeck)
     {
         Deck.AddRange(gameDeck);
@@ -68,11 +96,6 @@ public class Gameplan : MonoBehaviour
         //ToDO
         //throw new NotImplementedException();
     }
-
-    //Resets the Gameplan by removing the RuleCards from the Slots
-    //and adding them to the DiscardPile
-    public void Reset()
-    {
-        ResetSlots();
-    }
+    #endregion
+    #endregion
 }

@@ -2,13 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class RulesetAdapter
 {
+    #region Fields
+    #endregion
+
+    #region Properties
+    #endregion
+
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region StaticMethods
     public static IRuleset GetRulesetLogic(enRulesetType rulesetType)
     {
         IRuleset ruleset = null;
 
-        switch(rulesetType)
+        switch (rulesetType)
         {
             case enRulesetType.NO_PREFERENCE:
                 ruleset = new NoPreference();
@@ -50,4 +64,6 @@ public class RulesetAdapter
 
         return ruleset;
     }
+    #endregion
+    #endregion
 }

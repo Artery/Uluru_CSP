@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 [System.Serializable]
 public class DifficultyRuleCardCollection
 {

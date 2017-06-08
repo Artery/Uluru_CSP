@@ -4,15 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class Slot : MonoBehaviour
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private Color m_Color;
     [SerializeField]
     private RuleCard m_RuleCard;
     [SerializeField]
     private Image m_RuleCardImage;
+    #endregion
+    private UnityEngine.Color[] colors = new UnityEngine.Color[]{
+                                                                    UnityEngine.Color.white, UnityEngine.Color.magenta, UnityEngine.Color.yellow, new UnityEngine.Color(180, 100, 10),
+                                                                    UnityEngine.Color.red, UnityEngine.Color.green, UnityEngine.Color.blue, UnityEngine.Color.black };
+    #endregion
 
+    #region Properties
     public Color Color
     {
         get { return m_Color; }
@@ -24,7 +35,21 @@ public class Slot : MonoBehaviour
         get { return m_RuleCard; }
         set { m_RuleCard = value; }
     }
+    #endregion
 
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    void Start() { }
+
+    void Update() { }
+    #endregion
+
+    #region ClassMethods
     public void SetRuleCard(RuleCard ruleCard)
     {
         m_RuleCard = ruleCard;
@@ -47,13 +72,11 @@ public class Slot : MonoBehaviour
             }
             else
             {
-                
+
                 GetComponentInChildren<Text>().color = colors[(int)m_RuleCard.Color];
             }
         }
     }
-
-    private UnityEngine.Color[] colors = new UnityEngine.Color[]{
-        UnityEngine.Color.white, UnityEngine.Color.magenta, UnityEngine.Color.yellow, new UnityEngine.Color(180, 100, 10), 
-        UnityEngine.Color.red, UnityEngine.Color.green, UnityEngine.Color.blue, UnityEngine.Color.black };
+    #endregion
+    #endregion
 }

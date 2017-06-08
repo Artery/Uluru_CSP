@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class LonleyGroup : IRuleset
 {
+    #region Fields
     private EdgeCondition m_Short1EdgeCondition;
     private EdgeCondition m_Long2EdgeCondition;
     private LogicalOr m_Or;
+    #endregion
 
+    #region Properties
+    #endregion
+
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region InterfaceMethods
     public void Initialize(PositionTokenTuple slotTuple, PositionTokenTuple rulesetTuple)
     {
         if (slotTuple != null)
@@ -26,4 +39,8 @@ public class LonleyGroup : IRuleset
     {
         return m_Or != null && m_Or.Evaluate();
     }
+    #endregion
+    #region ClassMethods
+    #endregion
+    #endregion
 }

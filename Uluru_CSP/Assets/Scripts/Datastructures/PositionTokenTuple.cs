@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 [System.Serializable]
 public class PositionTokenTuple
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private Position m_Position;
     [SerializeField]
     private Token m_Token;
+    #endregion
+    #endregion
 
-    public PositionTokenTuple(Position position, Token token)
-    {
-        Position = position;
-        Token = token;
-    }
-
+    #region Properties
     public Position Position
     {
         get
@@ -41,5 +43,19 @@ public class PositionTokenTuple
             m_Token = value;
         }
     }
+    #endregion
+
+    #region Constructors
+    public PositionTokenTuple(Position position, Token token)
+    {
+        Position = position;
+        Token = token;
+    }
+    #endregion
+
+    #region Methods
+    #region ClassMethods
+    #endregion
+    #endregion 
 }
 

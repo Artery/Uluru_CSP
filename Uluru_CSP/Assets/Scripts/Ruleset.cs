@@ -1,18 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class Ruleset
 {
+    #region Fields
+    #endregion
+
+    #region Properties
     public Color Color { get; set; }
     public enRulesetType RulesetType { get; set; }
-
     public IRuleset RulesetLogic { get; set; }
+    #endregion
 
+    #region Constructors
     public Ruleset(IRuleset ruleset)
     {
         RulesetLogic = ruleset;
     }
+    #endregion
 
+    #region Methods
+    #region ClassMethods
     public bool VerfiyRuleset(PositionTokenTuple slotTuple, PositionTokenTuple rulesetTuple)
     {
         bool result = false;
@@ -37,4 +48,6 @@ public class Ruleset
 
         return result;
     }
+    #endregion
+    #endregion
 }

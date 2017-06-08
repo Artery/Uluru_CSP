@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class UIButtonBase : MonoBehaviour
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     protected bool m_IsUnlocked;
     [SerializeField]
     protected Button m_Button;
+    #endregion
+    #endregion
 
+    #region Properties
     public Button Button
     {
         get
@@ -40,4 +48,21 @@ public class UIButtonBase : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    void Start() { }
+
+    void Update() { }
+    #endregion
+
+    #region ClassMethods
+    #endregion
+    #endregion
 }

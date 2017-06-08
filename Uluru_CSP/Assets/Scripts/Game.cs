@@ -3,10 +3,13 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-//Main class handling the Game and the Game-Loop
+/// <summary>
+/// Main class handling the Game and the Game-Loop
+/// </summary>
 public class Game : MonoBehaviour
 {
-    #region Attributes
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private Gameplan m_Gameplan;
     [SerializeField]
@@ -25,8 +28,9 @@ public class Game : MonoBehaviour
     [SerializeField]
     private Scoreboard m_Scoreboard;
     #endregion
+    #endregion
 
-    #region Getter/Setter/Properties
+    #region Properties
     public List<Player> Players
     {
         get { return m_Players; }
@@ -59,7 +63,13 @@ public class Game : MonoBehaviour
     }
     #endregion
 
+    #region Constructors
+    #endregion
+
+    #region Methods
     #region MonoMethods
+    void Awake() { }
+
     void Start()
     {
         InitializeGame();
@@ -74,12 +84,13 @@ public class Game : MonoBehaviour
     }
     #endregion
 
+    #region ClassMethods
     #region GameMethods
 
     //Game-Loop for an active Game
     public IEnumerator GameLoop()
     {
-        while(CurrentRound < MaxRounds)
+        while (CurrentRound < MaxRounds)
         {
             InitializeRound();
             StartRound();
@@ -138,7 +149,7 @@ public class Game : MonoBehaviour
         ResetPlayerGameboards();
         UpdatePlayersScoreboard();
     }
-    
+
     protected void StartRound()
     {
         Gameplan.DealOutNextSequence();
@@ -204,7 +215,7 @@ public class Game : MonoBehaviour
     protected void EvaluatePlayersScore()
     {
         var gameplanState = Gameplan.Slots;
-        foreach(var player in Players)
+        foreach (var player in Players)
         {
             player.Drawback -= player.Gameboard.VerifyBoardState(gameplanState).Count;
             //ToDo visualize Round result for each player
@@ -220,5 +231,7 @@ public class Game : MonoBehaviour
     {
         Gameplan.Intialize(DeckGenerator.GenerateDeck(Difficulty));
     }
+    #endregion
+    #endregion
     #endregion
 }

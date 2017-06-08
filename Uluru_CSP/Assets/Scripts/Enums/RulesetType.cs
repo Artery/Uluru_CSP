@@ -1,4 +1,7 @@
-﻿public enum enRulesetType
+﻿/// <summary>
+/// Class summary goes here...
+/// </summary>
+public enum enRulesetType
 {
     NO_PREFERENCE = 11,
     BUMERANG_GROUP = 21, LONLEY_GROUP = 22, LONG_SIDE = 23, SHORT_SIDE = 24,

@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-//Simple Hourglass to stop time
+/// <summary>
+/// Simple Hourglass to stop time
+/// </summary>
 public class Hourglass : MonoBehaviour
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private double m_Duration;
     [SerializeField]
     private double m_RemainingTime;
     [SerializeField]
     private bool m_Active;
+    #endregion
     private bool m_Finished;
+    #endregion
 
-    public double   Duration
+    #region Properties
+    public double Duration
     {
         get { return m_Duration; }
         set { m_Duration = value; }
@@ -34,9 +41,23 @@ public class Hourglass : MonoBehaviour
         get { return m_Finished; }
         protected set { m_Finished = value; }
     }
+    #endregion
 
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    //void Start() { }
+
+    void Update() { }
+    #endregion
+
+    #region ClassMethods
     //Starts the hourglass, does not reset
-    public void     Start ()
+    public void Start()
     {
         Active = true;
         Finished = false;
@@ -44,7 +65,7 @@ public class Hourglass : MonoBehaviour
     }
 
     //Stops the hourglass, does not reset
-    public void     Stop()
+    public void Stop()
     {
         Active = false;
         StopCoroutine(UpdateTime());
@@ -52,14 +73,14 @@ public class Hourglass : MonoBehaviour
 
     //Resets the hourglass, can start or stop it
     //If null is passed the current state will be remained
-    public bool     Reset(bool? active = null)
+    public bool Reset(bool? active = null)
     {
         RemainingTime = Duration;
         Finished = false;
 
         this.Active = active ?? this.Active;
 
-        if(!Active) { Stop(); }
+        if (!Active) { Stop(); }
 
         return this.Active;
     }
@@ -67,7 +88,7 @@ public class Hourglass : MonoBehaviour
     //Coroutine to handle time measure
     private IEnumerator UpdateTime()
     {
-        while(RemainingTime > 0.0 && Active)
+        while (RemainingTime > 0.0 && Active)
         {
             RemainingTime -= Time.deltaTime;
             yield return null;
@@ -76,4 +97,6 @@ public class Hourglass : MonoBehaviour
         RemainingTime = 0.0;
         Finished = true;
     }
+    #endregion
+    #endregion
 }

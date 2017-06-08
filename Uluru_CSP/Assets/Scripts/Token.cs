@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//This class represents one Token, each Player will have 8
-//Each Token has to be placed on one unique Position
+/// <summary>
+/// This class represents one Token, each Player will have 8
+/// Each Token has to be placed on one unique Position
+/// </summary>
 public class Token : UIButtonBase
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private Color m_Color;
     [SerializeField]
     private UnityEngine.Color m_UIColor;
+    #endregion
+    #endregion
 
-    public Token(Color color)
-    {
-        this.Color = color;
-    }
-
+    #region Properties
     public UnityEngine.Color UIColor
     {
         get { return m_UIColor; }
@@ -28,4 +30,25 @@ public class Token : UIButtonBase
         get { return m_Color; }
         set { m_Color = value; }
     }
+    #endregion
+
+    #region Constructors
+    public Token(Color color)
+    {
+        this.Color = color;
+    }
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    void Start() { }
+
+    void Update() { }
+    #endregion
+
+    #region ClassMethods
+    #endregion
+    #endregion
 }

@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class NotAdjacentNotOppositeSide : IRuleset
 {
+    #region Fields
     private LogicalNot m_NotAdjacent;
     private LogicalNot m_NotOppositeSide;
     private LogicalAnd m_And;
+    #endregion
 
+    #region Properties
+    #endregion
+
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region InterfaceMethods
     public void Initialize(PositionTokenTuple slotTuple, PositionTokenTuple rulesetTuple)
     {
         if (slotTuple != null && rulesetTuple != null)
@@ -33,4 +46,8 @@ public class NotAdjacentNotOppositeSide : IRuleset
     {
         return m_And != null && m_And.Evaluate();
     }
+    #endregion
+    #region ClassMethods
+    #endregion
+    #endregion
 }

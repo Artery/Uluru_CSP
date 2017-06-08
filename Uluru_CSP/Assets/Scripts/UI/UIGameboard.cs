@@ -5,13 +5,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class UIGameboard : Gameboard
 {
+    #region Enums
     private enum enButtonType { NONE = -1, POSITION, TOKEN };
+    #endregion
 
+    #region Fields
+    #region SerializedFields
+    #endregion
     private GameObject m_LastSelectedButton = null;
     private enButtonType m_LastSelectedButtonType = enButtonType.NONE;
+    #endregion
 
+    #region Properties
+    #endregion
+
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    void Start() { }
+
+    void Update() { }
+    #endregion
+
+    #region ClassMethods
     public void PositionButtonClicked(GameObject clickedButton)
     {
         ButtonClicked(clickedButton, enButtonType.POSITION);
@@ -68,4 +93,6 @@ public class UIGameboard : Gameboard
 
         tokenPositionTuple.Position.UpdateTokenImageColor(tokenColor);
     }
+    #endregion
+    #endregion
 }

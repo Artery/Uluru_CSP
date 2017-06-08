@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-//This class represents one Position on e.g. the Gameboard
+
+/// <summary>
+/// //This class represents one Position on e.g. the Gameboard
+/// </summary>
 public class Position : UIButtonBase
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private int m_Index;
     [SerializeField]
     private Edge m_Edge;
     [SerializeField]
     private Image m_TokenImage;
+    #endregion
+    #endregion
 
-    public Position(int index, Edge edge)
-    {
-        Index = index;
-        Edge = edge;
-    }
-
-
+    #region Properties
     public int Index
     {
         get { return m_Index; }
@@ -35,7 +36,26 @@ public class Position : UIButtonBase
         get { return m_TokenImage; }
         set { m_TokenImage = value; }
     }
+    #endregion
 
+    #region Constructors
+    public Position(int index, Edge edge)
+    {
+        Index = index;
+        Edge = edge;
+    }
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    void Start() { }
+
+    void Update() { }
+    #endregion
+
+    #region ClassMethods
     public void UpdateTokenImageColor(UnityEngine.Color? tokenColor)
     {
         if (tokenColor != null)
@@ -48,4 +68,6 @@ public class Position : UIButtonBase
             TokenImage.enabled = false;
         }
     }
+    #endregion
+    #endregion
 }

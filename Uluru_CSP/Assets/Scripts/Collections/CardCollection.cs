@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class CardCollection : List<RuleCard>
 {
     public CardCollection()

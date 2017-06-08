@@ -5,13 +5,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class Gameboard : MonoBehaviour
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     protected List<PositionTokenTuple> m_PositionsTokens;
     [SerializeField]
     protected bool m_IsUnlocked = false;
+    #endregion
+    #endregion
 
+    #region Properties
     public List<PositionTokenTuple> PositionsTokens
     {
         get
@@ -49,9 +57,23 @@ public class Gameboard : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    void Start() { }
+
+    void Update() { }
 
     public virtual void Reset() { }
+    #endregion
 
+    #region ClassMethods
     public List<Color> VerifyBoardState(List<Slot> gameplanState)
     {
         var wrongTokens = new List<Color>();
@@ -65,7 +87,7 @@ public class Gameboard : MonoBehaviour
             HandleChainedRulesets(gameplanState, ref ruleset);
 
             if (ruleset != null && !ruleset.Color.Equals(Color.NONE))
-            {  
+            {
                 rulesetTuple = m_PositionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
             }
 
@@ -115,4 +137,6 @@ public class Gameboard : MonoBehaviour
             ruleset.RulesetLogic = new InverseRuleset(ruleset.RulesetLogic);
         }
     }
+    #endregion
+    #endregion
 }

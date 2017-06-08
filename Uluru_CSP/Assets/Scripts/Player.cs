@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//This class represents one player 
+/// <summary>
+/// This class represents one player 
+/// </summary>
 public class Player : MonoBehaviour
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private string m_PlayerName;
     [SerializeField]
@@ -14,7 +18,10 @@ public class Player : MonoBehaviour
     private Gameboard m_Gameboard;
     [SerializeField]
     private List<Token> m_Tokens;
+    #endregion
+    #endregion
 
+    #region Properties
     public string Name
     {
         get { return m_PlayerName; }
@@ -34,7 +41,21 @@ public class Player : MonoBehaviour
     {
         get { return m_Tokens; }
     }
+    #endregion
 
+    #region Constructors
+    #endregion
+
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
+
+    void Start() { }
+
+    void Update() { }
+    #endregion
+
+    #region ClassMethods
     public void Unlock()
     {
         ChangeUnlockTo(true);
@@ -50,4 +71,6 @@ public class Player : MonoBehaviour
         Gameboard.IsUnlocked = isUnlocked;
         Tokens.ForEach(token => token.IsUnlocked = isUnlocked);
     }
+    #endregion
+    #endregion
 }

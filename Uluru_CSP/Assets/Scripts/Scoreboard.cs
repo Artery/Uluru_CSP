@@ -4,8 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class summary goes here...
+/// </summary>
 public class Scoreboard : MonoBehaviour
 {
+    #region Fields
+    #region SerializedFields
     [SerializeField]
     private Text m_NameField;
     [SerializeField]
@@ -14,7 +19,10 @@ public class Scoreboard : MonoBehaviour
     private Text m_RoundField;
     [SerializeField]
     private Text m_RemainingTimeField;
+    #endregion
+    #endregion
 
+    #region Properties
     public Text NameField
     {
         get { return m_NameField; }
@@ -34,20 +42,21 @@ public class Scoreboard : MonoBehaviour
     {
         get { return m_RemainingTimeField; }
     }
+    #endregion
 
+    #region Constructors
+    #endregion
 
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+    #region Methods
+    #region MonoMethods
+    void Awake() { }
 
+    void Start() { }
+
+    void Update() { }
+    #endregion
+
+    #region ClassMethods
     public void UpdateRemainingTime(double remainingTime)
     {
         var time = remainingTime.ToString();
@@ -55,4 +64,6 @@ public class Scoreboard : MonoBehaviour
 
         RemainingTimeField.text = time + "s";//Math.Round(remainingTime, 3) + "s";
     }
+    #endregion
+    #endregion
 }
