@@ -2,9 +2,9 @@
 using UnityEngine;
 
 /// <summary>
-/// Simple Hourglass to stop time
+/// Simple Timer to stop time
 /// </summary>
-public class Hourglass : MonoBehaviour
+public class Timer : MonoBehaviour
 {
     #region Fields
     #region SerializedFields

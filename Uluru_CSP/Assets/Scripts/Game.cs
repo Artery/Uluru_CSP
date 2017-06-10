@@ -13,7 +13,7 @@ public class Game : MonoBehaviour
     [SerializeField]
     private Gameplan m_Gameplan;
     [SerializeField]
-    private Hourglass m_Hourglass;
+    private Timer m_Timer;
 
     [SerializeField]
     private Difficulty m_Difficulty;
@@ -80,7 +80,7 @@ public class Game : MonoBehaviour
     {
         //ToDo
         //Should be refactored, when Scoreboard is standalone feature
-        m_Scoreboard.UpdateRemainingTime(Hourglass.RemainingTime);
+        m_Scoreboard.UpdateRemainingTime(Timer.RemainingTime);
     }
     #endregion
 
@@ -94,7 +94,7 @@ public class Game : MonoBehaviour
         {
             InitializeRound();
             StartRound();
-            yield return new WaitUntil(() => Hourglass.Finished);
+            yield return new WaitUntil(() => Timer.Finished);
             FinishRound();
         }
 
@@ -144,7 +144,7 @@ public class Game : MonoBehaviour
     protected void InitializeRound()
     {
         CurrentRound++;
-        Hourglass.Reset();
+        Timer.ResetTimer();
         Gameplan.GenerateSequence();
         ResetPlayerGameboards();
         UpdatePlayersScoreboard();
@@ -154,7 +154,7 @@ public class Game : MonoBehaviour
     {
         Gameplan.DealOutNextSequence();
         UnlockPlayers();
-        Hourglass.Start();
+        Timer.StartTimer();
     }
 
     protected void FinishRound()
@@ -169,7 +169,7 @@ public class Game : MonoBehaviour
 
     protected void ResetRoundState()
     {
-        Hourglass.Reset(false);
+        Timer.ResetTimer(false);
         Gameplan.Reset();
         ResetPlayerGameboards();
     }
