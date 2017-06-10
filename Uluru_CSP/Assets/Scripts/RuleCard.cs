@@ -62,9 +62,7 @@ public class RuleCard : MonoBehaviour
 
     void Start()
     {
-        m_Ruleset = new Ruleset(RulesetAdapter.GetRulesetLogic(RulesetType));
-        m_Ruleset.Color = Color;
-        m_Ruleset.RulesetType = RulesetType;
+        m_Ruleset = new Ruleset(RulesetAdapter.GetRulesetLogic(RulesetType)) {Color = Color, RulesetType = RulesetType};
     }
 
     void Update() { }

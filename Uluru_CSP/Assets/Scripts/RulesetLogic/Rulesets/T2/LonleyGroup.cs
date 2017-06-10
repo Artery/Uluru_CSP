@@ -25,8 +25,8 @@ public class LonleyGroup : IRuleset
     {
         if (slotTuple != null)
         {
-            m_Short1EdgeCondition = new EdgeCondition(enLogicComparator.EQUALS, Edge.enEdgeID.Short_1, slotTuple.Position.Edge.EdgeID);
-            m_Long2EdgeCondition = new EdgeCondition(enLogicComparator.EQUALS, Edge.enEdgeID.Long_2, slotTuple.Position.Edge.EdgeID);
+            m_Short1EdgeCondition = new EdgeCondition(enLogicComparator.EQUALS, Edge.enEdgeID.SHORT_1, slotTuple.Position.Edge.EdgeID);
+            m_Long2EdgeCondition = new EdgeCondition(enLogicComparator.EQUALS, Edge.enEdgeID.LONG_2, slotTuple.Position.Edge.EdgeID);
             m_Or = new LogicalOr(m_Short1EdgeCondition, m_Long2EdgeCondition);
         }
         else

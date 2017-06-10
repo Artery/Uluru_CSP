@@ -8,59 +8,38 @@ using UnityEngine;
 public class Edge : MonoBehaviour
 {
     #region Enums
-    public enum enEdgeID { Short_1 = 0, Short_2 = 34, Long_2 = 12, Long_3 = 57 };
+    public enum enEdgeID { SHORT_1 = 0, SHORT_2 = 34, LONG_2 = 12, LONG_3 = 57 };
     public enum enSide { LONG, SHORT };
     #endregion
 
     #region Fields
     #region SerializedFields
     [SerializeField]
-    private enSide m_side;
+    private enSide m_Side;
     [SerializeField]
     private int m_PositionCount;
     [SerializeField]
-    private enEdgeID m_edgeID;
+    private enEdgeID m_EdgeID;
     #endregion
     #endregion
 
     #region Properties
     public enSide Side
     {
-        get
-        {
-            return m_side;
-        }
-
-        set
-        {
-            m_side = value;
-        }
+        get { return m_Side; }
+        set { m_Side = value; }
     }
 
     public int PositionCount
     {
-        get
-        {
-            return m_PositionCount;
-        }
-
-        set
-        {
-            m_PositionCount = value;
-        }
+        get { return m_PositionCount; }
+        set { m_PositionCount = value; }
     }
 
     public enEdgeID EdgeID
     {
-        get
-        {
-            return m_edgeID;
-        }
-
-        set
-        {
-            m_edgeID = value;
-        }
+        get { return m_EdgeID; }
+        set { m_EdgeID = value; }
     }
     #endregion
 
@@ -69,20 +48,20 @@ public class Edge : MonoBehaviour
     {
         switch (edgeID)
         {
-            case enEdgeID.Long_2:
-                m_side = enSide.LONG;
+            case enEdgeID.LONG_2:
+                m_Side = enSide.LONG;
                 m_PositionCount = 2;
                 break;
-            case enEdgeID.Long_3:
-                m_side = enSide.LONG;
+            case enEdgeID.LONG_3:
+                m_Side = enSide.LONG;
                 m_PositionCount = 3;
                 break;
-            case enEdgeID.Short_2:
-                m_side = enSide.SHORT;
+            case enEdgeID.SHORT_2:
+                m_Side = enSide.SHORT;
                 m_PositionCount = 2;
                 break;
-            case enEdgeID.Short_1:
-                m_side = enSide.SHORT;
+            case enEdgeID.SHORT_1:
+                m_Side = enSide.SHORT;
                 m_PositionCount = 1;
                 break;
         }

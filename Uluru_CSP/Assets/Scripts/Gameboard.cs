@@ -15,34 +15,16 @@ public class Gameboard : MonoBehaviour
     [SerializeField]
     protected List<PositionTokenTuple> m_PositionsTokens;
     [SerializeField]
-    protected bool m_IsUnlocked = false;
+    protected bool m_IsUnlocked;
     #endregion
     #endregion
 
     #region Properties
-    public List<PositionTokenTuple> PositionsTokens
-    {
-        get
-        {
-            return m_PositionsTokens;
-        }
-    }
+    public List<PositionTokenTuple> PositionsTokens => m_PositionsTokens;
 
-    public PositionCollection Positions
-    {
-        get
-        {
-            return new PositionCollection(m_PositionsTokens.Select(tuple => tuple.Position));
-        }
-    }
+    public PositionCollection Positions => new PositionCollection(m_PositionsTokens.Select(tuple => tuple.Position));
 
-    public TokenCollection Tokens
-    {
-        get
-        {
-            return new TokenCollection(m_PositionsTokens.Select(tuple => tuple.Token));
-        }
-    }
+    public TokenCollection Tokens => new TokenCollection(m_PositionsTokens.Select(tuple => tuple.Token));
 
     public bool IsUnlocked
     {
@@ -69,11 +51,11 @@ public class Gameboard : MonoBehaviour
     void Start() { }
 
     void Update() { }
-
-    public virtual void Reset() { }
     #endregion
 
     #region ClassMethods
+    public virtual void Clear() { }
+
     public List<Color> VerifyBoardState(List<Slot> gameplanState)
     {
         var wrongTokens = new List<Color>();

@@ -26,7 +26,7 @@ public class Ruleset
     #region ClassMethods
     public bool VerfiyRuleset(PositionTokenTuple slotTuple, PositionTokenTuple rulesetTuple)
     {
-        bool result = false;
+        var result = false;
 
         //If the slotToken is not set, the ruleset could never be fullfilled
         if (slotTuple != null)

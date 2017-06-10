@@ -20,28 +20,14 @@ public class PositionTokenTuple
     #region Properties
     public Position Position
     {
-        get
-        {
-            return m_Position;
-        }
-
-        set
-        {
-            m_Position = value;
-        }
+        get { return m_Position; }
+        set { m_Position = value; }
     }
 
     public Token Token
     {
-        get
-        {
-            return m_Token;
-        }
-
-        set
-        {
-            m_Token = value;
-        }
+        get { return m_Token; }
+        set { m_Token = value; }
     }
     #endregion
 

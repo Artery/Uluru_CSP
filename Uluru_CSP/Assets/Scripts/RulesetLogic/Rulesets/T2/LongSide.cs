@@ -25,8 +25,8 @@ public class LongSide : IRuleset
     {
         if (slotTuple != null)
         {
-            m_Long2EdgeCondition = new EdgeCondition(enLogicComparator.EQUALS, Edge.enEdgeID.Long_2, slotTuple.Position.Edge.EdgeID);
-            m_Long3EdgeCondition = new EdgeCondition(enLogicComparator.EQUALS, Edge.enEdgeID.Long_3, slotTuple.Position.Edge.EdgeID);
+            m_Long2EdgeCondition = new EdgeCondition(enLogicComparator.EQUALS, Edge.enEdgeID.LONG_2, slotTuple.Position.Edge.EdgeID);
+            m_Long3EdgeCondition = new EdgeCondition(enLogicComparator.EQUALS, Edge.enEdgeID.LONG_3, slotTuple.Position.Edge.EdgeID);
             m_Or = new LogicalOr(m_Long2EdgeCondition, m_Long3EdgeCondition);
         }
         else

@@ -23,25 +23,13 @@ public class Scoreboard : MonoBehaviour
     #endregion
 
     #region Properties
-    public Text NameField
-    {
-        get { return m_NameField; }
-    }
+    public Text NameField => m_NameField;
 
-    public Text DrawbackField
-    {
-        get { return m_DrawbackField; }
-    }
+    public Text DrawbackField => m_DrawbackField;
 
-    public Text RoundField
-    {
-        get { return m_RoundField; }
-    }
+    public Text RoundField => m_RoundField;
 
-    public Text RemainingTimeField
-    {
-        get { return m_RemainingTimeField; }
-    }
+    public Text RemainingTimeField => m_RemainingTimeField;
     #endregion
 
     #region Constructors

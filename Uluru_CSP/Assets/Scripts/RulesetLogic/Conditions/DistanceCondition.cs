@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary>
 /// Class summary goes here...
@@ -52,6 +53,8 @@ public class DistanceCondition : IEvaluable
             case enLogicComparator.SMALLER_EQUALS:
                 result = absDistance <= DistanceValue;
                 break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
         return result;

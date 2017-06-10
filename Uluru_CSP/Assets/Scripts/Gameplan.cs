@@ -18,18 +18,10 @@ public class Gameplan : MonoBehaviour
     #endregion
 
     #region Properties
-    public List<Slot> Slots
-    {
-        get
-        {
-            return m_Slots;
-        }
-    }
+    public List<Slot> Slots => m_Slots;
 
-    public CardCollection Deck
-    {
-        get { return m_Deck; }
-    }
+    public CardCollection Deck => m_Deck;
+
     #endregion
 
     #region Constructors

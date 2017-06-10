@@ -20,30 +20,18 @@ public class UIButtonBase : MonoBehaviour
     #region Properties
     public Button Button
     {
-        get
-        {
-            return m_Button;
-        }
-
-        protected set
-        {
-            m_Button = value;
-        }
+        get { return m_Button; }
+        protected set { m_Button = value; }
     }
 
     public bool IsUnlocked
     {
-        get
-        {
-            return m_IsUnlocked;
-        }
-
+        get { return m_IsUnlocked; }
         set
         {
             if (m_IsUnlocked != value)
             {
                 m_IsUnlocked = value;
-
                 m_Button.interactable = m_IsUnlocked;
             }
         }

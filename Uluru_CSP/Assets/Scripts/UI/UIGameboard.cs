@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class UIGameboard : Gameboard
 {
     #region Enums
-    private enum enButtonType { NONE = -1, POSITION, TOKEN };
+    private enum enButtonType { NONE = -1, POSITION = 0, TOKEN = 1 };
     #endregion
 
     #region Fields
@@ -47,7 +47,7 @@ public class UIGameboard : Gameboard
         ButtonClicked(clickedButton, enButtonType.TOKEN);
     }
 
-    public override void Reset()
+    public override void Clear()
     {
         Positions.ForEach(position => SetTokenOnPosition(null, position));
     }
@@ -88,8 +88,7 @@ public class UIGameboard : Gameboard
 
         tokenPositionTuple.Token = token;
 
-        UnityEngine.Color? tokenColor = null;
-        if (token != null) { tokenColor = token.UIColor; }
+        UnityEngine.Color? tokenColor = token?.UIColor;
 
         tokenPositionTuple.Position.UpdateTokenImageColor(tokenColor);
     }

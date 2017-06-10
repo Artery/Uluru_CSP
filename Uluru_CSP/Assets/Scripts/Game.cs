@@ -31,20 +31,11 @@ public class Game : MonoBehaviour
     #endregion
 
     #region Properties
-    public List<Player> Players
-    {
-        get { return m_Players; }
-    }
+    public List<Player> Players => m_Players;
 
-    public Gameplan Gameplan
-    {
-        get { return m_Gameplan; }
-    }
+    public Gameplan Gameplan => m_Gameplan;
 
-    public Hourglass Hourglass
-    {
-        get { return m_Hourglass; }
-    }
+    public Timer Timer => m_Timer;
 
     public Difficulty Difficulty
     {
@@ -194,7 +185,7 @@ public class Game : MonoBehaviour
 
     protected void ResetPlayerGameboards()
     {
-        Players.ForEach(player => player.Gameboard.Reset());
+        Players.ForEach(player => player.Gameboard.Clear());
     }
 
     protected void ResetPlayerDrawbacks()

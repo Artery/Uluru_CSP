@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary>
 /// Class summary goes here...
@@ -37,6 +38,16 @@ public class EdgeCondition : IEvaluable
             case enLogicComparator.UNEQUALS:
                 result = LhsEdge != RhsEdge;
                 break;
+            case enLogicComparator.GREATER:
+                break;
+            case enLogicComparator.SMALLER:
+                break;
+            case enLogicComparator.GREATER_EQUALS:
+                break;
+            case enLogicComparator.SMALLER_EQUALS:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
         return result;

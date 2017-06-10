@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     [SerializeField]
     private bool m_Active;
     #endregion
-    private bool m_Finished;
+
     #endregion
 
     #region Properties
@@ -36,11 +36,8 @@ public class Timer : MonoBehaviour
         protected set { m_Active = value; }
     }
     //Indicates if the hourglass finished it's "measurement"
-    public bool Finished
-    {
-        get { return m_Finished; }
-        protected set { m_Finished = value; }
-    }
+    public bool Finished { get; protected set; }
+
     #endregion
 
     #region Constructors
@@ -50,14 +47,14 @@ public class Timer : MonoBehaviour
     #region MonoMethods
     void Awake() { }
 
-    //void Start() { }
+    //void StartTimer() { }
 
     void Update() { }
     #endregion
 
     #region ClassMethods
     //Starts the hourglass, does not reset
-    public void Start()
+    public void StartTimer()
     {
         Active = true;
         Finished = false;
@@ -65,7 +62,7 @@ public class Timer : MonoBehaviour
     }
 
     //Stops the hourglass, does not reset
-    public void Stop()
+    public void StopTimer()
     {
         Active = false;
         StopCoroutine(UpdateTime());
@@ -73,14 +70,14 @@ public class Timer : MonoBehaviour
 
     //Resets the hourglass, can start or stop it
     //If null is passed the current state will be remained
-    public bool Reset(bool? active = null)
+    public bool ResetTimer(bool? active = null)
     {
         RemainingTime = Duration;
         Finished = false;
 
         this.Active = active ?? this.Active;
 
-        if (!Active) { Stop(); }
+        if (!Active) { StopTimer(); }
 
         return this.Active;
     }

@@ -66,15 +66,7 @@ public class Slot : MonoBehaviour
 
             //Temp hack for UI
             GetComponentInChildren<Text>().text = m_RuleCard.RulesetType.ToString();
-            if (RuleCard.Color == Color.NONE)
-            {
-                GetComponentInChildren<Text>().color = UnityEngine.Color.cyan;
-            }
-            else
-            {
-
-                GetComponentInChildren<Text>().color = colors[(int)m_RuleCard.Color];
-            }
+            GetComponentInChildren<Text>().color = RuleCard.Color == Color.NONE ? UnityEngine.Color.cyan : colors[(int)m_RuleCard.Color];
         }
     }
     #endregion
