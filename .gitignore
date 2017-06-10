@@ -31,6 +31,7 @@ sysinfo.txt
 Uluru_CSP/Library/metadata/
 Uluru_CSP/Library/ShaderCache/
 Uluru_CSP/Temp/
+Uluru_CSP/Assets/UnityTestTools/
 Uluru_CSP/Library/ScriptAssemblies/
 Uluru_CSP/Library/MonoManager.asset
 Uluru_CSP/Library/assetDatabase3
@@ -89,3 +90,4 @@ Uluru_CSP/Library/shadercompiler-UnityShaderCompiler.exe0.log
 Uluru_CSP/Library/UnityAssemblies/UnityEditor.iOS.Extensions.Common.dll
 Uluru_CSP/Library/UnityAssemblies/nunit.framework.dll
 Uluru_CSP/CSharp60Support/compilation.log
+Uluru_CSP/Assets/UnityTestTools.meta
