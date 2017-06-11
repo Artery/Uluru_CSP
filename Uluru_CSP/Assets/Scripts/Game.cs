@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
     private Timer m_Timer;
 
     [SerializeField]
-    private Difficulty m_Difficulty;
+    private enDifficulty m_Difficulty;
     [SerializeField]
     private int m_MaxRounds;
     [SerializeField]
@@ -37,7 +37,7 @@ public class Game : MonoBehaviour
 
     public Timer Timer => m_Timer;
 
-    public Difficulty Difficulty
+    public enDifficulty Difficulty
     {
         get { return m_Difficulty; }
         set { m_Difficulty = value; }

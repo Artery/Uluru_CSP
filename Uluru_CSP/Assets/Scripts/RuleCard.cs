@@ -9,9 +9,9 @@ public class RuleCard : MonoBehaviour
     #region Fields
     #region SerializedFields
     [SerializeField]
-    private Difficulty m_Difficulty;
+    private enDifficulty m_Difficulty;
     [SerializeField]
-    private Color m_Color;
+    private enColor m_Color;
     [SerializeField]
     private Ruleset m_Ruleset;
     [SerializeField]
@@ -22,13 +22,13 @@ public class RuleCard : MonoBehaviour
     #endregion
 
     #region Properties
-    public Difficulty Difficulty
+    public enDifficulty Difficulty
     {
         get { return m_Difficulty; }
         set { m_Difficulty = value; }
     }
 
-    public Color Color
+    public enColor Color
     {
         get { return m_Color; }
         set { m_Color = value; }

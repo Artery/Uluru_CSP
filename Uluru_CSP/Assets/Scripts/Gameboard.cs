@@ -56,9 +56,9 @@ public class Gameboard : MonoBehaviour
     #region ClassMethods
     public virtual void Clear() { }
 
-    public List<Color> VerifyBoardState(List<Slot> gameplanState)
+    public List<enColor> VerifyBoardState(List<Slot> gameplanState)
     {
-        var wrongTokens = new List<Color>();
+        var wrongTokens = new List<enColor>();
 
         foreach (var slot in gameplanState)
         {
@@ -68,7 +68,7 @@ public class Gameboard : MonoBehaviour
 
             HandleChainedRulesets(gameplanState, ref ruleset);
 
-            if (ruleset != null && !ruleset.Color.Equals(Color.NONE))
+            if (ruleset != null && !ruleset.Color.Equals(enColor.NONE))
             {
                 rulesetTuple = m_PositionsTokens.FirstOrDefault(tuple => tuple.Token != null && tuple.Token.Color.Equals(ruleset.Color));
             }

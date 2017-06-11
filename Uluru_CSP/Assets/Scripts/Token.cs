@@ -12,7 +12,7 @@ public class Token : UIButtonBase
     #region Fields
     #region SerializedFields
     [SerializeField]
-    private Color m_Color;
+    private enColor m_Color;
     [SerializeField]
     private UnityEngine.Color m_UIColor;
     #endregion
@@ -25,7 +25,7 @@ public class Token : UIButtonBase
         set { m_UIColor = value; }
     }
 
-    public Color Color
+    public enColor Color
     {
         get { return m_Color; }
         set { m_Color = value; }
@@ -33,7 +33,7 @@ public class Token : UIButtonBase
     #endregion
 
     #region Constructors
-    public Token(Color color)
+    public Token(enColor color)
     {
         this.Color = color;
     }

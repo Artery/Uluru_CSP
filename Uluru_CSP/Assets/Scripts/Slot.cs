@@ -12,7 +12,7 @@ public class Slot : MonoBehaviour
     #region Fields
     #region SerializedFields
     [SerializeField]
-    private Color m_Color;
+    private enColor m_Color;
     [SerializeField]
     private RuleCard m_RuleCard;
     [SerializeField]
@@ -24,7 +24,7 @@ public class Slot : MonoBehaviour
     #endregion
 
     #region Properties
-    public Color Color
+    public enColor Color
     {
         get { return m_Color; }
         set { m_Color = value; }
@@ -66,7 +66,7 @@ public class Slot : MonoBehaviour
 
             //Temp hack for UI
             GetComponentInChildren<Text>().text = m_RuleCard.RulesetType.ToString();
-            GetComponentInChildren<Text>().color = RuleCard.Color == Color.NONE ? UnityEngine.Color.cyan : colors[(int)m_RuleCard.Color];
+            GetComponentInChildren<Text>().color = RuleCard.Color == enColor.NONE ? UnityEngine.Color.cyan : colors[(int)m_RuleCard.Color];
         }
     }
     #endregion

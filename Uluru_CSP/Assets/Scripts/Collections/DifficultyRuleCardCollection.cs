@@ -9,11 +9,11 @@ using UnityEngine;
 public class DifficultyRuleCardCollection
 {
     [SerializeField]
-    private Difficulty m_Difficulty;
+    private enDifficulty m_Difficulty;
     [SerializeField]
     private List<RuleCard> m_RuleCards;
 
-    public Difficulty Difficulty
+    public enDifficulty Difficulty
     {
         get
         {

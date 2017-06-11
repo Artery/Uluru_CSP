@@ -3,7 +3,7 @@
 /// <summary>
 /// Class summary goes here...
 /// </summary>
-public class Color_CardMap : Dictionary<Color,RuleCard>
+public class Color_CardMap : Dictionary<enColor,RuleCard>
 {
     
 }

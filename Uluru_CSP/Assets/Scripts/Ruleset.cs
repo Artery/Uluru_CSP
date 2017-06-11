@@ -10,7 +10,7 @@ public class Ruleset
     #endregion
 
     #region Properties
-    public Color Color { get; set; }
+    public enColor Color { get; set; }
     public enRulesetType RulesetType { get; set; }
     public IRuleset RulesetLogic { get; set; }
     #endregion
