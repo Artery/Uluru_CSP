@@ -1,0 +1,719 @@
+********************************************************************************
+*                       Monday, June 12, 2017 9:47:49 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-5b0733ac1f8ec874d8ddd67777ae2249 
+Exit code: 0
+Elapsed time: 0.47 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (13 lines):
+0: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+1: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+2: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+3: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+7: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+8: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+10: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+12: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:47:50 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-08d28999efcf2ec42bf96a5a7a917f30 
+Exit code: 0
+Elapsed time: 0.26 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.03 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:47:52 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-6bd1eb03df161d948b930456f2098e66 
+********************************************************************************
+*                       Monday, June 12, 2017 9:47:53 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-2ff28866c6da81c4fbe575c586a90b31 
+********************************************************************************
+*                       Monday, June 12, 2017 9:47:53 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-6d5f4d44d0275f74e8f257c9133e3b59 
+Exit code: 0
+Elapsed time: 0.48 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (13 lines):
+0: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+1: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+2: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+3: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+7: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+8: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+9: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+10: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+12: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:47:55 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-d0f6a45a6d097bf4184da52b3284f047 
+Exit code: 0
+Elapsed time: 0.44 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (13 lines):
+0: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+1: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+2: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+3: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+7: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+8: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+10: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+12: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:47:57 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-60863e1855c698347a687e0b6b2169ac 
+Exit code: 0
+Elapsed time: 0.27 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.03 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:49:16 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-8f3cf71e7fc86f547acbeac64db2a466 
+Exit code: 0
+Elapsed time: 0.45 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (13 lines):
+0: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+1: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+2: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+3: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+5: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+7: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+8: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+10: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+12: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:49:17 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-733a6b77c2ada0b48a6ba64cd0d2887d 
+Exit code: 0
+Elapsed time: 0.26 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.03 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:49:30 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-ac7b52b80310c3c4ca50fdeca74c821f 
+Exit code: 0
+Elapsed time: 0.46 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (13 lines):
+0: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+1: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+2: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+3: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+7: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+8: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+10: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+12: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:49:31 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-5687a8195a0055d40899b25b66448d0f 
+Exit code: 0
+Elapsed time: 0.26 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.03 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:51:02 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-b3216f621ba645a4ab342c697962e7ee 
+Exit code: 1
+Elapsed time: 0.39 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (16 lines):
+0: Assets\Scripts\Game.cs(77,14): error CS0103: The name 'fill' does not exist in the current context
+1: Assets\Scripts\Game.cs(78,14): error CS0103: The name 'fill' does not exist in the current context
+2: Assets\Scripts\Game.cs(75,16): warning CS0168: The variable 'Fill' is declared but never used
+3: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+6: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+7: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+8: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+10: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+12: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+13: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+14: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+15: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+********************************************************************************
+*                       Monday, June 12, 2017 9:51:21 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-8d90afa8cfef7154fbb51edc50f07a6e 
+Exit code: 0
+Elapsed time: 0.46 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (13 lines):
+0: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+1: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+2: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+3: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+7: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+8: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+10: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+12: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:51:22 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-f351c50a33f145a439f522cc998233ef 
+Exit code: 0
+Elapsed time: 0.26 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.03 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:51:55 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-61f4b39a8dd410c4cbde20a3bd267955 
+Exit code: 0
+Elapsed time: 0.46 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (13 lines):
+0: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+1: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+2: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+3: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+7: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+8: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+10: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+12: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:51:56 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-ba7eba68fba6a0b4da8287137c857407 
+Exit code: 0
+Elapsed time: 0.26 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.03 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:53:12 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-a3d2d7fed58b4564891dc04ca3481a63 
+Exit code: 0
+Elapsed time: 0.45 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (13 lines):
+0: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+1: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+2: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+3: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+7: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+8: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+10: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+12: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:53:13 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-6b92a3b4adef5e64b89f10c41d2d89e9 
+Exit code: 0
+Elapsed time: 0.26 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.03 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:54:05 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-c597ed477c677d94991f2b81ebcbf4ff 
+Exit code: 0
+Elapsed time: 0.45 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (14 lines):
+0: Assets\Scripts\Game.cs(68,13): warning CS0219: The variable 'u' is assigned but its value is never used
+1: Assets\Scripts\Game.cs(29,24): warning CS0649: Field 'Game.m_Scoreboard' is never assigned to, and will always have its default value null
+2: Assets\Scripts\Gameplan.cs(14,24): warning CS0649: Field 'Gameplan.m_Slots' is never assigned to, and will always have its default value null
+3: Assets\Scripts\Game.cs(14,22): warning CS0649: Field 'Game.m_Gameplan' is never assigned to, and will always have its default value null
+4: Assets\Scripts\Player.cs(20,25): warning CS0649: Field 'Player.m_Tokens' is never assigned to, and will always have its default value null
+5: Assets\Scripts\Game.cs(16,19): warning CS0649: Field 'Game.m_Timer' is never assigned to, and will always have its default value null
+6: Assets\Scripts\Game.cs(26,26): warning CS0649: Field 'Game.m_Players' is never assigned to, and will always have its default value null
+7: Assets\Scripts\DeckGenerator.cs(13,23): warning CS0649: Field 'DeckGenerator.m_DeckParentTransform' is never assigned to, and will always have its default value null
+8: Assets\Scripts\Scoreboard.cs(19,18): warning CS0649: Field 'Scoreboard.m_RoundField' is never assigned to, and will always have its default value null
+9: Assets\Scripts\Scoreboard.cs(15,18): warning CS0649: Field 'Scoreboard.m_NameField' is never assigned to, and will always have its default value null
+10: Assets\Scripts\Slot.cs(19,19): warning CS0649: Field 'Slot.m_RuleCardImage' is never assigned to, and will always have its default value null
+11: Assets\Scripts\Scoreboard.cs(21,18): warning CS0649: Field 'Scoreboard.m_RemainingTimeField' is never assigned to, and will always have its default value null
+12: Assets\Scripts\Scoreboard.cs(17,18): warning CS0649: Field 'Scoreboard.m_DrawbackField' is never assigned to, and will always have its default value null
+13: Assets\Scripts\DeckGenerator.cs(11,48): warning CS0649: Field 'DeckGenerator.m_RuleCardPrefabs' is never assigned to, and will always have its default value null
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.04 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:54:06 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-adac6dcb5712a3549bf06ba2e7ccc711 
+Exit code: 0
+Elapsed time: 0.26 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.03 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                       Monday, June 12, 2017 9:54:26 AM                       *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP
+Target profile directory: C:\Development\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Development/Unity/Editor/Data
+Compiler: Microsoft C# 7.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\Johannes.Winkler\Development\Uluru_CSP\Uluru_CSP\CSharp70Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Development\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-fd06fd9d3f96c4d499465bf0dc6134ab 
+Exit code: 1
+Elapsed time: 0.16 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (3 lines):
+0: Assets\Scripts\Game.cs(42,13): error CS1043: { or ; expected
+1: Assets\Scripts\Game.cs(42,13): error CS1513: } expected
+2: Assets\Scripts\Game.cs(44,6): error CS1513: } expected
