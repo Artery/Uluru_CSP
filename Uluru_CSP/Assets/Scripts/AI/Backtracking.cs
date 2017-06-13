@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Backtracking
 {
-    private static int counter = 0;
+    public static int counter = 0;
     public static int loopCounter = 0;
 
     private static Dictionary<Color, List<int>> remainingTokensPositions = new Dictionary<Color, List<int>>();
@@ -31,67 +31,7 @@ public class Backtracking
         { enRulesetType.MINIMUM_DISTANCE_2, new Dictionary<int, List<int>> {{-1, null}}},
         { enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE, new Dictionary<int, List<int>> {{-1, null}}}
     };
-
-    private static Dictionary<enRulesetType, Dictionary<int, List<int>>> RemainingPositions = new Dictionary<enRulesetType, Dictionary<int, List<int>>>()
-    {
-        { enRulesetType.NO_PREFERENCE, new Dictionary<int, List<int>> {{-1, null}}},
-        { enRulesetType.BUMERANG_GROUP, new Dictionary<int, List<int>> {{-1, null}}},
-        { enRulesetType.LONLEY_GROUP, new Dictionary<int, List<int>> {{-1, null}}},
-        { enRulesetType.LONG_SIDE, new Dictionary<int, List<int>> {{-1, null}}},
-        { enRulesetType.SHORT_SIDE, new Dictionary<int, List<int>> {{-1, null}}},
-        { enRulesetType.ADJACENT, new Dictionary<int, List<int>>
-                                  {
-                                      {1, new List<int>() {2}}, {2, new List<int>() {1}}, {3, new List<int>() {4}}, {4, new List<int>() {3}},
-                                      {5, new List<int>() {6}}, {6, new List<int>() {5,7}}, {7, new List<int>() {6}}
-                                  }},
-        { enRulesetType.AROUND_THE_CORNER, new Dictionary<int, List<int>>
-                                  {
-                                      {0, new List<int>() {1,7}}, {1, new List<int>() {0}}, {2, new List<int>() {3}}, {3, new List<int>() {2}},
-                                      {4, new List<int>() {5}}, {5, new List<int>() {4}}, {7, new List<int>() {0}}
-                                  }},
-        { enRulesetType.OPPOSITE_SIDE, new Dictionary<int, List<int>> {{0, new List<int>() {3,4}}}},
-        { enRulesetType.MINIMUM_DISTANCE_2, new Dictionary<int, List<int>>
-                                            {
-                                                {0, new List<int>() {3,4,5}}, {1, new List<int>() {4,5,6}}, {2, new List<int>() {5,6,7}}, {3, new List<int>() {6,7,0}},
-                                                {4, new List<int>() {7,0,1}}, {5, new List<int>() {0,1,2}}, {6, new List<int>() {1,2,3}}, {7, new List<int>() {2,3,4}}
-                                            }},
-        { enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE, new Dictionary<int, List<int>>
-                                                        {
-                                                            {0, new List<int>() {1,2,5,6,7}}, {1, new List<int>() {0,3,4}}, {2, new List<int>() {0,3,4}}, {3, new List<int>() {1,2,5,6,7}},
-                                                            {4, new List<int>() {1,2,5,6,7}}, {5, new List<int>() {0,3,4,7}}, {6, new List<int>() {0,3,4}}, {7, new List<int>() {0,3,4,5}}
-                                                        }}
-    };
-
-
-    private static Dictionary<enRulesetType, Dictionary<Edge.enEdgeID, int>> addtionalReductionsNotTheColor = new Dictionary<enRulesetType, Dictionary<Edge.enEdgeID, int>>
-    {
-        { enRulesetType.NO_PREFERENCE, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 0}}},
-        { enRulesetType.BUMERANG_GROUP, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 0}}},
-        { enRulesetType.LONLEY_GROUP, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 0}}},
-        { enRulesetType.LONG_SIDE, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 0}}},
-        { enRulesetType.SHORT_SIDE, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 0}}},
-        //Long3 Mitte +2 fehlt
-        { enRulesetType.ADJACENT, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 1}}},
-        { enRulesetType.AROUND_THE_CORNER, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.Short_1, 2}, {Edge.enEdgeID.NONE, 1 }}},
-        { enRulesetType.OPPOSITE_SIDE, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.Short_1, 1}, {Edge.enEdgeID.NONE, 0 }}},
-        { enRulesetType.MINIMUM_DISTANCE_2, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 0}}},
-        //Long3 Mitte +4 fehlt
-        { enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 0}}}
-    };
-
-    private static Dictionary<enRulesetType, Dictionary<Edge.enEdgeID, int>> remainingPosIfTheColor = new Dictionary<enRulesetType, Dictionary<Edge.enEdgeID, int>>
-    {
-        //Long3 Mitte +2 fehlt
-        { enRulesetType.ADJACENT, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 1}}},
-        { enRulesetType.AROUND_THE_CORNER, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.Short_1, 2}, {Edge.enEdgeID.NONE, 1 }}},
-        { enRulesetType.OPPOSITE_SIDE, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.Short_1, 2}, { Edge.enEdgeID.Long_2, 3 },
-                                                                              { Edge.enEdgeID.Short_2, 1 }, {Edge.enEdgeID.Long_3, 2 }}},
-        { enRulesetType.MINIMUM_DISTANCE_2, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.NONE, 3}}},
-        //Long3 Mitte +4 fehlt
-        { enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE, new Dictionary<Edge.enEdgeID, int> {{Edge.enEdgeID.Short_1, 5}, { Edge.enEdgeID.Long_2, 3},
-                                                                                               { Edge.enEdgeID.Short_2, 5}, {Edge.enEdgeID.Long_3, 3}}}
-    };
-
+    
     private static Dictionary<enRulesetType, List<int>> reducedPoistionsByRules = new Dictionary<enRulesetType, List<int>>
     {
         {enRulesetType.NO_PREFERENCE, new List<int> {0,1,2,3,4,5,6,7}},
@@ -134,14 +74,16 @@ public class Backtracking
         {
             yo2 += keyValuePair.Key + ": " + keyValuePair.Value + ", ";
         }
-        Debug.Log(yo2);
+        //Debug.Log(yo2);
+        var tkkens = new List<Token>();
+        tkkens.AddRange(tokens);
 
-        tokens.Sort((x, y) => CompareMRV(x, y, csp));
+        tkkens.Sort((x, y) => CompareMRV(x, y, csp));
         string yo = "";
-        tokens.ForEach(x => yo += x.Color + ", ");
-        Debug.Log(yo);
+        tkkens.ForEach(x => yo += x.Color + ", ");
+        //Debug.Log(yo);
 
-        foreach (var token in tokens)
+        foreach (var token in tkkens)
         {
             var list = new List<int>();
             list.AddRange(reducedPoistionsByRules[csp.Single(s => s.Color.Equals(token.Color)).RuleCard.RulesetType]);
@@ -151,7 +93,7 @@ public class Backtracking
         //return null;
 
         //InitializeBacktrackingSearch(ref assignment, ref csp, ref tokens);
-        return RecursiveBacktracking(assignment, csp, tokens);
+        return RecursiveBacktracking(assignment, csp, tkkens);
     }
 
     public static int CompareMRV(Token x, Token y, List<Slot> csp)
@@ -164,32 +106,33 @@ public class Backtracking
 
     private static List<PositionTokenTuple> RecursiveBacktracking(List<PositionTokenTuple> assignment, List<Slot> csp, List<Token> tokens)
     {
-        if (counter >= 10000)
+        if (counter >= 3000)
         {
             Debug.Log("INFINITE LOOP");
             //solution
             return null;
         }
 
-        Debug.Log("Loop: " + counter++);
+        counter++;
+        //Debug.Log("Loop: " + counter++);
 
         if (!tokens.Any())
         {
-            Debug.Log("SOLUTION");
+            //Debug.Log("SOLUTION");
             //solution
             return assignment;
         }
 
         //What variable should be assigned next?
         var var = SelectUnassignedVariable(csp, tokens, assignment);
-        Debug.Log("Var(-color): " + var.Color);
+        //Debug.Log("Var(-color): " + var.Color);
         //In what order should values be tried for a variable
         var orderDomainValues = OrderDomainValues(var, assignment, csp, tokens.Where(t => !t.Equals(var)).ToList());
         var acc = "";
         if (orderDomainValues == null)
         {
             acc = "NULL";
-            Debug.Log(var.Color + " - FAILURE");
+            //Debug.Log(var.Color + " - FAILURE");
             tokens.Add(var);
             return null;
         }
@@ -198,43 +141,43 @@ public class Backtracking
             orderDomainValues.ForEach(tuple => acc += tuple.Position.Index + ", ");
         }
 
-        Debug.Log(var.Color + " - orderDomainValues: " + acc);
+        //Debug.Log(var.Color + " - orderDomainValues: " + acc);
 
         foreach (var value in orderDomainValues)
         {
             loopCounter++;
-            Debug.Log(value.Position.Index);
+            //Debug.Log(value.Position.Index);
             value.Token = var;
 
             //if value is consistent with assignment given Constraints[csp]
             if (IsValueConsistentWithAssignmentGivenContraints(assignment, csp))
             {
-                Debug.Log(var.Color + " - Consistent == true");
+                //Debug.Log(var.Color + " - Consistent == true");
                 //add {var = value} to assignment
                 assignment = AddValueToAssignment(assignment, value);
                 tokens.RemoveAt(0);
-                Debug.Log(tokens.Count);
+                //Debug.Log(tokens.Count);
                 List<PositionTokenTuple> result = RecursiveBacktracking(assignment, csp, tokens);
 
                 if (result != null)
                 {
-                    Debug.Log(var.Color + " - result != null");
+                    //Debug.Log(var.Color + " - result != null");
                     return result;
                 }
 
-                Debug.Log(var.Color + " - result == null, removing value");
+                //Debug.Log(var.Color + " - result == null, removing value");
                 //remove {var = value} from assignment
                 assignment = RemoveValueFromAssignment(assignment, value);
                 value.Token = null;
             }
             else
             {
-                Debug.Log(var.Color + " - Consistent == false");
+                //Debug.Log(var.Color + " - Consistent == false");
                 value.Token = null;
             }
         }
 
-        Debug.Log(var.Color + " - FAILURE");
+        //Debug.Log(var.Color + " - FAILURE");
         tokens.Add(var);
         //failure
         return null;
@@ -244,29 +187,6 @@ public class Backtracking
     {
         //ToDo
         //Temp hack
-        /*
-        var possiblePositionsTuples = assignment.Where(tuple => tuple.Token == null && reducededPositionsByRule.Contains(tuple.Position.Index)).ToList();
-        var remainingPositions = assignment.Where(tuple => tuple.Token == null).ToList();
-        var numRemainingPositions = remainingPositions.Count;
-        
-        RemainingPositions[tokenRulesetType].TryGetValue(tuple.Position.Index, out var remainingTokenPositions);
-
-        if (remainingTokenPositions == null)
-        {
-            remainingTokenPositions = remainingTokensPositions[token.Color];
-        }
-
-        var actualRemainingPositions = remainingPositions.Where(tup => remainingTokenPositions.Contains(tup.Position.Index));
-        var numTokenRemainingPos = actualRemainingPositions.Count();
-        //Invalid state
-        if ((numTokenRemainingPos - numRemainingPositions) == 0)
-        {
-            return null;
-        }
-        remainingTokenPos[tuple.Position.Index] = numTokenRemainingPos;
-        */
-
-
         var remainingPositions = assignment.Where(tuple => tuple.Token == null).ToList();
 
         var remainingTokenPos = new Dictionary<Color, int>();
@@ -321,10 +241,7 @@ public class Backtracking
                 var tokenRuleCard = csp.Single(s => s.Color.Equals(token.Color)).RuleCard;
                 var tokenRulesetType = tokenRuleCard.RulesetType;
                 var tokenReducdedPositionsByRule = reducedPoistionsByRules[tokenRulesetType];
-                var tokenPossiblePositions = assignment.Where(t => t.Token == null && tokenReducdedPositionsByRule.Contains(t.Position.Index)).ToList();
 
-                //if(!tokenRuleCard.Color.Equals(var.Color))
-                //{
                 var blockedPositions = GetBlockedPositions(tokenRulesetType, tuple.Position.Index);
                 var actualBlockedPositions = remainingPositions.Where(tup => blockedPositions.Contains(tup.Position.Index));
                 var numBlockedPositions = actualBlockedPositions.Count();
@@ -334,39 +251,9 @@ public class Backtracking
                     return null;
                 }
                 timesPositonBlocked[tuple.Position.Index] += numBlockedPositions;
-                /*}
-                else
-                {
-                    RemainingPositions[tokenRulesetType].TryGetValue(tuple.Position.Index, out var remainingTokenPositions);
-
-                    if(remainingTokenPositions == null)
-                    {
-                        remainingTokenPositions = remainingTokensPositions[token.Color];
-                    }
-
-                    var actualRemainingPositions = remainingPositions.Where(tup => remainingTokenPositions.Contains(tup.Position.Index));
-                    var numTokenRemainingPos = actualRemainingPositions.Count();
-                    //Invalid state
-                    if ((numTokenRemainingPos - numRemainingPositions) == 0)
-                    {
-                        return null;
-                    }
-                    remainingTokenPos[tuple.Position.Index] = numTokenRemainingPos;
-                }*/
-
-                /*if (tokenPossiblePositions.Contains(position))
-                {
-                    //current token could be placed on this position, too
-                    timesPositonBlocked[position.Position.Index]++;
-                }
-
-                if (!tokenRuleCard.Color.Equals(varRuleCard.Color))
-                {
-                    timesPositonBlocked[position.Position.Index] += GetAdditionalRedutionValue(tokenRuleCard, position.Position.Edge);
-                }*/
             }
 
-            Debug.Log(tuple.Position.Index + " :: " + timesPositonBlocked[tuple.Position.Index]);
+            //Debug.Log(tuple.Position.Index + " :: " + timesPositonBlocked[tuple.Position.Index]);
         }
 
         possiblePositionsTuples.Sort((x, y) => timesPositonBlocked[x.Position.Index] - timesPositonBlocked[y.Position.Index]);
@@ -384,49 +271,6 @@ public class Backtracking
         }
 
         return blockedPositions;
-    }
-
-
-    private static int GetAdditionalRedutionValue(RuleCard tokenRuleCard, Edge posEdge)
-    {
-        //ToDo
-        //Temp hack
-        var edges = addtionalReductionsNotTheColor[tokenRuleCard.RulesetType];
-
-        foreach (var edge in edges)
-        {
-            if (edge.Key == posEdge.EdgeID)
-            {
-                return edge.Value;
-            }
-            else if (edge.Key == Edge.enEdgeID.NONE)
-            {
-                return edge.Value;
-            }
-        }
-
-        return 0;
-    }
-
-    private static int GetRemainingPos(RuleCard tokenRuleCard, Edge posEdge)
-    {
-        //ToDo
-        //Temp hack
-        var edges = remainingPosIfTheColor[tokenRuleCard.RulesetType];
-
-        foreach (var edge in edges)
-        {
-            if (edge.Key == posEdge.EdgeID)
-            {
-                return edge.Value;
-            }
-            else if (edge.Key == Edge.enEdgeID.NONE)
-            {
-                return edge.Value;
-            }
-        }
-
-        return 0;
     }
 
     private static bool IsValueConsistentWithAssignmentGivenContraint(PositionTokenTuple tuple, List<PositionTokenTuple> assignment, List<Slot> csp, Slot slot)

@@ -169,30 +169,30 @@ public class Gameboard : MonoBehaviour
 
             HandleChainedRulesets(csp, ref ruleset);
 
-            Debug.Log(ruleset.RulesetType);
+            //Debug.Log(ruleset.RulesetType);
             var color = false;
             if (ruleset != null && !ruleset.Color.Equals(Color.NONE))
             {
                 color = true;
-                Debug.Log("COLOR");
+                //Debug.Log("COLOR");
                 rulesetTuple = assignment.FirstOrDefault(t => t.Token != null && t.Token.Color.Equals(ruleset.Color));
             }
 
-            Debug.Log(color && rulesetTuple == null);
+            //Debug.Log(color && rulesetTuple == null);
             //Debug.Log(rulesetTuple.Token.Color);
             result = ruleset != null &&
                          (ruleset.VerfiyRuleset(slotTuple, rulesetTuple) || color && rulesetTuple == null);
 
-            Debug.Log("Loop-result= " + result);
+            //Debug.Log("Loop-result= " + result);
 
            if(!result)
            {
-               Debug.Log("BoardState-result= " + result);
+               //Debug.Log("BoardState-result= " + result);
                return false;
            }
         }
 
-        Debug.Log("BoardState-result= " + result);
+        //Debug.Log("BoardState-result= " + result);
         return result;
     }
 }

@@ -213,6 +213,7 @@ public class Game : MonoBehaviour
             result.ForEach(
                 tuple => asdf += "Index: " + tuple.Position.Index + "::Token: " + tuple.Token.Color + "\n");
             Debug.Log(asdf);
+            Debug.Log("Loop: " + Backtracking.counter);
             Debug.Log("LoopCounter: " + Backtracking.loopCounter);
             player.Gameboard.PositionsTokens = result;
             player.Drawback -= player.Gameboard.VerifyBoardState(gameplanState).Count;
