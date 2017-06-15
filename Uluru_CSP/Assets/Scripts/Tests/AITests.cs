@@ -28,6 +28,8 @@ public class AITests : MonoBehaviour
     };
 
     private static bool TestsStarted = false;
+
+    private static Dictionary<String, Dictionary<String, List<int>>> ResultDict = new Dictionary<String, Dictionary<String, List<int>>>();
     #endregion
 
     #region Properties
@@ -71,6 +73,17 @@ public class AITests : MonoBehaviour
                             TestDecksLibrary.CreateTestNo_3
                         };
 
+        ResultDict = new Dictionary<String, Dictionary<String, List<int>>>();
+
+        /*foreach (var ba in BacktrackingAlgorithms)
+        {
+            var testCaseDict = new Dictionary<string, List<int>>();
+            TestCases.ForEach(tc => testCaseDict.Add());
+        }
+
+        BacktrackingAlgorithms.ForEach(ba => ResultDict.Add(ba.Version, 
+            new Dictionary<string, List<int>>));*/
+
         Instance.Game.IsInTestMode = true;
         Instance.Game.CreateTestDecks = true;
         Instance.Game.MaxRounds = TestCases.Count;
@@ -87,7 +100,7 @@ public class AITests : MonoBehaviour
         Debug.Log(csp);
         file.WriteLine(csp);
 
-        foreach (var algorithm in GetBacktrackingAlgorithms())
+        foreach (var algorithm in BacktrackingAlgorithms)
         {
             ExecuteSingeBacktrackingAlgorithm(file, player, gameplanState, algorithm);
         }
