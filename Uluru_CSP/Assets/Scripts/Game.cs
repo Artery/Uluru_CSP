@@ -25,6 +25,13 @@ public class Game : MonoBehaviour
 
     [SerializeField]
     private Scoreboard m_Scoreboard;
+
+    [SerializeField]
+    private bool m_AutoStartGame;
+
+    public bool m_GameFinished;
+    public bool CreateTestDecks = false;
+    public List<Func<DeckGenerator.enRuleCardColors, RuleCard>> TestCases = null;
     #endregion
 
     #region Getter/Setter/Properties
@@ -63,8 +70,11 @@ public class Game : MonoBehaviour
     #region MonoMethods
     void Start()
     {
-        InitializeGame();
-        StartGame();
+        if(m_AutoStartGame)
+        {
+            InitializeGame();
+            StartGame();
+        }
     }
 
     void Update()
@@ -76,6 +86,12 @@ public class Game : MonoBehaviour
     #endregion
 
     #region GameMethods
+
+    public void StartNewGame()
+    {
+        InitializeGame();
+        StartGame();
+    }
 
     //Game-Loop for an active Game
     public IEnumerator GameLoop()
@@ -114,6 +130,7 @@ public class Game : MonoBehaviour
     //Starts a Game by starting it's GameLoop
     protected void StartGame()
     {
+        m_GameFinished = false;
         StartCoroutine(GameLoop());
     }
 
@@ -121,6 +138,7 @@ public class Game : MonoBehaviour
     {
         ResetRoundState();
         DeclareWinner();
+        m_GameFinished = true;
     }
 
     protected void DeclareWinner()
@@ -212,7 +230,7 @@ public class Game : MonoBehaviour
 
             //Executes Tests for Backtracking
             AITests.ExecuteBacktrackingTests(player, Gameplan.Slots);
-
+            
             //ToDo visualize Round result for each player
             //Includes visualizing correct and wrong placed Tokens
             //and showing applied drawbacks of and for all players
@@ -224,7 +242,15 @@ public class Game : MonoBehaviour
     #region GameplanMethods
     protected void InitializeGameplan()
     {
-        Gameplan.Intialize(DeckGenerator.GenerateDeck(Difficulty));
+        if (CreateTestDecks)
+        {
+            Gameplan.Intialize(DeckGenerator.GenerateTestDecks(TestCases));
+        }
+        else
+        {
+            Gameplan.Intialize(DeckGenerator.GenerateDeck(Difficulty));
+        }
+        
     }
     #endregion
 }

@@ -48,6 +48,11 @@ public class Backtracking_v1 : IBacktrackingAlgorithm
 
     public List<PositionTokenTuple> ExecuteAlgorithm(List<PositionTokenTuple> assignment, List<Slot> csp, List<Token> tokens)
     {
+        counter = 0;
+        loopCounter = 0;
+        Loop = 0;
+        LoopCounter = 0;
+
         var result = BacktrackingSearch(assignment, csp, tokens);
         Loop = counter;
         LoopCounter = loopCounter;

@@ -8,41 +8,87 @@ using UnityEngine;
 /// <summary>
 /// Class summary goes here...
 /// </summary>
-public class AITests
+public class AITests : MonoBehaviour
 {
     #region Fields
     #region SerializedFields
+
+    [SerializeField]
+    private Game Game;
     #endregion
-    private static List<IBacktrackingAlgorithm> Algorithms = new List<IBacktrackingAlgorithm>
+
+    public static AITests Instance;
+
+    private static StreamWriter file = new System.IO.StreamWriter("Testlogs\\BacktrackingTests_" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".txt");
+
+    private static readonly List<IBacktrackingAlgorithm> BacktrackingAlgorithms = new List<IBacktrackingAlgorithm>
     {
         new Backtracking_v1(),
         new Backtracking()
     };
+
+    private static bool TestsStarted = false;
     #endregion
 
     #region Properties
     #endregion
 
     #region Methods
+
+    #region MonoMethods
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    void Start()
+    {
+        ExecuteTests();
+    }
+
+    void Update()
+    {
+        if(Instance.Game.m_GameFinished && TestsStarted == true)
+        {
+            file.Close();
+            TestsStarted = false;
+        }
+    }
+
+    #endregion
     #region StaticMethods
+    public static void ExecuteTests()
+    {
+        TestsStarted = true;
+        var TestCases = new List<Func<DeckGenerator.enRuleCardColors, RuleCard>>
+                        {
+                            TestDecksLibrary.CreateTestNo_1,
+                            TestDecksLibrary.CreateTestNo_2,
+                            TestDecksLibrary.CreateTestNo_3
+                        };
+
+        Instance.Game.CreateTestDecks = true;
+        Instance.Game.MaxRounds = TestCases.Count;
+        Instance.Game.TestCases = TestCases;
+        Instance.Game.StartNewGame();
+
+        file.WriteLine("Backtracking Test Squence - " + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss") + "\n\n");
+    }
 
     public static void ExecuteBacktrackingTests(Player player, List<Slot> gameplanState)
     {
-        System.IO.StreamWriter file = new System.IO.StreamWriter("Testlogs\\BacktrackingTests_" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".txt");
-
-        file.WriteLine("Backtracking Test Squence - " + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss") + "\n\n");
+        
 
         var csp = "Gameplanstate:\n";
         gameplanState.ForEach(slot => csp += slot.Color + " \t" + slot.RuleCard.RulesetType.ToString() + "\n");
         Debug.Log(csp);
         file.WriteLine(csp);
 
-        foreach (var algorithm in Algorithms)
+        foreach (var algorithm in BacktrackingAlgorithms)
         {
             ExecuteSingeBacktrackingAlgorithm(file, player, gameplanState, algorithm);
         }
-
-        file.Close();
     }
 
     private static void ExecuteSingeBacktrackingAlgorithm(StreamWriter file, Player player, List<Slot> gameplanState, IBacktrackingAlgorithm algorithm)
