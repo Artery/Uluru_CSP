@@ -13,7 +13,7 @@ public class Backtracking_v1 : IBacktrackingAlgorithm
     private static int counter = 0;
     private static int loopCounter = 0;
 
-    private static Dictionary<enRulesetType, List<int>> reducedPoistionsByRule = new Dictionary<enRulesetType, List<int>>
+    private static readonly Dictionary<enRulesetType, List<int>> reducedPoistionsByRule = new Dictionary<enRulesetType, List<int>>
     {
         {enRulesetType.NO_PREFERENCE, new List<int> {0,1,2,3,4,5,6,7}},
         {enRulesetType.BUMERANG_GROUP, new List<int> {3,4,5,6,7}},
@@ -27,7 +27,7 @@ public class Backtracking_v1 : IBacktrackingAlgorithm
         {enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE, new List<int> {0,1,2,3,4,5,6,7}}
     };
 
-    private static List<enRulesetType> mrv = new List<enRulesetType>
+    private static readonly List<enRulesetType> mrv = new List<enRulesetType>
     {
         enRulesetType.ADJACENT, enRulesetType.AROUND_THE_CORNER, enRulesetType.OPPOSITE_SIDE, enRulesetType.MINIMUM_DISTANCE_2, enRulesetType.SHORT_SIDE,
         enRulesetType.LONLEY_GROUP, enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE, enRulesetType.BUMERANG_GROUP, enRulesetType.LONG_SIDE, enRulesetType.NO_PREFERENCE
@@ -48,6 +48,19 @@ public class Backtracking_v1 : IBacktrackingAlgorithm
 
     public List<PositionTokenTuple> ExecuteAlgorithm(List<PositionTokenTuple> assignment, List<Slot> csp, List<Token> tokens)
     {
+        degree = new Dictionary<Color, int>
+                 {
+                     {Color.WHITE, 0},
+                     {Color.PINK, 0},
+                     {Color.YELLOW, 0},
+                     {Color.ORANGE, 0},
+                     {Color.RED, 0},
+                     {Color.GREEN, 0},
+                     {Color.BLUE, 0},
+                     {Color.BLACK, 0},
+                     {Color.NONE, 0}
+                 };
+
         counter = 0;
         loopCounter = 0;
         Loop = 0;
@@ -91,7 +104,7 @@ public class Backtracking_v1 : IBacktrackingAlgorithm
 
     private static List<PositionTokenTuple> RecursiveBacktracking(List<PositionTokenTuple> assignment, List<Slot> csp, List<Token> tokens)
     {
-        if (counter >= 10000)
+        if (counter >= 3000)
         {
             Debug.Log("INFINITE LOOP");
             //solution

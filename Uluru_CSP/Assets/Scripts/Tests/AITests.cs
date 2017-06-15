@@ -58,6 +58,9 @@ public class AITests : MonoBehaviour
 
     #endregion
     #region StaticMethods
+
+    private static List<IBacktrackingAlgorithm> GetBacktrackingAlgorithms() => new List<IBacktrackingAlgorithm> {new Backtracking_v1(), new Backtracking()};
+
     public static void ExecuteTests()
     {
         TestsStarted = true;
@@ -68,6 +71,7 @@ public class AITests : MonoBehaviour
                             TestDecksLibrary.CreateTestNo_3
                         };
 
+        Instance.Game.IsInTestMode = true;
         Instance.Game.CreateTestDecks = true;
         Instance.Game.MaxRounds = TestCases.Count;
         Instance.Game.TestCases = TestCases;
@@ -78,22 +82,24 @@ public class AITests : MonoBehaviour
 
     public static void ExecuteBacktrackingTests(Player player, List<Slot> gameplanState)
     {
-        
-
         var csp = "Gameplanstate:\n";
-        gameplanState.ForEach(slot => csp += slot.Color + " \t" + slot.RuleCard.RulesetType.ToString() + "\n");
+        gameplanState.ForEach(slot => csp += slot.Color + ":\t" + slot.RuleCard.Color + " \t" + slot.RuleCard.RulesetType.ToString() + "\n" );
         Debug.Log(csp);
         file.WriteLine(csp);
 
-        foreach (var algorithm in BacktrackingAlgorithms)
+        foreach (var algorithm in GetBacktrackingAlgorithms())
         {
             ExecuteSingeBacktrackingAlgorithm(file, player, gameplanState, algorithm);
         }
+
+        var delimiter = "------------------------------------------------------------------------------------------------------\n";
+        Debug.Log(delimiter);
+        file.WriteLine(delimiter);
     }
 
     private static void ExecuteSingeBacktrackingAlgorithm(StreamWriter file, Player player, List<Slot> gameplanState, IBacktrackingAlgorithm algorithm)
     {
-        var header = "------------------------------------------------------------------------------------------------------\n" + algorithm.Version;
+        var header = algorithm.Version;
         Debug.Log(header);
         file.WriteLine(header);
 
@@ -119,8 +125,6 @@ public class AITests : MonoBehaviour
         Debug.Log(tail);
         file.WriteLine(tail);
     }
-
-
     #endregion
     #endregion
 }

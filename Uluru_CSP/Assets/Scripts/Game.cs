@@ -32,6 +32,7 @@ public class Game : MonoBehaviour
     public bool m_GameFinished;
     public bool CreateTestDecks = false;
     public List<Func<DeckGenerator.enRuleCardColors, RuleCard>> TestCases = null;
+    public bool IsInTestMode = false;
     #endregion
 
     #region Getter/Setter/Properties
@@ -229,7 +230,14 @@ public class Game : MonoBehaviour
             //temp hack
 
             //Executes Tests for Backtracking
-            AITests.ExecuteBacktrackingTests(player, Gameplan.Slots);
+            if(IsInTestMode)
+            {
+                AITests.ExecuteBacktrackingTests(player, Gameplan.Slots);
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
             
             //ToDo visualize Round result for each player
             //Includes visualizing correct and wrong placed Tokens
