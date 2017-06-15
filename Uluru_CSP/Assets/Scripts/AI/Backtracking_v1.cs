@@ -9,6 +9,7 @@ public class Backtracking_v1 : IBacktrackingAlgorithm
 
     public int Loop { get; set; } = 0;
     public int LoopCounter { get; set; } = 0;
+    public double ExecutionTime { get; set; }
 
     private static int counter = 0;
     private static int loopCounter = 0;
@@ -65,10 +66,16 @@ public class Backtracking_v1 : IBacktrackingAlgorithm
         loopCounter = 0;
         Loop = 0;
         LoopCounter = 0;
+        ExecutionTime = 0.0;
 
+        var watch = System.Diagnostics.Stopwatch.StartNew();
         var result = BacktrackingSearch(assignment, csp, tokens);
+        watch.Stop();
+        ExecutionTime = watch.ElapsedMilliseconds;
+
         Loop = counter;
         LoopCounter = loopCounter;
+
         return result;
     }
 

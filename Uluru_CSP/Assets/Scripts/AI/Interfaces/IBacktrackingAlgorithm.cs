@@ -17,6 +17,7 @@ public interface IBacktrackingAlgorithm
     string Version { get; set; }
     int Loop { get; set; }
     int LoopCounter { get; set; }
+    double ExecutionTime { get; set; }
 
     #endregion
 

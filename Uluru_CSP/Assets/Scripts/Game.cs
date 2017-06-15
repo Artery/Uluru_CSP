@@ -31,7 +31,7 @@ public class Game : MonoBehaviour
 
     public bool m_GameFinished;
     public bool CreateTestDecks = false;
-    public List<Func<DeckGenerator.enRuleCardColors, RuleCard>> TestCases = null;
+    public Dictionary<string, Func<DeckGenerator.enRuleCardColors, RuleCard>> TestCases = null;
     public bool IsInTestMode = false;
     #endregion
 
@@ -232,7 +232,17 @@ public class Game : MonoBehaviour
             //Executes Tests for Backtracking
             if(IsInTestMode)
             {
-                AITests.ExecuteBacktrackingTests(player, Gameplan.Slots);
+                var testName = "";
+                int i = 1;
+                foreach (var testCase in TestCases)
+                {
+                    if (i++ == CurrentRound)
+                    {
+                        testName = testCase.Key;
+                        break;
+                    }
+                }
+                AITests.ExecuteBacktrackingTests(player, Gameplan.Slots, testName);
             }
             else
             {
@@ -252,7 +262,7 @@ public class Game : MonoBehaviour
     {
         if (CreateTestDecks)
         {
-            Gameplan.Intialize(DeckGenerator.GenerateTestDecks(TestCases));
+            Gameplan.Intialize(DeckGenerator.GenerateTestDecks(TestCases.Values.ToList()));
         }
         else
         {

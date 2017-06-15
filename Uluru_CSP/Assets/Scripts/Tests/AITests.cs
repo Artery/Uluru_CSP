@@ -19,7 +19,7 @@ public class AITests : MonoBehaviour
 
     public static AITests Instance;
 
-    private static StreamWriter file = new System.IO.StreamWriter("Testlogs\\BacktrackingTests_" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".txt");
+    private static StreamWriter file;// = new System.IO.StreamWriter("Testlogs\\BacktrackingTests_" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".txt");
 
     private static readonly List<IBacktrackingAlgorithm> BacktrackingAlgorithms = new List<IBacktrackingAlgorithm>
     {
@@ -29,7 +29,7 @@ public class AITests : MonoBehaviour
 
     private static bool TestsStarted = false;
 
-    private static Dictionary<String, Dictionary<String, List<int>>> ResultDict = new Dictionary<String, Dictionary<String, List<int>>>();
+    private static Dictionary<string, Dictionary<string, AlgorithmResult>> ResultDict;
     #endregion
 
     #region Properties
@@ -42,6 +42,8 @@ public class AITests : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Directory.CreateDirectory("Testlogs");
+        file = new System.IO.StreamWriter("Testlogs\\BacktrackingTests_" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".txt");
     }
 
     void Start()
@@ -58,6 +60,15 @@ public class AITests : MonoBehaviour
         }
     }
 
+    public class AlgorithmResult
+    {
+        public string TestName { get; set; }
+        public string Version { get; set; }
+        public int Loop { get; set; }
+        public int LoopCounter { get; set; }
+        public double ExecutionTime { get; set; }
+    }
+
     #endregion
     #region StaticMethods
 
@@ -66,23 +77,22 @@ public class AITests : MonoBehaviour
     public static void ExecuteTests()
     {
         TestsStarted = true;
-        var TestCases = new List<Func<DeckGenerator.enRuleCardColors, RuleCard>>
+        var TestCases = new Dictionary<string, Func<DeckGenerator.enRuleCardColors, RuleCard>>
                         {
-                            TestDecksLibrary.CreateTestNo_1,
-                            TestDecksLibrary.CreateTestNo_2,
-                            TestDecksLibrary.CreateTestNo_3
+                            { "FirstTestMethod", TestDecksLibrary.CreateTestNo_1},
+                            { "SecondTestMethod", TestDecksLibrary.CreateTestNo_2},
+                            { "ThirdTestMethod", TestDecksLibrary.CreateTestNo_3}
                         };
 
-        ResultDict = new Dictionary<String, Dictionary<String, List<int>>>();
+        ResultDict = new Dictionary<string, Dictionary<string, AlgorithmResult>>();
 
-        /*foreach (var ba in BacktrackingAlgorithms)
+        foreach (var ba in BacktrackingAlgorithms)
         {
-            var testCaseDict = new Dictionary<string, List<int>>();
-            TestCases.ForEach(tc => testCaseDict.Add());
+            ResultDict.Add(ba.Version, 
+                TestCases.ToDictionary(
+                    testCase => testCase.Key, 
+                    testCase => new AlgorithmResult { TestName = testCase.Key, Version = ba.Version }));
         }
-
-        BacktrackingAlgorithms.ForEach(ba => ResultDict.Add(ba.Version, 
-            new Dictionary<string, List<int>>));*/
 
         Instance.Game.IsInTestMode = true;
         Instance.Game.CreateTestDecks = true;
@@ -93,7 +103,7 @@ public class AITests : MonoBehaviour
         file.WriteLine("Backtracking Test Squence - " + DateTime.Now.ToString("dd.MM.yyyy HH.mm.ss") + "\n\n");
     }
 
-    public static void ExecuteBacktrackingTests(Player player, List<Slot> gameplanState)
+    public static void ExecuteBacktrackingTests(Player player, List<Slot> gameplanState, string testName)
     {
         var csp = "Gameplanstate:\n";
         gameplanState.ForEach(slot => csp += slot.Color + ":\t" + slot.RuleCard.Color + " \t" + slot.RuleCard.RulesetType.ToString() + "\n" );
@@ -102,7 +112,7 @@ public class AITests : MonoBehaviour
 
         foreach (var algorithm in BacktrackingAlgorithms)
         {
-            ExecuteSingeBacktrackingAlgorithm(file, player, gameplanState, algorithm);
+            ExecuteSingeBacktrackingAlgorithm(file, player, gameplanState, algorithm, testName);
         }
 
         var delimiter = "------------------------------------------------------------------------------------------------------\n";
@@ -110,7 +120,7 @@ public class AITests : MonoBehaviour
         file.WriteLine(delimiter);
     }
 
-    private static void ExecuteSingeBacktrackingAlgorithm(StreamWriter file, Player player, List<Slot> gameplanState, IBacktrackingAlgorithm algorithm)
+    private static void ExecuteSingeBacktrackingAlgorithm(StreamWriter file, Player player, List<Slot> gameplanState, IBacktrackingAlgorithm algorithm, string testName)
     {
         var header = algorithm.Version;
         Debug.Log(header);
@@ -130,6 +140,13 @@ public class AITests : MonoBehaviour
         var loopOutput = "Loop: " + algorithm.Loop + "\nLoopCounter: " + algorithm.LoopCounter;
         Debug.Log(loopOutput);
         file.WriteLine(loopOutput);
+        var executionTimeOutput = "ExecutionTime: " + algorithm.ExecutionTime;
+        Debug.Log(executionTimeOutput);
+        file.WriteLine(executionTimeOutput);
+
+        ResultDict[algorithm.Version][testName].Loop = algorithm.Loop;
+        ResultDict[algorithm.Version][testName].LoopCounter = algorithm.LoopCounter;
+        ResultDict[algorithm.Version][testName].ExecutionTime = algorithm.ExecutionTime;
 
         player.Gameboard.PositionsTokens = result;
         var valResult = player.Gameboard.VerifyBoardState(gameplanState).Count;
