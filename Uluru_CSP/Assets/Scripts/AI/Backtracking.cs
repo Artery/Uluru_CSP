@@ -5,6 +5,8 @@ using System.Linq;
 
 public class Backtracking
 {
+    public static readonly string Version = "Version 2 - MRV+Degree & (LCV)BlockedPositions+SimpleInference";
+
     public static int counter = 0;
     public static int loopCounter = 0;
 

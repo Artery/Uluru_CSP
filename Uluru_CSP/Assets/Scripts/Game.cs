@@ -152,15 +152,15 @@ public class Game : MonoBehaviour
         EvaluatePlayersScore();
         //ToDo Timer which waits here, 
         //so the visual feedback has time to be applied
-        ResetPlayerGameboards();
+        //ResetPlayerGameboards();
         UpdatePlayersScoreboard();
     }
 
     protected void ResetRoundState()
     {
         Hourglass.Reset(false);
-        Gameplan.Reset();
-        ResetPlayerGameboards();
+        //Gameplan.Reset();
+        //ResetPlayerGameboards();
     }
     #endregion
 
@@ -208,15 +208,54 @@ public class Game : MonoBehaviour
         {
             //ToDo
             //temp hack
-            var result = Backtracking.BacktrackingSearch(player.Gameboard.PositionsTokens, gameplanState, player.Tokens);
-            var asdf = "";
+
+            //Old V1
+            Debug.Log("------------------------------------------------------------------------------------------------------\n"
+                      + Backtracking_v1.Version);
+            //Debug.Log(Backtracking.Version);
+
+            var tokens = new List<Token>();
+            tokens.AddRange(player.Tokens);
+            player.Gameboard.Reset();
+
+            var result = Backtracking_v1.BacktrackingSearch(player.Gameboard.PositionsTokens, gameplanState, tokens);
+            var resultOutput = "";
+
             result.ForEach(
-                tuple => asdf += "Index: " + tuple.Position.Index + "::Token: " + tuple.Token.Color + "\n");
-            Debug.Log(asdf);
-            Debug.Log("Loop: " + Backtracking.counter);
-            Debug.Log("LoopCounter: " + Backtracking.loopCounter);
+                tuple => resultOutput += "Index: " + tuple.Position.Index + "::Token: " + tuple.Token.Color + "\n");
+            Debug.Log(resultOutput);
+            Debug.Log("Loop: " + Backtracking_v1.counter + "\nLoopCounter: " + Backtracking_v1.loopCounter);
+            //Debug.Log("LoopCounter: " + Backtracking.loopCounter);
+
             player.Gameboard.PositionsTokens = result;
             player.Drawback -= player.Gameboard.VerifyBoardState(gameplanState).Count;
+            Debug.Log("Wrong Tokens: " + player.Drawback * -1
+                      + "\n------------------------------------------------------------------------------------------------------");
+
+
+            //Current Version V2
+            Debug.Log("------------------------------------------------------------------------------------------------------\n" 
+                + Backtracking.Version);
+            //Debug.Log(Backtracking.Version);
+
+            tokens = new List<Token>();
+            tokens.AddRange(player.Tokens);
+            player.Gameboard.Reset();
+
+            result = Backtracking.BacktrackingSearch(player.Gameboard.PositionsTokens, gameplanState, tokens);
+            resultOutput = "";
+
+            result.ForEach(
+                tuple => resultOutput += "Index: " + tuple.Position.Index + "::Token: " + tuple.Token.Color + "\n");
+            Debug.Log(resultOutput);
+            Debug.Log("Loop: " + Backtracking.counter + "\nLoopCounter: " + Backtracking.loopCounter);
+            //Debug.Log("LoopCounter: " + Backtracking.loopCounter);
+
+            player.Gameboard.PositionsTokens = result;
+            player.Drawback -= player.Gameboard.VerifyBoardState(gameplanState).Count;
+            Debug.Log("Wrong Tokens: " + player.Drawback*-1 
+                + "\n------------------------------------------------------------------------------------------------------");
+
             //ToDo visualize Round result for each player
             //Includes visualizing correct and wrong placed Tokens
             //and showing applied drawbacks of and for all players

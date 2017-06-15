@@ -81,7 +81,7 @@ public class Gameboard : MonoBehaviour
             }
         }
 
-        Debug.Log(wrongTokens.Count);
+        //Debug.Log("Wrong Tokens: " + wrongTokens.Count);
 
         return wrongTokens;
     }
