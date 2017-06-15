@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Backtracking
+public class Backtracking : IBacktrackingAlgorithm
 {
-    public static readonly string Version = "Version 2 - MRV+Degree & (LCV)BlockedPositions+SimpleInference";
+    public string Version { get; set; } = "Version 2 - MRV+Degree & (LCV)BlockedPositions+SimpleInference";
 
-    public static int counter = 0;
-    public static int loopCounter = 0;
+    public int Loop { get; set; } = 0;
+    public int LoopCounter { get; set; } = 0;
+
+    private static int counter = 0;
+    private static int loopCounter = 0;
 
     private static Dictionary<Color, List<int>> remainingTokensPositions = new Dictionary<Color, List<int>>();
 
@@ -66,6 +69,14 @@ public class Backtracking
         {Color.BLACK, 0},
         {Color.NONE, 0}
     };
+
+    public List<PositionTokenTuple> ExecuteAlgorithm(List<PositionTokenTuple> assignment, List<Slot> csp, List<Token> tokens)
+    {
+        var result = BacktrackingSearch(assignment, csp, tokens);
+        Loop = counter;
+        LoopCounter = loopCounter;
+        return result;
+    }
 
     public static List<PositionTokenTuple> BacktrackingSearch(List<PositionTokenTuple> assignment, List<Slot> csp, List<Token> tokens)
     {
