@@ -1,0 +1,40 @@
+Gameplanstate:
+WHITE 	NOT_ADJACENT_NOT_OPPOSITE_SIDE
+PINK 	MINIMUM_DISTANCE_2
+YELLOW 	ADJACENT
+ORANGE 	OPPOSITE_SIDE
+RED 	OPPOSITE_SIDE
+GREEN 	AROUND_THE_CORNER
+BLUE 	AROUND_THE_CORNER
+BLACK 	NOT_ADJACENT_NOT_OPPOSITE_SIDE
+
+------------------------------------------------------------------------------------------------------
+Version 1 - MRV+Degree & SimpleLCV
+Index: 0::Token: GREEN
+Index: 1::Token: ORANGE
+Index: 2::Token: RED
+Index: 3::Token: PINK
+Index: 4::Token: BLACK
+Index: 5::Token: BLUE
+Index: 6::Token: YELLOW
+Index: 7::Token: WHITE
+
+Loop: 24
+LoopCounter: 85
+Wrong Tokens: 0
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+Version 1 - MRV+Degree & SimpleLCV
+Index: 0::Token: GREEN
+Index: 1::Token: RED
+Index: 2::Token: ORANGE
+Index: 3::Token: PINK
+Index: 4::Token: BLACK
+Index: 5::Token: BLUE
+Index: 6::Token: YELLOW
+Index: 7::Token: WHITE
+
+Loop: 44
+LoopCounter: 160
+Wrong Tokens: 0
+------------------------------------------------------------------------------------------------------

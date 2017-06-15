@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -208,10 +209,17 @@ public class Game : MonoBehaviour
         {
             //ToDo
             //temp hack
+            System.IO.StreamWriter file = new System.IO.StreamWriter("Testlogs\\BacktrackingTests_" + DateTime.Now.ToString("ddMMyyyy_HHmmss") + ".txt");
+
+            var csp = "Gameplanstate:\n";
+            gameplanState.ForEach(slot => csp += slot.Color + " \t" + slot.RuleCard.RulesetType.ToString() + "\n");
+            Debug.Log(csp);
+            file.WriteLine(csp);
 
             //Old V1
-            Debug.Log("------------------------------------------------------------------------------------------------------\n"
-                      + Backtracking_v1.Version);
+            var header = "------------------------------------------------------------------------------------------------------\n" + Backtracking_v1.Version;
+            Debug.Log(header);
+            file.WriteLine(header);
             //Debug.Log(Backtracking.Version);
 
             var tokens = new List<Token>();
@@ -224,18 +232,24 @@ public class Game : MonoBehaviour
             result.ForEach(
                 tuple => resultOutput += "Index: " + tuple.Position.Index + "::Token: " + tuple.Token.Color + "\n");
             Debug.Log(resultOutput);
-            Debug.Log("Loop: " + Backtracking_v1.counter + "\nLoopCounter: " + Backtracking_v1.loopCounter);
+            file.WriteLine(resultOutput);
+            var loopOutput = "Loop: " + Backtracking_v1.counter + "\nLoopCounter: " + Backtracking_v1.loopCounter;
+            Debug.Log(loopOutput);
+            file.WriteLine(loopOutput);
             //Debug.Log("LoopCounter: " + Backtracking.loopCounter);
 
             player.Gameboard.PositionsTokens = result;
+            var valResult = player.Gameboard.VerifyBoardState(gameplanState).Count;
             player.Drawback -= player.Gameboard.VerifyBoardState(gameplanState).Count;
-            Debug.Log("Wrong Tokens: " + player.Drawback * -1
-                      + "\n------------------------------------------------------------------------------------------------------");
+            var tail = "Wrong Tokens: " + valResult + "\n------------------------------------------------------------------------------------------------------";
+            Debug.Log(tail);
+            file.WriteLine(tail);
 
 
             //Current Version V2
-            Debug.Log("------------------------------------------------------------------------------------------------------\n" 
-                + Backtracking.Version);
+            header = "------------------------------------------------------------------------------------------------------\n" + Backtracking_v1.Version;
+            Debug.Log(header);
+            file.WriteLine(header);
             //Debug.Log(Backtracking.Version);
 
             tokens = new List<Token>();
@@ -248,13 +262,21 @@ public class Game : MonoBehaviour
             result.ForEach(
                 tuple => resultOutput += "Index: " + tuple.Position.Index + "::Token: " + tuple.Token.Color + "\n");
             Debug.Log(resultOutput);
-            Debug.Log("Loop: " + Backtracking.counter + "\nLoopCounter: " + Backtracking.loopCounter);
+            file.WriteLine(resultOutput);
+            loopOutput = "Loop: " + Backtracking.counter + "\nLoopCounter: " + Backtracking.loopCounter;
+            Debug.Log(loopOutput);
+            file.WriteLine(loopOutput);
             //Debug.Log("LoopCounter: " + Backtracking.loopCounter);
 
             player.Gameboard.PositionsTokens = result;
+            valResult = player.Gameboard.VerifyBoardState(gameplanState).Count;
             player.Drawback -= player.Gameboard.VerifyBoardState(gameplanState).Count;
-            Debug.Log("Wrong Tokens: " + player.Drawback*-1 
-                + "\n------------------------------------------------------------------------------------------------------");
+            tail = "Wrong Tokens: " + valResult + "\n------------------------------------------------------------------------------------------------------";
+            Debug.Log(tail);
+            file.WriteLine(tail);
+
+
+            file.Close();
 
             //ToDo visualize Round result for each player
             //Includes visualizing correct and wrong placed Tokens
