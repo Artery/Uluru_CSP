@@ -24,6 +24,7 @@ public class AITests : MonoBehaviour
     private static readonly List<IBacktrackingAlgorithm> BacktrackingAlgorithms = new List<IBacktrackingAlgorithm>
     {
         new Backtracking_v1(),
+        new Backtracking_v2(),
         new Backtracking()
     };
 

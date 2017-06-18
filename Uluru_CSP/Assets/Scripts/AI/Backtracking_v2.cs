@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Backtracking : IBacktrackingAlgorithm
+public class Backtracking_v2 : IBacktrackingAlgorithm
 {
     public string Version { get; set; } = "Version 2 - MRV+Degree & (LCV)BlockedPositions+SimpleInference";
 
@@ -37,7 +37,7 @@ public class Backtracking : IBacktrackingAlgorithm
         { enRulesetType.MINIMUM_DISTANCE_2, new Dictionary<int, List<int>> {{-1, null}}},
         { enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE, new Dictionary<int, List<int>> {{-1, null}}}
     };
-
+    
     private static readonly Dictionary<enRulesetType, List<int>> reducedPoistionsByRules = new Dictionary<enRulesetType, List<int>>
     {
         {enRulesetType.NO_PREFERENCE, new List<int> {0,1,2,3,4,5,6,7}},
@@ -70,59 +70,6 @@ public class Backtracking : IBacktrackingAlgorithm
         {Color.BLACK, 0},
         {Color.NONE, 0}
     };
-
-    private static int CheckForUnstatisfiableConstraints(List<Slot> csp)
-    {
-        var numUnsatisfiableConstraints = 0;
-
-        var ungroupedRuleCards = csp.Select(slot => slot.RuleCard);
-        var groupedRuleCards = ungroupedRuleCards.ToLookup(ruleCard => ruleCard.RulesetType);
-
-        foreach (var ruleCardGroup in groupedRuleCards)
-        {
-            var ruleCards = ruleCardGroup.ToList();
-
-            if (ruleCardGroup.Key == enRulesetType.BUMERANG_GROUP)
-            {
-                numUnsatisfiableConstraints += Mathf.Max(0, ruleCards.Count - 5);
-            }
-            else if (ruleCardGroup.Key == enRulesetType.LONLEY_GROUP)
-            {
-                numUnsatisfiableConstraints += Mathf.Max(0, ruleCards.Count - 3);
-            }
-            else if (ruleCardGroup.Key == enRulesetType.SHORT_SIDE)
-            {
-                numUnsatisfiableConstraints += Mathf.Max(0, ruleCards.Count - 3);
-            }
-            else if (ruleCardGroup.Key == enRulesetType.LONG_SIDE)
-            {
-                numUnsatisfiableConstraints += Mathf.Max(0, ruleCards.Count - 5);
-            }
-            else if (ruleCardGroup.Key == enRulesetType.ADJACENT)
-            {
-
-            }
-            else if (ruleCardGroup.Key == enRulesetType.AROUND_THE_CORNER)
-            {
-
-            }
-            else if (ruleCardGroup.Key == enRulesetType.OPPOSITE_SIDE)
-            {
-
-            }
-            else if (ruleCardGroup.Key == enRulesetType.NOT_ADJACENT_NOT_OPPOSITE_SIDE)
-            {
-
-            }
-            else if (ruleCardGroup.Key == enRulesetType.MINIMUM_DISTANCE_2)
-            {
-
-            }
-        }
-
-
-        return numUnsatisfiableConstraints;
-    }
 
     public List<PositionTokenTuple> ExecuteAlgorithm(List<PositionTokenTuple> assignment, List<Slot> csp, List<Token> tokens)
     {
